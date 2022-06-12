@@ -1,0 +1,2443 @@
++ git log -3
+commit 0c47b221b750550e4a95f529bba3d75a205557ea
+Author: Your Name <you@example.com>
+Date:   Sun Mar 27 08:46:05 2022 +1300
+
+    adjust Taewa lite and add Tewa extra tests
+
+commit 865b4d5a55b8bf5cca7934deda9a241b9cbff638
+Author: Your Name <you@example.com>
+Date:   Sat Mar 26 21:35:59 2022 +1300
+
+    reduce apache2 deployment requests
+
+commit 9d2d6796519436ddf8fca4075b65cd90f839618c
+Author: Your Name <you@example.com>
+Date:   Sat Mar 26 17:51:45 2022 +1300
+
+    apache 2core test
+++ cut -d _ -f 2
++ app=apache
++ export AWS_DEFAULT_REGION=us-east-1
++ AWS_DEFAULT_REGION=us-east-1
++ line===============================
+++ date +%FT%T
++ echo '[2022-03-27T07:06:45]==============================[starting' in '/tmp/k8s-vs-ASG/data/cli]=============================='
+[2022-03-27T07:06:45]==============================[starting in /tmp/k8s-vs-ASG/data/cli]==============================
++ source 0.setup.sh
+++ set -x
+++ '[' asg_apache_3 == k8s_apache_3 ']'
+++ '[' asg_apache_3 == asg_apache_3 ']'
+++ warmup_url=80/test.html
+++ testing_url=80/test.html
+++ cpu_perc=70
+++ warmup_min_threads=60
+++ warmup_max_threads=70
+++ warmup_cycle_sec=130
+++ scaling_minutes=14
+++ performance_sec=300
+++ max_capacity=3
+++ fortio_options='-a -qps -1 -r 0.01 -loglevel Error -allow-initial-errors'
+++ '[' asg_apache_3 == k8s_apache2_3 ']'
+++ '[' asg_apache_3 == k8s_taewa_3 ']'
+++ '[' asg_apache_3 == asg_taewa_3 ']'
+++ '[' asg_apache_3 == k8s_taewa_3lite ']'
+++ '[' asg_apache_3 == asg_taewa_3lite ']'
+++ '[' asg_apache_3 == k8s_taewa_3extra ']'
+++ '[' asg_apache_3 == asg_taewa_3extra ']'
+++ '[' asg_apache_3 == k8s_taewa_6 ']'
+++ '[' asg_apache_3 == asg_taewa_6 ']'
+++ '[' asg_apache_3 == k8s_riwai_3 ']'
+++ '[' asg_apache_3 == asg_riwai_3 ']'
+++ '[' asg_apache_3 == asg_raupi_3 ']'
+++ '[' asg_apache_3 == k8s_raupi_3 ']'
+++ set +x
+{
+    "Account": "891827943132", 
+    "UserId": "AIDA47JIWO3OHUSQQABYT", 
+    "Arn": "arn:aws:iam::891827943132:user/ad"
+}
+[2022-03-27T07:06:50] waiting for instances ...
+scaling to 3
+{
+    "HealthCheck": {
+        "HealthyThreshold": 2, 
+        "Interval": 10, 
+        "Target": "HTTP:80/test.html", 
+        "Timeout": 5, 
+        "UnhealthyThreshold": 6
+    }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    45  100    45    0     0   9422      0 --:--:-- --:--:-- --:--:-- 11250
+<html><body><h1>ASGworks1</h1></body></html>
+
+[2022-03-27T07:11:54]==============================[STATS]
+jh CPU load avg:
+0.06 0.20 0.14 1/158 2875
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:11:55]==============================[WARMUP RUN c60]==============================
+07:11:55 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6215297 avg 0.0012546703 +/- 0.0009617 min 0.000445724 max 1.005308553 sum 7798.14829
+# target 50% 0.00522421
+# target 75% 0.00761345
+# target 90% 0.009047
+# target 99% 0.00990712
+# target 99.9% 0.00999314
+Sockets used: 61579 (for perfect keepalive, would be 60)
+Jitter: false
+Code 200 : 6215297 (100.0 %)
+All done 6215297 calls (plus 60 warmup) 1.255 ms avg, 47809.5 qps
+Successfully wrote 3077 bytes of Json data to 2022-03-27-071201_asg_apache_3_warmup_60.json
+fortio exit code: 0
+[2022-03-27T07:14:11]==============================[STATS]
+jh CPU load avg:
+0.99 0.53 0.27 1/158 2896
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:15:11]==============================[STATS]
+jh CPU load avg:
+0.36 0.43 0.25 1/157 2905
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:15:12]==============================[WARMUP RUN c61]==============================
+07:15:12 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6833831 avg 0.0011601083 +/- 0.01314 min 0.000449419 max 11.382527705 sum 7927.98397
+# target 50% 0.00522528
+# target 75% 0.00761321
+# target 90% 0.00904597
+# target 99% 0.00990563
+# target 99.9% 0.00999159
+Sockets used: 67710 (for perfect keepalive, would be 61)
+Jitter: false
+Code 200 : 6833831 (100.0 %)
+All done 6833831 calls (plus 61 warmup) 1.160 ms avg, 52567.3 qps
+Successfully wrote 3521 bytes of Json data to 2022-03-27-071518_asg_apache_3_warmup_61.json
+fortio exit code: 0
+[2022-03-27T07:17:28]==============================[STATS]
+jh CPU load avg:
+1.15 0.70 0.38 1/156 2925
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:18:28]==============================[STATS]
+jh CPU load avg:
+0.42 0.57 0.35 1/160 2938
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:18:29]==============================[WARMUP RUN c62]==============================
+07:18:29 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6908203 avg 0.0011664322 +/- 0.001096 min 0.000456557 max 1.006017798 sum 8057.95011
+# target 50% 0.00522925
+# target 75% 0.0076156
+# target 90% 0.00904741
+# target 99% 0.00990649
+# target 99.9% 0.0099924
+Sockets used: 68443 (for perfect keepalive, would be 62)
+Jitter: false
+Code 200 : 6908203 (100.0 %)
+All done 6908203 calls (plus 62 warmup) 1.166 ms avg, 53139.5 qps
+Successfully wrote 2603 bytes of Json data to 2022-03-27-071834_asg_apache_3_warmup_62.json
+fortio exit code: 0
+[2022-03-27T07:20:44]==============================[STATS]
+jh CPU load avg:
+1.40 0.84 0.48 1/158 2970
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:21:44]==============================[STATS]
+jh CPU load avg:
+0.51 0.68 0.44 1/158 2980
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:21:45]==============================[WARMUP RUN c63]==============================
+07:21:45 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6984865 avg 0.0011722409 +/- 0.0007059 min 0.000448575 max 0.213001001 sum 8187.94438
+# target 50% 0.00522518
+# target 75% 0.00761349
+# target 90% 0.00904647
+# target 99% 0.00990626
+# target 99.9% 0.00999224
+Sockets used: 69187 (for perfect keepalive, would be 63)
+Jitter: false
+Code 200 : 6984865 (100.0 %)
+All done 6984865 calls (plus 63 warmup) 1.172 ms avg, 53729.2 qps
+Successfully wrote 2605 bytes of Json data to 2022-03-27-072149_asg_apache_3_warmup_63.json
+fortio exit code: 0
+[2022-03-27T07:23:59]==============================[STATS]
+jh CPU load avg:
+1.52 0.99 0.59 1/157 2999
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:25:00]==============================[STATS]
+jh CPU load avg:
+0.56 0.81 0.55 1/158 3009
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:25:01]==============================[WARMUP RUN c64]==============================
+07:25:01 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6927029 avg 0.0012007915 +/- 0.0008086 min 0.000452338 max 1.007443426 sum 8317.91751
+# target 50% 0.00522725
+# target 75% 0.00761471
+# target 90% 0.00904718
+# target 99% 0.00990666
+# target 99.9% 0.00999261
+Sockets used: 68635 (for perfect keepalive, would be 64)
+Jitter: false
+Code 200 : 6927029 (100.0 %)
+All done 6927029 calls (plus 64 warmup) 1.201 ms avg, 53284.3 qps
+Successfully wrote 3076 bytes of Json data to 2022-03-27-072506_asg_apache_3_warmup_64.json
+fortio exit code: 0
+[2022-03-27T07:27:16]==============================[STATS]
+jh CPU load avg:
+1.09 0.98 0.65 1/157 3028
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:28:17]==============================[STATS]
+jh CPU load avg:
+0.40 0.80 0.61 1/157 3037
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:28:18]==============================[WARMUP RUN c65]==============================
+07:28:18 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6875793 avg 0.0012286422 +/- 0.02988 min 0.000423964 max 23.735714188 sum 8447.88943
+# target 50% 0.00522423
+# target 75% 0.00762436
+# target 90% 0.00906444
+# target 99% 0.00992849
+# target 99.9% 0.0165167
+Sockets used: 68109 (for perfect keepalive, would be 65)
+Jitter: false
+Code 200 : 6875793 (100.0 %)
+All done 6875793 calls (plus 65 warmup) 1.229 ms avg, 52890.2 qps
+Successfully wrote 3647 bytes of Json data to 2022-03-27-072822_asg_apache_3_warmup_65.json
+fortio exit code: 0
+[2022-03-27T07:30:32]==============================[STATS]
+jh CPU load avg:
+1.17 0.98 0.70 1/159 3063
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:31:32]==============================[STATS]
+jh CPU load avg:
+0.43 0.80 0.66 1/159 3072
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:31:33]==============================[WARMUP RUN c66]==============================
+07:31:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 6926517 avg 0.001238422 +/- 0.001183 min 0.000427996 max 1.004564701 sum 8577.95089
+# target 50% 0.00522635
+# target 75% 0.00762553
+# target 90% 0.00906504
+# target 99% 0.00992874
+# target 99.9% 0.0165866
+Sockets used: 68626 (for perfect keepalive, would be 66)
+Jitter: false
+Code 200 : 6926517 (100.0 %)
+All done 6926517 calls (plus 66 warmup) 1.238 ms avg, 53276.9 qps
+Successfully wrote 2962 bytes of Json data to 2022-03-27-073138_asg_apache_3_warmup_66.json
+fortio exit code: 0
+[2022-03-27T07:33:48]==============================[STATS]
+jh CPU load avg:
+1.38 1.05 0.77 1/159 3140
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:34:49]==============================[STATS]
+jh CPU load avg:
+0.50 0.86 0.72 1/158 3149
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:34:49]==============================[WARMUP RUN c67]==============================
+07:34:49 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 7052099 avg 0.0012347948 +/- 0.001121 min 0.000426915 max 0.215834061 sum 8707.89524
+# target 50% 0.00522648
+# target 75% 0.00762627
+# target 90% 0.00906614
+# target 99% 0.00993006
+# target 99.9% 0.016741
+Sockets used: 69865 (for perfect keepalive, would be 67)
+Jitter: false
+Code 200 : 7052099 (100.0 %)
+All done 7052099 calls (plus 67 warmup) 1.235 ms avg, 54246.3 qps
+Successfully wrote 3316 bytes of Json data to 2022-03-27-073454_asg_apache_3_warmup_67.json
+fortio exit code: 0
+[2022-03-27T07:37:04]==============================[STATS]
+jh CPU load avg:
+1.21 1.01 0.79 1/157 3170
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:38:05]==============================[STATS]
+jh CPU load avg:
+0.44 0.82 0.74 1/157 3179
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:38:06]==============================[WARMUP RUN c68]==============================
+07:38:06 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 7033317 avg 0.0012565566 +/- 0.001111 min 0.000430808 max 0.223034062 sum 8837.76081
+# target 50% 0.00522791
+# target 75% 0.00762646
+# target 90% 0.00906559
+# target 99% 0.00992907
+# target 99.9% 0.0164881
+Sockets used: 69665 (for perfect keepalive, would be 68)
+Jitter: false
+Code 200 : 7033317 (100.0 %)
+All done 7033317 calls (plus 68 warmup) 1.257 ms avg, 54101.8 qps
+Successfully wrote 3429 bytes of Json data to 2022-03-27-073811_asg_apache_3_warmup_68.json
+fortio exit code: 0
+[2022-03-27T07:40:21]==============================[STATS]
+jh CPU load avg:
+1.21 1.02 0.83 1/158 3204
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:41:21]==============================[STATS]
+jh CPU load avg:
+0.44 0.83 0.78 1/158 3213
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:41:22]==============================[WARMUP RUN c69]==============================
+07:41:22 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 7809583 avg 0.0011482803 +/- 0.006536 min 0.000529598 max 11.390487278 sum 8967.59044
+# target 50% 0.00526524
+# target 75% 0.00763307
+# target 90% 0.00905376
+# target 99% 0.00990617
+# target 99.9% 0.00999142
+Sockets used: 77378 (for perfect keepalive, would be 69)
+Jitter: false
+Code 200 : 7809583 (100.0 %)
+All done 7809583 calls (plus 69 warmup) 1.148 ms avg, 60073.1 qps
+Successfully wrote 3287 bytes of Json data to 2022-03-27-074128_asg_apache_3_warmup_69.json
+fortio exit code: 0
+[2022-03-27T07:43:38]==============================[STATS]
+jh CPU load avg:
+1.46 1.08 0.87 1/158 3233
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:44:39]==============================[STATS]
+jh CPU load avg:
+0.53 0.88 0.82 1/158 3242
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:44:40]==============================[WARMUP RUN c70]==============================
+07:44:40 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 7884494 avg 0.0011538544 +/- 0.0007376 min 0.000530573 max 1.013024995 sum 9097.5582
+# target 50% 0.00526575
+# target 75% 0.00763333
+# target 90% 0.00905389
+# target 99% 0.00990622
+# target 99.9% 0.00999145
+Sockets used: 78115 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 7884494 (100.0 %)
+All done 7884494 calls (plus 70 warmup) 1.154 ms avg, 60649.2 qps
+Successfully wrote 3073 bytes of Json data to 2022-03-27-074447_asg_apache_3_warmup_70.json
+fortio exit code: 0
+[2022-03-27T07:46:57]==============================[STATS]
+jh CPU load avg:
+1.35 1.07 0.90 1/157 3263
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+{
+    "LoadBalancerDescriptions": [
+        {
+            "Subnets": [
+                "subnet-0a7eb4caabf374a6f", 
+                "subnet-0ca5443e16cd830c0"
+            ], 
+            "CanonicalHostedZoneNameID": "Z35SXDOTRQ7X7K", 
+            "CanonicalHostedZoneName": "asg-1-lb-32369747.us-east-1.elb.amazonaws.com", 
+            "ListenerDescriptions": [
+                {
+                    "Listener": {
+                        "InstancePort": 3000, 
+                        "LoadBalancerPort": 3000, 
+                        "Protocol": "TCP", 
+                        "InstanceProtocol": "TCP"
+                    }, 
+                    "PolicyNames": []
+                }, 
+                {
+                    "Listener": {
+                        "InstancePort": 80, 
+                        "LoadBalancerPort": 80, 
+                        "Protocol": "TCP", 
+                        "InstanceProtocol": "TCP"
+                    }, 
+                    "PolicyNames": []
+                }
+            ], 
+            "HealthCheck": {
+                "HealthyThreshold": 2, 
+                "Interval": 10, 
+                "Target": "HTTP:80/test.html", 
+                "Timeout": 5, 
+                "UnhealthyThreshold": 6
+            }, 
+            "VPCId": "vpc-081da6be46260db90", 
+            "BackendServerDescriptions": [], 
+            "Instances": [
+                {
+                    "InstanceId": "i-01bc4e11a6469ab08"
+                }, 
+                {
+                    "InstanceId": "i-0cd33a0eafea1ab89"
+                }, 
+                {
+                    "InstanceId": "i-0b63c26ed83b48c00"
+                }
+            ], 
+            "DNSName": "asg-1-lb-32369747.us-east-1.elb.amazonaws.com", 
+            "SecurityGroups": [
+                "sg-0ebe8a9d64362e5a1"
+            ], 
+            "Policies": {
+                "LBCookieStickinessPolicies": [], 
+                "AppCookieStickinessPolicies": [], 
+                "OtherPolicies": []
+            }, 
+            "LoadBalancerName": "asg-1-lb", 
+            "CreatedTime": "2022-03-27T07:02:45.760Z", 
+            "AvailabilityZones": [
+                "us-east-1b", 
+                "us-east-1a"
+            ], 
+            "Scheme": "internet-facing", 
+            "SourceSecurityGroup": {
+                "OwnerAlias": "891827943132", 
+                "GroupName": "asg-1-ALBSecurityGroup-Y9CMFNHN1IVF"
+            }
+        }
+    ]
+}
+{
+    "AutoScalingGroups": [
+        {
+            "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-1:891827943132:autoScalingGroup:885a8c93-8bbb-439a-b7ac-781cd03f0ccf:autoScalingGroupName/asg-1-myASG", 
+            "ServiceLinkedRoleARN": "arn:aws:iam::891827943132:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling", 
+            "TargetGroupARNs": [], 
+            "SuspendedProcesses": [], 
+            "LaunchTemplate": {
+                "LaunchTemplateName": "asg-1-launch-template", 
+                "Version": "1", 
+                "LaunchTemplateId": "lt-08574629ea84b038a"
+            }, 
+            "Tags": [
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "asg-1-myASG", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "asg-1-instance", 
+                    "Key": "Name"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "asg-1-myASG", 
+                    "PropagateAtLaunch": false, 
+                    "Value": "WebServerGroup", 
+                    "Key": "Purpose"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "asg-1-myASG", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "myASG", 
+                    "Key": "aws:cloudformation:logical-id"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "asg-1-myASG", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "arn:aws:cloudformation:us-east-1:891827943132:stack/asg-1/dde45e70-ad9b-11ec-ba67-0e5a3f1b3d8b", 
+                    "Key": "aws:cloudformation:stack-id"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "asg-1-myASG", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "asg-1", 
+                    "Key": "aws:cloudformation:stack-name"
+                }
+            ], 
+            "EnabledMetrics": [
+                {
+                    "Metric": "GroupTerminatingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupPendingInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTerminatingInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupPendingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupStandbyCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolMinSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolTerminatingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolPendingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupInServiceCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupMaxSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupAndWarmPoolTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupStandbyInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTotalInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupMinSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupInServiceInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupAndWarmPoolDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolWarmedCapacity", 
+                    "Granularity": "1Minute"
+                }
+            ], 
+            "TerminationPolicies": [
+                "Default"
+            ], 
+            "AutoScalingGroupName": "asg-1-myASG", 
+            "DefaultCooldown": 300, 
+            "MinSize": 1, 
+            "Instances": [
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1a", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "asg-1-launch-template", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-08574629ea84b038a"
+                    }, 
+                    "InstanceId": "i-01bc4e11a6469ab08", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }, 
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1a", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "asg-1-launch-template", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-08574629ea84b038a"
+                    }, 
+                    "InstanceId": "i-0b63c26ed83b48c00", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }, 
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1b", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "asg-1-launch-template", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-08574629ea84b038a"
+                    }, 
+                    "InstanceId": "i-0cd33a0eafea1ab89", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }
+            ], 
+            "MaxSize": 3, 
+            "VPCZoneIdentifier": "subnet-0a7eb4caabf374a6f,subnet-0ca5443e16cd830c0", 
+            "HealthCheckGracePeriod": 300, 
+            "LoadBalancerNames": [
+                "asg-1-lb"
+            ], 
+            "CreatedTime": "2022-03-27T07:05:11.181Z", 
+            "AvailabilityZones": [
+                "us-east-1a", 
+                "us-east-1b"
+            ], 
+            "HealthCheckType": "EC2", 
+            "NewInstancesProtectedFromScaleIn": false, 
+            "DesiredCapacity": 3
+        }
+    ]
+}
+[2022-03-27T07:47:59]==============================[PERFORMANCE CHUNK RUN 71]==============================
+[2022-03-27T07:48:59]==============================[STATS]
+jh CPU load avg:
+0.18 0.71 0.79 1/157 3288
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+07:49:00 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3635383 avg 0.0011549883 +/- 0.0005722 min 0.000539238 max 0.2082077 sum 4198.82476
+# target 50% 0.00527004
+# target 75% 0.00763544
+# target 90% 0.00905468
+# target 99% 0.00990622
+# target 99.9% 0.00999138
+Sockets used: 36025 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3635383 (100.0 %)
+All done 3635383 calls (plus 70 warmup) 1.155 ms avg, 60587.8 qps
+Successfully wrote 2844 bytes of Json data to 2022-03-27-074904_asg_apache_3_performance_chunk_71_1.json
+fortio exit code: 0
+[2022-03-27T07:50:04]==============================[STATS]
+jh CPU load avg:
+1.56 0.99 0.88 1/158 3310
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+07:50:05 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3652732 avg 0.0011495207 +/- 0.0005829 min 0.000530251 max 0.210423673 sum 4198.89118
+# target 50% 0.00526525
+# target 75% 0.00763275
+# target 90% 0.00905325
+# target 99% 0.00990555
+# target 99.9% 0.00999078
+Sockets used: 36201 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3652732 (100.0 %)
+All done 3652732 calls (plus 70 warmup) 1.150 ms avg, 60877.6 qps
+Successfully wrote 2373 bytes of Json data to 2022-03-27-075005_asg_apache_3_performance_chunk_71_2.json
+fortio exit code: 0
+[2022-03-27T07:51:05]==============================[STATS]
+jh CPU load avg:
+1.55 1.08 0.92 1/157 3326
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+07:51:06 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3655409 avg 0.0011486681 +/- 0.0005494 min 0.000543811 max 0.231147876 sum 4198.8518
+# target 50% 0.00527214
+# target 75% 0.0076363
+# target 90% 0.0090548
+# target 99% 0.0099059
+# target 99.9% 0.00999101
+Sockets used: 36222 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3655409 (100.0 %)
+All done 3655409 calls (plus 70 warmup) 1.149 ms avg, 60922.1 qps
+Successfully wrote 2370 bytes of Json data to 2022-03-27-075106_asg_apache_3_performance_chunk_71_3.json
+fortio exit code: 0
+[2022-03-27T07:52:06]==============================[STATS]
+jh CPU load avg:
+1.46 1.16 0.96 1/158 3344
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+07:52:06 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3661599 avg 0.0011467068 +/- 0.0007856 min 0.000530349 max 1.002982452 sum 4198.78044
+# target 50% 0.00526529
+# target 75% 0.00763277
+# target 90% 0.00905325
+# target 99% 0.00990554
+# target 99.9% 0.00999077
+Sockets used: 36284 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3661599 (100.0 %)
+All done 3661599 calls (plus 70 warmup) 1.147 ms avg, 61025.2 qps
+Successfully wrote 2607 bytes of Json data to 2022-03-27-075206_asg_apache_3_performance_chunk_71_4.json
+fortio exit code: 0
+[2022-03-27T07:53:06]==============================[STATS]
+jh CPU load avg:
+1.08 1.10 0.95 1/158 3360
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+07:53:07 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3665959 avg 0.001145358 +/- 0.0005694 min 0.000538099 max 0.212098668 sum 4198.8354
+# target 50% 0.00526919
+# target 75% 0.00763474
+# target 90% 0.00905407
+# target 99% 0.00990566
+# target 99.9% 0.00999082
+Sockets used: 36329 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3665959 (100.0 %)
+All done 3665959 calls (plus 70 warmup) 1.145 ms avg, 61097.8 qps
+Successfully wrote 2377 bytes of Json data to 2022-03-27-075307_asg_apache_3_performance_chunk_71_5.json
+fortio exit code: 0
+[2022-03-27T07:55:07]==============================[STATS]
+jh CPU load avg:
+0.51 0.97 0.93 1/158 3378
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T07:55:08]==============================[PERFORMANCE RUN 1]==============================
+07:55:08 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 18311131 avg 0.0011465396 +/- 0.0007153 min 0.000529357 max 1.013443959 sum 20994.4363
+# target 50% 0.00526623
+# target 75% 0.00763466
+# target 90% 0.00905572
+# target 99% 0.00990836
+# target 99.9% 0.00999362
+Sockets used: 181354 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 18311131 (100.0 %)
+All done 18311131 calls (plus 70 warmup) 1.147 ms avg, 61036.8 qps
+Successfully wrote 3794 bytes of Json data to 2022-03-27-075513_asg_apache_3_performance_1.json
+fortio exit code: 0
+[2022-03-27T08:00:13]==============================[STATS]
+jh CPU load avg:
+1.31 1.23 1.06 1/159 3460
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T08:01:14]==============================[STATS]
+jh CPU load avg:
+0.48 1.01 0.99 1/160 3483
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T08:01:15]==============================[PERFORMANCE RUN 2]==============================
+08:01:15 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 18102891 avg 0.001159737 +/- 0.0007207 min 0.000528913 max 0.213919889 sum 20994.5932
+# target 50% 0.00526524
+# target 75% 0.00763341
+# target 90% 0.00905431
+# target 99% 0.00990685
+# target 99.9% 0.0099921
+Sockets used: 179290 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 18102891 (100.0 %)
+All done 18102891 calls (plus 70 warmup) 1.160 ms avg, 60342.7 qps
+Successfully wrote 3327 bytes of Json data to 2022-03-27-080120_asg_apache_3_performance_2.json
+fortio exit code: 0
+[2022-03-27T08:06:20]==============================[STATS]
+jh CPU load avg:
+1.71 1.37 1.14 1/158 3507
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T08:07:20]==============================[STATS]
+jh CPU load avg:
+0.63 1.12 1.07 1/157 3517
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+[2022-03-27T08:07:21]==============================[PERFORMANCE RUN 3]==============================
+08:07:21 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 18314869 avg 0.0011463142 +/- 0.0007666 min 0.000525914 max 1.006759915 sum 20994.5952
+# target 50% 0.00526334
+# target 75% 0.00763205
+# target 90% 0.00905328
+# target 99% 0.00990602
+# target 99.9% 0.00999129
+Sockets used: 181388 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 18314869 (100.0 %)
+All done 18314869 calls (plus 70 warmup) 1.146 ms avg, 61049.2 qps
+Successfully wrote 3090 bytes of Json data to 2022-03-27-080727_asg_apache_3_performance_3.json
+fortio exit code: 0
+[2022-03-27T08:12:27]==============================[STATS]
+jh CPU load avg:
+1.80 1.50 1.24 1/166 3554
+i-01bc4e11a6469ab08
+InService
+Healthy
+{}
+i-0b63c26ed83b48c00
+InService
+Healthy
+{}
+i-0cd33a0eafea1ab89
+InService
+Healthy
+{}
+scaling to 0
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-040cfa2e-e62f-4e2b-a747-55c756d944f5", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-040cfa2e-e62f-4e2b-a747-55c756d944f5"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-da68e454-6493-4607-b07d-1f62afa9ad32", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-da68e454-6493-4607-b07d-1f62afa9ad32"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+[2022-03-27T08:12:59]==============================[SCALING RUN 1: INIT]==============================
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-040cfa2e-e62f-4e2b-a747-55c756d944f5", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-040cfa2e-e62f-4e2b-a747-55c756d944f5"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-da68e454-6493-4607-b07d-1f62afa9ad32", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-da68e454-6493-4607-b07d-1f62afa9ad32"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+scaling to 1
+[2022-03-27T08:13:01]==============================[SCALING RUN 1: ENABLE SCALING - SLEEP]==============================
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-b3564052-ae8a-4525-9f9d-61cd8740c2a4", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-b3564052-ae8a-4525-9f9d-61cd8740c2a4"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-03858eb1-85b5-49ec-afc5-b57a52eed6d3", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-03858eb1-85b5-49ec-afc5-b57a52eed6d3"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+[2022-03-27T08:16:02]==============================[SCALING RUN 1: FORTIO]==============================
+[2022-03-27T08:16:02]==============================[STATS]
+jh CPU load avg:
+0.10 0.74 0.98 1/164 3593
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+[2022-03-27T08:16:04]==============================[SCALING RUN 1: CHUNK 1]==============================
+08:16:04 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1214958 avg 0.0034566625 +/- 0.002118 min 0.000722985 max 0.362119271 sum 4199.69972
+# target 50% 0.00539814
+# target 75% 0.00773572
+# target 90% 0.00913827
+# target 99% 0.0099798
+# target 99.9% 0.0199023
+Sockets used: 12076 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1214958 (100.0 %)
+All done 1214958 calls (plus 70 warmup) 3.457 ms avg, 20248.2 qps
+Successfully wrote 3921 bytes of Json data to 2022-03-27-081610_asg_apache_3_scaling_1_1.json
+fortio exit code: 0
+[2022-03-27T08:17:10]==============================[STATS]
+jh CPU load avg:
+0.62 0.75 0.97 1/164 3611
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+[2022-03-27T08:17:11]==============================[SCALING RUN 1: CHUNK 2]==============================
+08:17:11 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1244225 avg 0.0033753669 +/- 0.001488 min 0.000733665 max 0.212235238 sum 4199.7159
+# target 50% 0.0053772
+# target 75% 0.00769897
+# target 90% 0.00909203
+# target 99% 0.00992787
+# target 99.9% 0.0156949
+Sockets used: 12358 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1244225 (100.0 %)
+All done 1244225 calls (plus 70 warmup) 3.375 ms avg, 20736.1 qps
+Successfully wrote 2604 bytes of Json data to 2022-03-27-081711_asg_apache_3_scaling_1_2.json
+fortio exit code: 0
+[2022-03-27T08:18:11]==============================[STATS]
+jh CPU load avg:
+0.49 0.69 0.93 1/164 3627
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+[2022-03-27T08:18:11]==============================[SCALING RUN 1: CHUNK 3]==============================
+08:18:11 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1211472 avg 0.0034666035 +/- 0.001564 min 0.000734536 max 0.213584568 sum 4199.69306
+# target 50% 0.00537932
+# target 75% 0.00770171
+# target 90% 0.00909515
+# target 99% 0.00993121
+# target 99.9% 0.0165156
+Sockets used: 12014 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1211472 (100.0 %)
+All done 1211472 calls (plus 70 warmup) 3.467 ms avg, 20190.0 qps
+Successfully wrote 2601 bytes of Json data to 2022-03-27-081812_asg_apache_3_scaling_1_3.json
+fortio exit code: 0
+[2022-03-27T08:19:12]==============================[STATS]
+jh CPU load avg:
+0.61 0.71 0.92 1/164 3645
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+[2022-03-27T08:19:12]==============================[SCALING RUN 1: CHUNK 4]==============================
+08:19:12 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1206219 avg 0.0034817285 +/- 0.001601 min 0.000731769 max 0.216059606 sum 4199.7271
+# target 50% 0.00537885
+# target 75% 0.00770239
+# target 90% 0.00909652
+# target 99% 0.00993299
+# target 99.9% 0.016617
+Sockets used: 11963 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1206219 (100.0 %)
+All done 1206219 calls (plus 70 warmup) 3.482 ms avg, 20102.5 qps
+Successfully wrote 2604 bytes of Json data to 2022-03-27-081912_asg_apache_3_scaling_1_4.json
+fortio exit code: 0
+[2022-03-27T08:20:12]==============================[STATS]
+jh CPU load avg:
+0.96 0.77 0.93 1/166 3669
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+[2022-03-27T08:20:13]==============================[SCALING RUN 1: CHUNK 5]==============================
+08:20:13 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1233720 avg 0.0034041167 +/- 0.001362 min 0.000742629 max 0.21405748 sum 4199.72681
+# target 50% 0.00537632
+# target 75% 0.00769318
+# target 90% 0.00908329
+# target 99% 0.00991735
+# target 99.9% 0.010765
+Sockets used: 12247 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1233720 (100.0 %)
+All done 1233720 calls (plus 70 warmup) 3.404 ms avg, 20560.9 qps
+Successfully wrote 2480 bytes of Json data to 2022-03-27-082013_asg_apache_3_scaling_1_5.json
+fortio exit code: 0
+[2022-03-27T08:21:13]==============================[STATS]
+jh CPU load avg:
+0.91 0.77 0.92 1/166 3686
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+Pending
+Healthy
+{}
+[2022-03-27T08:21:14]==============================[SCALING RUN 1: CHUNK 6]==============================
+08:21:14 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:21:33 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+Aggregated Function Time : count 1692349 avg 0.002481471 +/- 0.004164 min 0.000534703 max 0.59051888 sum 4199.515
+# target 50% 0.00528694
+# target 75% 0.00766306
+# target 90% 0.00908873
+# target 99% 0.00994413
+# target 99.9% 0.0200358
+Sockets used: 16839 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 31 (0.0 %)
+Code 200 : 1692318 (100.0 %)
+All done 1692349 calls (plus 70 warmup) 2.481 ms avg, 28205.1 qps
+Successfully wrote 5005 bytes of Json data to 2022-03-27-082114_asg_apache_3_scaling_1_6.json
+fortio exit code: 0
+[2022-03-27T08:22:14]==============================[STATS]
+jh CPU load avg:
+0.88 0.77 0.91 1/166 3704
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+[2022-03-27T08:22:14]==============================[SCALING RUN 1: CHUNK 7]==============================
+08:22:14 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2695829 avg 0.0015576776 +/- 0.000957 min 0.000536436 max 0.214083729 sum 4199.2325
+# target 50% 0.00527167
+# target 75% 0.00763929
+# target 90% 0.00905986
+# target 99% 0.00991221
+# target 99.9% 0.00999744
+Sockets used: 26720 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2695829 (100.0 %)
+All done 2695829 calls (plus 70 warmup) 1.558 ms avg, 44929.4 qps
+Successfully wrote 2959 bytes of Json data to 2022-03-27-082214_asg_apache_3_scaling_1_7.json
+fortio exit code: 0
+[2022-03-27T08:23:14]==============================[STATS]
+jh CPU load avg:
+1.36 0.91 0.95 1/166 3721
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+[2022-03-27T08:23:15]==============================[SCALING RUN 1: CHUNK 8]==============================
+08:23:15 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2685223 avg 0.0015638284 +/- 0.0009171 min 0.000531873 max 0.208249469 sum 4199.22792
+# target 50% 0.0052707
+# target 75% 0.00764012
+# target 90% 0.00906177
+# target 99% 0.00991476
+# target 99.9% 0.0100684
+Sockets used: 26621 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2685223 (100.0 %)
+All done 2685223 calls (plus 70 warmup) 1.564 ms avg, 44752.5 qps
+Successfully wrote 2844 bytes of Json data to 2022-03-27-082315_asg_apache_3_scaling_1_8.json
+fortio exit code: 0
+[2022-03-27T08:24:15]==============================[STATS]
+jh CPU load avg:
+1.14 0.93 0.95 1/166 3788
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+[2022-03-27T08:24:16]==============================[SCALING RUN 1: CHUNK 9]==============================
+08:24:16 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2676852 avg 0.0015687276 +/- 0.0009918 min 0.00053663 max 0.209346502 sum 4199.25173
+# target 50% 0.00527316
+# target 75% 0.00764142
+# target 90% 0.00906238
+# target 99% 0.00991496
+# target 99.9% 0.010273
+Sockets used: 26535 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2676852 (100.0 %)
+All done 2676852 calls (plus 70 warmup) 1.569 ms avg, 44613.1 qps
+Successfully wrote 3196 bytes of Json data to 2022-03-27-082416_asg_apache_3_scaling_1_9.json
+fortio exit code: 0
+[2022-03-27T08:25:16]==============================[STATS]
+jh CPU load avg:
+1.01 0.94 0.95 1/164 3805
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+[2022-03-27T08:25:16]==============================[SCALING RUN 1: CHUNK 10]==============================
+08:25:16 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2685198 avg 0.0015638499 +/- 0.001054 min 0.000537729 max 1.018811627 sum 4199.24659
+# target 50% 0.00527147
+# target 75% 0.00763835
+# target 90% 0.00905847
+# target 99% 0.00991054
+# target 99.9% 0.00999575
+Sockets used: 26620 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2685198 (100.0 %)
+All done 2685198 calls (plus 70 warmup) 1.564 ms avg, 44752.2 qps
+Successfully wrote 2836 bytes of Json data to 2022-03-27-082517_asg_apache_3_scaling_1_10.json
+fortio exit code: 0
+[2022-03-27T08:26:17]==============================[STATS]
+jh CPU load avg:
+1.24 1.04 0.99 1/164 3823
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+[2022-03-27T08:26:17]==============================[SCALING RUN 1: CHUNK 11]==============================
+08:26:17 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2701206 avg 0.0015545751 +/- 0.000842 min 0.000527843 max 0.211460418 sum 4199.22762
+# target 50% 0.00526662
+# target 75% 0.00763601
+# target 90% 0.00905765
+# target 99% 0.00991063
+# target 99.9% 0.00999593
+Sockets used: 26778 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2701206 (100.0 %)
+All done 2701206 calls (plus 70 warmup) 1.555 ms avg, 45019.0 qps
+Successfully wrote 2604 bytes of Json data to 2022-03-27-082617_asg_apache_3_scaling_1_11.json
+fortio exit code: 0
+[2022-03-27T08:27:17]==============================[STATS]
+jh CPU load avg:
+1.64 1.16 1.04 1/169 9156
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+Pending
+Healthy
+{}
+[2022-03-27T08:27:18]==============================[SCALING RUN 1: CHUNK 12]==============================
+08:27:18 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+08:27:39 E http_client.go:671> Unable to connect to 34.194.153.112:80 : dial tcp 34.194.153.112:80: connect: connection refused
+Aggregated Function Time : count 3041486 avg 0.0013806071 +/- 0.003238 min 0.000543111 max 0.586421928 sum 4199.09703
+# target 50% 0.00527542
+# target 75% 0.00764158
+# target 90% 0.00906128
+# target 99% 0.00991309
+# target 99.9% 0.00999827
+Sockets used: 30146 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 1 (0.0 %)
+Code 200 : 3041485 (100.0 %)
+All done 3041486 calls (plus 70 warmup) 1.381 ms avg, 50690.2 qps
+Successfully wrote 5004 bytes of Json data to 2022-03-27-082718_asg_apache_3_scaling_1_12.json
+fortio exit code: 0
+[2022-03-27T08:28:18]==============================[STATS]
+jh CPU load avg:
+2.56 1.50 1.16 1/169 31762
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+[2022-03-27T08:28:19]==============================[SCALING RUN 1: CHUNK 13]==============================
+08:28:19 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3630768 avg 0.0011564734 +/- 0.0006509 min 0.000533819 max 0.210616557 sum 4198.88657
+# target 50% 0.00526842
+# target 75% 0.00763572
+# target 90% 0.0090561
+# target 99% 0.00990833
+# target 99.9% 0.00999355
+Sockets used: 35981 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3630768 (100.0 %)
+All done 3630768 calls (plus 70 warmup) 1.156 ms avg, 60511.4 qps
+Successfully wrote 2602 bytes of Json data to 2022-03-27-082819_asg_apache_3_scaling_1_13.json
+fortio exit code: 0
+[2022-03-27T08:29:19]==============================[STATS]
+jh CPU load avg:
+2.51 1.68 1.25 1/163 957
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+[2022-03-27T08:29:19]==============================[SCALING RUN 1: CHUNK 14]==============================
+08:29:19 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3536554 avg 0.0011872892 +/- 0.000984 min 0.000537085 max 1.01235303 sum 4198.91226
+# target 50% 0.00527318
+# target 75% 0.00764123
+# target 90% 0.00906206
+# target 99% 0.00991456
+# target 99.9% 0.00999981
+Sockets used: 35044 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3536554 (100.0 %)
+All done 3536554 calls (plus 70 warmup) 1.187 ms avg, 58941.2 qps
+Successfully wrote 3190 bytes of Json data to 2022-03-27-082919_asg_apache_3_scaling_1_14.json
+fortio exit code: 0
+[2022-03-27T08:30:19]==============================[STATS]
+jh CPU load avg:
+1.76 1.62 1.25 1/166 983
+i-09e298b0c0dc92303
+InService
+Healthy
+{}
+i-0b46c878ed6778862
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+[2022-03-27T08:30:20]==============================[SCALING RUN 2: INIT]==============================
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-42fbf3ae-75d3-4ee1-b31b-d9e8c15528bf", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-42fbf3ae-75d3-4ee1-b31b-d9e8c15528bf"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-61fbf1f8-5c31-41fe-99a1-3c54c2479015", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-61fbf1f8-5c31-41fe-99a1-3c54c2479015"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+scaling to 1
+[2022-03-27T08:30:22]==============================[SCALING RUN 2: ENABLE SCALING - SLEEP]==============================
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-1c2e6826-93a0-468f-ad70-bc8dd4f57c79", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-1c2e6826-93a0-468f-ad70-bc8dd4f57c79"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-d58aa085-018d-4ad9-b702-0f9b0e05d71d", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-d58aa085-018d-4ad9-b702-0f9b0e05d71d"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+[2022-03-27T08:33:23]==============================[SCALING RUN 2: FORTIO]==============================
+[2022-03-27T08:33:23]==============================[STATS]
+jh CPU load avg:
+0.13 0.88 1.03 1/166 1011
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+[2022-03-27T08:33:24]==============================[SCALING RUN 2: CHUNK 1]==============================
+08:33:24 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1201566 avg 0.00349519 +/- 0.002221 min 0.000733538 max 0.219417112 sum 4199.70149
+# target 50% 0.00541393
+# target 75% 0.00775413
+# target 90% 0.00915825
+# target 99% 0.0100914
+# target 99.9% 0.0258553
+Sockets used: 11951 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1201566 (100.0 %)
+All done 1201566 calls (plus 70 warmup) 3.495 ms avg, 20025.0 qps
+Successfully wrote 3321 bytes of Json data to 2022-03-27-083330_asg_apache_3_scaling_2_1.json
+fortio exit code: 0
+[2022-03-27T08:34:30]==============================[STATS]
+jh CPU load avg:
+0.26 0.78 0.98 1/166 1028
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:34:31]==============================[SCALING RUN 2: CHUNK 2]==============================
+08:34:31 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+08:34:31 E http_client.go:671> Unable to connect to 52.70.200.201:80 : dial tcp 52.70.200.201:80: connect: connection refused
+Aggregated Function Time : count 2143922 avg 0.0019587477 +/- 0.003488 min 0.000442339 max 0.384734129 sum 4199.40236
+# target 50% 0.00524096
+# target 75% 0.00764028
+# target 90% 0.00907987
+# target 99% 0.00994362
+# target 99.9% 0.0199986
+Sockets used: 21280 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 10 (0.0 %)
+Code 200 : 2143912 (100.0 %)
+All done 2143922 calls (plus 70 warmup) 1.959 ms avg, 35731.2 qps
+Successfully wrote 4662 bytes of Json data to 2022-03-27-083431_asg_apache_3_scaling_2_2.json
+fortio exit code: 0
+[2022-03-27T08:35:31]==============================[STATS]
+jh CPU load avg:
+0.93 0.86 0.99 1/164 1046
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:35:31]==============================[SCALING RUN 2: CHUNK 3]==============================
+08:35:31 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2708357 avg 0.0015504722 +/- 0.0009107 min 0.000446185 max 0.211662515 sum 4199.23217
+# target 50% 0.00522602
+# target 75% 0.00761593
+# target 90% 0.00904989
+# target 99% 0.00991026
+# target 99.9% 0.00999629
+Sockets used: 26848 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2708357 (100.0 %)
+All done 2708357 calls (plus 70 warmup) 1.550 ms avg, 45138.1 qps
+Successfully wrote 2608 bytes of Json data to 2022-03-27-083531_asg_apache_3_scaling_2_3.json
+fortio exit code: 0
+[2022-03-27T08:36:31]==============================[STATS]
+jh CPU load avg:
+1.14 0.90 1.00 1/164 1063
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:36:32]==============================[SCALING RUN 2: CHUNK 4]==============================
+08:36:32 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2713886 avg 0.0015473119 +/- 0.0008777 min 0.00045037 max 0.212416277 sum 4199.22813
+# target 50% 0.00522864
+# target 75% 0.00761778
+# target 90% 0.00905126
+# target 99% 0.00991135
+# target 99.9% 0.00999736
+Sockets used: 26897 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2713886 (100.0 %)
+All done 2713886 calls (plus 70 warmup) 1.547 ms avg, 45230.3 qps
+Successfully wrote 2484 bytes of Json data to 2022-03-27-083632_asg_apache_3_scaling_2_4.json
+fortio exit code: 0
+[2022-03-27T08:37:32]==============================[STATS]
+jh CPU load avg:
+1.40 1.03 1.04 1/164 1081
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:37:33]==============================[SCALING RUN 2: CHUNK 5]==============================
+08:37:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2692215 avg 0.0015597597 +/- 0.000936 min 0.000450163 max 0.208305444 sum 4199.20848
+# target 50% 0.00522858
+# target 75% 0.00761779
+# target 90% 0.00905131
+# target 99% 0.00991143
+# target 99.9% 0.00999744
+Sockets used: 26686 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2692215 (100.0 %)
+All done 2692215 calls (plus 70 warmup) 1.560 ms avg, 44869.2 qps
+Successfully wrote 2600 bytes of Json data to 2022-03-27-083733_asg_apache_3_scaling_2_5.json
+fortio exit code: 0
+[2022-03-27T08:38:33]==============================[STATS]
+jh CPU load avg:
+1.30 1.07 1.05 1/164 1107
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:38:33]==============================[SCALING RUN 2: CHUNK 6]==============================
+08:38:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2711556 avg 0.0015486513 +/- 0.0008681 min 0.000447812 max 0.211505622 sum 4199.25464
+# target 50% 0.0052265
+# target 75% 0.00761584
+# target 90% 0.00904945
+# target 99% 0.00990961
+# target 99.9% 0.00999563
+Sockets used: 26881 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2711556 (100.0 %)
+All done 2711556 calls (plus 70 warmup) 1.549 ms avg, 45191.5 qps
+Successfully wrote 2606 bytes of Json data to 2022-03-27-083833_asg_apache_3_scaling_2_6.json
+fortio exit code: 0
+[2022-03-27T08:39:33]==============================[STATS]
+jh CPU load avg:
+1.02 1.05 1.05 1/164 1124
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:39:34]==============================[SCALING RUN 2: CHUNK 7]==============================
+08:39:34 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2697315 avg 0.0015568918 +/- 0.003121 min 0.000444254 max 0.490091125 sum 4199.42749
+# target 50% 0.00522545
+# target 75% 0.00761605
+# target 90% 0.0090504
+# target 99% 0.00991102
+# target 99.9% 0.00999708
+Sockets used: 26738 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2697315 (100.0 %)
+All done 2697315 calls (plus 70 warmup) 1.557 ms avg, 44872.6 qps
+Successfully wrote 4641 bytes of Json data to 2022-03-27-083934_asg_apache_3_scaling_2_7.json
+fortio exit code: 0
+[2022-03-27T08:40:34]==============================[STATS]
+jh CPU load avg:
+1.07 1.07 1.05 1/166 1149
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:40:35]==============================[SCALING RUN 2: CHUNK 8]==============================
+08:40:35 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3997431 avg 0.0010503787 +/- 0.0006145 min 0.000447838 max 0.207583666 sum 4198.8164
+# target 50% 0.00522437
+# target 75% 0.00761263
+# target 90% 0.00904559
+# target 99% 0.00990537
+# target 99.9% 0.00999134
+Sockets used: 39616 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3997431 (100.0 %)
+All done 3997431 calls (plus 70 warmup) 1.050 ms avg, 66622.2 qps
+Successfully wrote 2722 bytes of Json data to 2022-03-27-084035_asg_apache_3_scaling_2_8.json
+fortio exit code: 0
+[2022-03-27T08:41:35]==============================[STATS]
+jh CPU load avg:
+1.67 1.24 1.11 1/166 1169
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:41:36]==============================[SCALING RUN 2: CHUNK 9]==============================
+08:41:36 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+08:41:44 E http_client.go:787> Read error &{{0xc000d2b400}} 52.70.200.201:80 0 : read tcp 172.31.31.122:57038->52.70.200.201:80: read: connection reset by peer
+08:42:31 E http_client.go:787> Read error &{{0xc00145d580}} 52.70.200.201:80 0 : read tcp 172.31.31.122:34034->52.70.200.201:80: read: connection reset by peer
+Aggregated Function Time : count 4025880 avg 0.001042943 +/- 0.001055 min 0.000452196 max 1.022769155 sum 4198.76353
+# target 50% 0.00522627
+# target 75% 0.00761331
+# target 90% 0.00904554
+# target 99% 0.00990487
+# target 99.9% 0.00999081
+Sockets used: 39898 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 2 (0.0 %)
+Code 200 : 4025878 (100.0 %)
+All done 4025880 calls (plus 70 warmup) 1.043 ms avg, 67096.3 qps
+Successfully wrote 3198 bytes of Json data to 2022-03-27-084136_asg_apache_3_scaling_2_9.json
+fortio exit code: 0
+[2022-03-27T08:42:36]==============================[STATS]
+jh CPU load avg:
+1.50 1.26 1.13 1/166 1187
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:42:36]==============================[SCALING RUN 2: CHUNK 10]==============================
+08:42:36 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3277071 avg 0.0012812749 +/- 0.06009 min 0.000516681 max 31.592964159 sum 4198.82881
+# target 50% 0.00526068
+# target 75% 0.00763269
+# target 90% 0.00905589
+# target 99% 0.00990981
+# target 99.9% 0.0099952
+Sockets used: 32496 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3277071 (100.0 %)
+All done 3277071 calls (plus 70 warmup) 1.281 ms avg, 54616.6 qps
+Successfully wrote 5301 bytes of Json data to 2022-03-27-084249_asg_apache_3_scaling_2_10.json
+fortio exit code: 0
+[2022-03-27T08:43:49]==============================[STATS]
+jh CPU load avg:
+1.39 1.25 1.13 1/166 1207
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:43:49]==============================[SCALING RUN 2: CHUNK 11]==============================
+08:43:49 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3856931 avg 0.0010886182 +/- 0.0006342 min 0.000519943 max 0.212196051 sum 4198.72545
+# target 50% 0.00526057
+# target 75% 0.00763088
+# target 90% 0.00905307
+# target 99% 0.00990638
+# target 99.9% 0.00999172
+Sockets used: 38215 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3856931 (100.0 %)
+All done 3856931 calls (plus 70 warmup) 1.089 ms avg, 64280.5 qps
+Successfully wrote 2488 bytes of Json data to 2022-03-27-084349_asg_apache_3_scaling_2_11.json
+fortio exit code: 0
+[2022-03-27T08:44:49]==============================[STATS]
+jh CPU load avg:
+1.64 1.34 1.17 1/165 1225
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:44:50]==============================[SCALING RUN 2: CHUNK 12]==============================
+08:44:50 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3969849 avg 0.0010576687 +/- 0.0005454 min 0.000531083 max 0.206326854 sum 4198.78509
+# target 50% 0.00526569
+# target 75% 0.00763299
+# target 90% 0.00905337
+# target 99% 0.0099056
+# target 99.9% 0.00999083
+Sockets used: 39340 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3969849 (100.0 %)
+All done 3969849 calls (plus 70 warmup) 1.058 ms avg, 66162.5 qps
+Successfully wrote 2487 bytes of Json data to 2022-03-27-084450_asg_apache_3_scaling_2_12.json
+fortio exit code: 0
+[2022-03-27T08:45:50]==============================[STATS]
+jh CPU load avg:
+1.50 1.36 1.19 1/163 1244
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:45:51]==============================[SCALING RUN 2: CHUNK 13]==============================
+08:45:51 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3978748 avg 0.0010553031 +/- 0.0005497 min 0.000517083 max 0.208825117 sum 4198.78526
+# target 50% 0.00525857
+# target 75% 0.00762932
+# target 90% 0.00905176
+# target 99% 0.00990523
+# target 99.9% 0.00999058
+Sockets used: 39427 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3978748 (100.0 %)
+All done 3978748 calls (plus 70 warmup) 1.055 ms avg, 66310.9 qps
+Successfully wrote 2368 bytes of Json data to 2022-03-27-084551_asg_apache_3_scaling_2_13.json
+fortio exit code: 0
+[2022-03-27T08:46:51]==============================[STATS]
+jh CPU load avg:
+1.93 1.51 1.25 1/164 1264
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:46:51]==============================[SCALING RUN 2: CHUNK 14]==============================
+08:46:51 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3973968 avg 0.0010565711 +/- 0.000578 min 0.000523426 max 0.207526372 sum 4198.77988
+# target 50% 0.00526202
+# target 75% 0.00763132
+# target 90% 0.0090529
+# target 99% 0.00990585
+# target 99.9% 0.00999114
+Sockets used: 39382 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3973968 (100.0 %)
+All done 3973968 calls (plus 70 warmup) 1.057 ms avg, 66231.2 qps
+Successfully wrote 2601 bytes of Json data to 2022-03-27-084652_asg_apache_3_scaling_2_14.json
+fortio exit code: 0
+[2022-03-27T08:47:52]==============================[STATS]
+jh CPU load avg:
+1.85 1.57 1.29 1/164 1284
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+i-0d1f3a697dbbe8ecf
+InService
+Healthy
+{}
+i-0e1de78cccaea6816
+InService
+Healthy
+{}
+[2022-03-27T08:47:52]==============================[SCALING RUN 3: INIT]==============================
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-8ed1b98e-e826-4b68-afe6-0f187cb8f536", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-8ed1b98e-e826-4b68-afe6-0f187cb8f536"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-a342e0a3-515c-45d0-92f8-31e0b8e38317", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-a342e0a3-515c-45d0-92f8-31e0b8e38317"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+scaling to 1
+[2022-03-27T08:47:54]==============================[SCALING RUN 3: ENABLE SCALING - SLEEP]==============================
+{
+    "Alarms": [
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmHigh-3e8fbdaf-a961-4732-8010-21a1b74be41e", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmHigh-3e8fbdaf-a961-4732-8010-21a1b74be41e"
+        }, 
+        {
+            "AlarmName": "TargetTracking-asg-1-myASG-AlarmLow-2b217055-68a7-4c5c-880e-fe723fd119bf", 
+            "AlarmARN": "arn:aws:cloudwatch:us-east-1:891827943132:alarm:TargetTracking-asg-1-myASG-AlarmLow-2b217055-68a7-4c5c-880e-fe723fd119bf"
+        }
+    ], 
+    "PolicyARN": "arn:aws:autoscaling:us-east-1:891827943132:scalingPolicy:eb4d0d27-9fe9-4854-b4f1-56d5ba6deec4:autoScalingGroupName/asg-1-myASG:policyName/asg-1-AppServerSP-12T3DMAN69RT3"
+}
+[2022-03-27T08:50:55]==============================[SCALING RUN 3: FORTIO]==============================
+[2022-03-27T08:50:55]==============================[STATS]
+jh CPU load avg:
+0.08 0.84 1.05 1/165 1328
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:50:56]==============================[SCALING RUN 3: CHUNK 1]==============================
+08:50:56 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1240114 avg 0.0033865315 +/- 0.002182 min 0.000523324 max 0.215587042 sum 4199.68518
+# target 50% 0.00529963
+# target 75% 0.00768779
+# target 90% 0.00912069
+# target 99% 0.00998043
+# target 99.9% 0.0240806
+Sockets used: 12328 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1240114 (100.0 %)
+All done 1240114 calls (plus 70 warmup) 3.387 ms avg, 20667.3 qps
+Successfully wrote 3434 bytes of Json data to 2022-03-27-085101_asg_apache_3_scaling_3_1.json
+fortio exit code: 0
+[2022-03-27T08:52:01]==============================[STATS]
+jh CPU load avg:
+0.22 0.72 0.99 1/165 1347
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:52:02]==============================[SCALING RUN 3: CHUNK 2]==============================
+08:52:02 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1241656 avg 0.0033823532 +/- 0.001324 min 0.000537547 max 0.218038094 sum 4199.71919
+# target 50% 0.00527435
+# target 75% 0.00764276
+# target 90% 0.00906381
+# target 99% 0.00991643
+# target 99.9% 0.0115376
+Sockets used: 12321 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1241656 (100.0 %)
+All done 1241656 calls (plus 70 warmup) 3.382 ms avg, 20693.0 qps
+Successfully wrote 2484 bytes of Json data to 2022-03-27-085202_asg_apache_3_scaling_3_2.json
+fortio exit code: 0
+[2022-03-27T08:53:02]==============================[STATS]
+jh CPU load avg:
+0.60 0.73 0.98 1/165 1364
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:53:02]==============================[SCALING RUN 3: CHUNK 3]==============================
+08:53:02 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1230399 avg 0.0034132954 +/- 0.001252 min 0.000533272 max 0.022846272 sum 4199.71522
+# target 50% 0.00526914
+# target 75% 0.00763708
+# target 90% 0.00905784
+# target 99% 0.0099103
+# target 99.9% 0.00999555
+Sockets used: 12205 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1230399 (100.0 %)
+All done 1230399 calls (plus 70 warmup) 3.413 ms avg, 20505.3 qps
+Successfully wrote 2366 bytes of Json data to 2022-03-27-085303_asg_apache_3_scaling_3_3.json
+fortio exit code: 0
+[2022-03-27T08:54:03]==============================[STATS]
+jh CPU load avg:
+0.68 0.73 0.96 1/165 1429
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:54:03]==============================[SCALING RUN 3: CHUNK 4]==============================
+08:54:03 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1248011 avg 0.003365136 +/- 0.001333 min 0.000531591 max 0.208136939 sum 4199.72673
+# target 50% 0.00527075
+# target 75% 0.00764033
+# target 90% 0.00906208
+# target 99% 0.00991513
+# target 99.9% 0.0104641
+Sockets used: 12388 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1248011 (100.0 %)
+All done 1248011 calls (plus 70 warmup) 3.365 ms avg, 20798.9 qps
+Successfully wrote 2957 bytes of Json data to 2022-03-27-085403_asg_apache_3_scaling_3_4.json
+fortio exit code: 0
+[2022-03-27T08:55:03]==============================[STATS]
+jh CPU load avg:
+0.70 0.72 0.95 1/165 1446
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:55:04]==============================[SCALING RUN 3: CHUNK 5]==============================
+08:55:04 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 1243194 avg 0.0033781661 +/- 0.001568 min 0.000545829 max 1.024816191 sum 4199.71587
+# target 50% 0.00527571
+# target 75% 0.00764066
+# target 90% 0.00905963
+# target 99% 0.00991101
+# target 99.9% 0.00999615
+Sockets used: 12340 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1243194 (100.0 %)
+All done 1243194 calls (plus 70 warmup) 3.378 ms avg, 20718.8 qps
+Successfully wrote 2718 bytes of Json data to 2022-03-27-085504_asg_apache_3_scaling_3_5.json
+fortio exit code: 0
+[2022-03-27T08:56:04]==============================[STATS]
+jh CPU load avg:
+0.63 0.70 0.92 1/164 1463
+i-01e0517b030b26b44
+Pending
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:56:05]==============================[SCALING RUN 3: CHUNK 6]==============================
+08:56:05 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+08:56:17 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+Aggregated Function Time : count 2098908 avg 0.0020007429 +/- 0.005097 min 0.000521248 max 0.820688935 sum 4199.37522
+# target 50% 0.00527395
+# target 75% 0.0076503
+# target 90% 0.00907611
+# target 99% 0.0099316
+# target 99.9% 0.0188072
+Sockets used: 20834 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 13 (0.0 %)
+Code 200 : 2098895 (100.0 %)
+All done 2098908 calls (plus 70 warmup) 2.001 ms avg, 34980.8 qps
+Successfully wrote 5377 bytes of Json data to 2022-03-27-085605_asg_apache_3_scaling_3_6.json
+fortio exit code: 0
+[2022-03-27T08:57:05]==============================[STATS]
+jh CPU load avg:
+1.10 0.82 0.95 1/164 1482
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:57:05]==============================[SCALING RUN 3: CHUNK 7]==============================
+08:57:05 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2694584 avg 0.0015583782 +/- 0.0008646 min 0.000523354 max 0.208355607 sum 4199.18097
+# target 50% 0.00526452
+# target 75% 0.0076351
+# target 90% 0.00905745
+# target 99% 0.00991086
+# target 99.9% 0.0099962
+Sockets used: 26705 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2694584 (100.0 %)
+All done 2694584 calls (plus 70 warmup) 1.558 ms avg, 44908.5 qps
+Successfully wrote 2606 bytes of Json data to 2022-03-27-085706_asg_apache_3_scaling_3_7.json
+fortio exit code: 0
+[2022-03-27T08:58:06]==============================[STATS]
+jh CPU load avg:
+1.28 0.92 0.97 1/164 1499
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:58:06]==============================[SCALING RUN 3: CHUNK 8]==============================
+08:58:06 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2703376 avg 0.0015532896 +/- 0.0007646 min 0.000524658 max 0.212001454 sum 4199.12588
+# target 50% 0.00526346
+# target 75% 0.00763286
+# target 90% 0.0090545
+# target 99% 0.00990748
+# target 99.9% 0.00999278
+Sockets used: 26804 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2703376 (100.0 %)
+All done 2703376 calls (plus 70 warmup) 1.553 ms avg, 45055.1 qps
+Successfully wrote 2603 bytes of Json data to 2022-03-27-085806_asg_apache_3_scaling_3_8.json
+fortio exit code: 0
+[2022-03-27T08:59:06]==============================[STATS]
+jh CPU load avg:
+1.39 1.02 1.01 1/164 1516
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T08:59:07]==============================[SCALING RUN 3: CHUNK 9]==============================
+08:59:07 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2691160 avg 0.0015603352 +/- 0.0007231 min 0.000530548 max 0.209009162 sum 4199.11169
+# target 50% 0.0052661
+# target 75% 0.00763387
+# target 90% 0.00905454
+# target 99% 0.00990694
+# target 99.9% 0.00999218
+Sockets used: 26673 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2691160 (100.0 %)
+All done 2691160 calls (plus 70 warmup) 1.560 ms avg, 44851.5 qps
+Successfully wrote 2721 bytes of Json data to 2022-03-27-085907_asg_apache_3_scaling_3_9.json
+fortio exit code: 0
+[2022-03-27T09:00:07]==============================[STATS]
+jh CPU load avg:
+1.41 1.09 1.03 1/166 1540
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T09:00:07]==============================[SCALING RUN 3: CHUNK 10]==============================
+09:00:07 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2696028 avg 0.0015575613 +/- 0.0007019 min 0.000532345 max 0.208209667 sum 4199.22896
+# target 50% 0.00526666
+# target 75% 0.00763382
+# target 90% 0.00905411
+# target 99% 0.00990629
+# target 99.9% 0.0099915
+Sockets used: 26725 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2696028 (100.0 %)
+All done 2696028 calls (plus 70 warmup) 1.558 ms avg, 44932.6 qps
+Successfully wrote 2483 bytes of Json data to 2022-03-27-090008_asg_apache_3_scaling_3_10.json
+fortio exit code: 0
+[2022-03-27T09:01:08]==============================[STATS]
+jh CPU load avg:
+1.52 1.19 1.07 1/166 1569
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T09:01:08]==============================[SCALING RUN 3: CHUNK 11]==============================
+09:01:08 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 2694120 avg 0.001558657 +/- 0.0007183 min 0.000534555 max 0.208958404 sum 4199.20895
+# target 50% 0.00526797
+# target 75% 0.00763467
+# target 90% 0.0090547
+# target 99% 0.00990671
+# target 99.9% 0.00999191
+Sockets used: 26713 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 2694120 (100.0 %)
+All done 2694120 calls (plus 70 warmup) 1.559 ms avg, 44900.8 qps
+Successfully wrote 2490 bytes of Json data to 2022-03-27-090108_asg_apache_3_scaling_3_11.json
+fortio exit code: 0
+[2022-03-27T09:02:08]==============================[STATS]
+jh CPU load avg:
+1.28 1.18 1.08 1/165 1587
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-058138f96c87d1dfb
+Pending
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T09:02:09]==============================[SCALING RUN 3: CHUNK 12]==============================
+09:02:09 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+09:02:20 E http_client.go:671> Unable to connect to 3.211.238.139:80 : dial tcp 3.211.238.139:80: connect: connection refused
+Aggregated Function Time : count 3239534 avg 0.0012961813 +/- 0.0034 min 0.000531472 max 1.022371505 sum 4199.0233
+# target 50% 0.00526632
+# target 75% 0.00763374
+# target 90% 0.00905419
+# target 99% 0.00990647
+# target 99.9% 0.00999169
+Sockets used: 32109 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 1 (0.0 %)
+Code 200 : 3239533 (100.0 %)
+All done 3239534 calls (plus 70 warmup) 1.296 ms avg, 53991.0 qps
+Successfully wrote 5243 bytes of Json data to 2022-03-27-090209_asg_apache_3_scaling_3_12.json
+fortio exit code: 0
+[2022-03-27T09:03:09]==============================[STATS]
+jh CPU load avg:
+1.37 1.21 1.09 1/166 1605
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-058138f96c87d1dfb
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T09:03:10]==============================[SCALING RUN 3: CHUNK 13]==============================
+09:03:10 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3629391 avg 0.00115692 +/- 0.0007526 min 0.000530107 max 0.210860405 sum 4198.91502
+# target 50% 0.00526575
+# target 75% 0.00763357
+# target 90% 0.00905427
+# target 99% 0.00990668
+# target 99.9% 0.00999192
+Sockets used: 35967 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3629391 (100.0 %)
+All done 3629391 calls (plus 70 warmup) 1.157 ms avg, 60488.1 qps
+Successfully wrote 3775 bytes of Json data to 2022-03-27-090310_asg_apache_3_scaling_3_13.json
+fortio exit code: 0
+[2022-03-27T09:04:10]==============================[STATS]
+jh CPU load avg:
+1.41 1.26 1.12 1/166 1622
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-058138f96c87d1dfb
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T09:04:10]==============================[SCALING RUN 3: CHUNK 14]==============================
+09:04:10 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://asg-1-lb-32369747.us-east-1.elb.amazonaws.com:80/test.html
+Aggregated Function Time : count 3662211 avg 0.0011465446 +/- 0.0006501 min 0.000533642 max 0.211975356 sum 4198.8881
+# target 50% 0.00526688
+# target 75% 0.0076335
+# target 90% 0.00905347
+# target 99% 0.00990545
+# target 99.9% 0.00999065
+Sockets used: 36290 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3662211 (100.0 %)
+All done 3662211 calls (plus 70 warmup) 1.147 ms avg, 61035.4 qps
+Successfully wrote 2369 bytes of Json data to 2022-03-27-090411_asg_apache_3_scaling_3_14.json
+fortio exit code: 0
+[2022-03-27T09:05:11]==============================[STATS]
+jh CPU load avg:
+1.36 1.27 1.13 1/166 1640
+i-01e0517b030b26b44
+InService
+Healthy
+{}
+i-058138f96c87d1dfb
+InService
+Healthy
+{}
+i-0be884b01e0b507d2
+InService
+Healthy
+{}
+[2022-03-27T09:09:12]==============================[GET DATA]==============================
+2022-03-27T07:07:50..2022-03-27T09:09:12
+asg-1-myASG
+asg-1-lb
+44K alb_data.json
+28K asg_data.json
+[2022-03-27T09:09:13]==============================[UPLOAD 27_07-06_asg_apache_3_0c47 "}]}']==============================
+Warning: Permanently added '34.125.40.213' (ECDSA) to the list of known hosts.

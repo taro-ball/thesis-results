@@ -1,0 +1,2469 @@
++ git log -3
+commit 4f5e91da070ba90085abcd8fb9130c33f1543747
+Author: Your Name <you@example.com>
+Date:   Fri May 20 17:33:46 2022 +1200
+
+    read spec from log, fix replicas and scaling min
+
+commit e4b5c5e448b0e79d0261391cdf0c4d7076780e34
+Author: Your Name <you@example.com>
+Date:   Fri May 20 12:07:14 2022 +1200
+
+    fix max pods
+
+commit 8cf51d4ea2623b59314db245bac5f20029339d9a
+Author: Your Name <you@example.com>
+Date:   Fri May 20 12:06:56 2022 +1200
+
+    customizable menu
+++ cut -d _ -f 2
++ app=taewa2
++ export AWS_DEFAULT_REGION=us-east-1
++ AWS_DEFAULT_REGION=us-east-1
++ line===============================
+++ date +%FT%T
++ echo '[2022-05-21T10:14:29]==============================[starting' in '/tmp/k8s-vs-ASG/data/cli]=============================='
+[2022-05-21T10:14:29]==============================[starting in /tmp/k8s-vs-ASG/data/cli]==============================
++ source 0.setup.sh
+++ set -x
+++ '[' k8s_taewa2_3 == k8s_apache_3 ']'
+++ '[' k8s_taewa2_3 == asg_apache_3 ']'
+++ '[' k8s_taewa2_3 == k8s_apache2_3 ']'
+++ '[' k8s_taewa2_3 == k8s_taewa_3 ']'
+++ '[' k8s_taewa2_3 == k8s_taewa2_3 ']'
+++ warmup_url='3000/?n=20000'
+++ testing_url='3000/?n=20000'
+++ hpa_perc=70
+++ warmup_min_threads=15
+++ warmup_max_threads=25
+++ warmup_cycle_sec=90
+++ scaling_minutes=14
+++ performance_sec=300
+++ cluster_name=C888
+++ max_pods=3
+++ max_nodes=3
+++ fortio_options='-a -qps -1 -r 0.01 -loglevel Error -allow-initial-errors'
+++ '[' k8s_taewa2_3 == asg_taewa_3 ']'
+++ '[' k8s_taewa2_3 == k8s_taewa_3lite ']'
+++ '[' k8s_taewa2_3 == asg_taewa_3lite ']'
+++ '[' k8s_taewa2_3 == k8s_taewa_3extra ']'
+++ '[' k8s_taewa2_3 == asg_taewa_3extra ']'
+++ '[' k8s_taewa2_3 == k8s_taewa_6 ']'
+++ '[' k8s_taewa2_3 == asg_taewa_6 ']'
+++ '[' k8s_taewa2_3 == k8s_riwai_3 ']'
+++ '[' k8s_taewa2_3 == asg_riwai_3 ']'
+++ '[' k8s_taewa2_3 == asg_raupi_3 ']'
+++ '[' k8s_taewa2_3 == asg_raupi_3_70 ']'
+++ '[' k8s_taewa2_3 == k8s_raupi_3 ']'
+++ set +x
+{
+    "Account": "613576734250", 
+    "UserId": "AIDAY5XAF6YVCUA42CFKQ", 
+    "Arn": "arn:aws:iam::613576734250:user/ad"
+}
+[2022-05-21T10:14:34] waiting for instances ...
+[2022-05-21T10:15:35] waiting for instances ...
+[2022-05-21T10:16:35] waiting for instances ...
+[2022-05-21T10:17:36] waiting for instances ...
+[2022-05-21T10:18:37] waiting for instances ...
+[2022-05-21T10:19:37] waiting for instances ...
+[2022-05-21T10:20:38] waiting for instances ...
+[2022-05-21T10:21:39] waiting for instances ...
+[2022-05-21T10:22:39] waiting for instances ...
+[2022-05-21T10:23:40] waiting for instances ...
+[2022-05-21T10:24:41] waiting for instances ...
+{
+    "LaunchTemplateVersion": {
+        "VersionDescription": "EnableAdvMonitoring", 
+        "LaunchTemplateId": "lt-0876676d6d2022a59", 
+        "LaunchTemplateName": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+        "VersionNumber": 2, 
+        "CreatedBy": "arn:aws:iam::613576734250:user/ad", 
+        "LaunchTemplateData": {
+            "UserData": "TUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L3gtc2hlbGxzY3JpcHQ7IGNoYXJzZXQ9InVzLWFzY2lpIgojIS9iaW4vYmFzaApzZXQgLWV4CkI2NF9DTFVTVEVSX0NBPUxTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVU0xZWtORFFXTXJaMEYzU1VKQlowbENRVVJCVGtKbmEzRm9hMmxIT1hjd1FrRlJjMFpCUkVGV1RWSk5kMFZSV1VSV1VWRkVSWGR3Y21SWFNtd0tZMjAxYkdSSFZucE5RalJZUkZSSmVVMUVWWGxOVkVWM1RWUmpkMDVHYjFoRVZFMTVUVVJWZUU5RVJYZE5WR04zVGtadmQwWlVSVlJOUWtWSFFURlZSUXBCZUUxTFlUTldhVnBZU25WYVdGSnNZM3BEUTBGVFNYZEVVVmxLUzI5YVNXaDJZMDVCVVVWQ1FsRkJSR2RuUlZCQlJFTkRRVkZ2UTJkblJVSkJURzU1Q25keFJWY3ZjbTh3YldkRGFtMXNUblpZZUV0TFEwVXdUVkJLVW5Cd2RXb3pVMjVET1dZeFpGUnVaVFp5TTI5cVRrNUZUQzk0WTA1RVV6VXlSVVZFYm5FS1dsRmFWakJKVFhWWFNrZFliVTl3WjJvdlpXRjRjemRaVTFob09YVk9WVXBhTUVOVVlVWnhZV1pCYnpjeFRWcGhjWFJ6UWxwU0syZG5NMDVTV1hweWVRcGtNV1lyZEhRemRFdFhWM3A1Y1VOMFdIUldkVWczU1RRdmVUVTBUR0ZsSzNoa1dWbFJkUzlCYm1sV1dFVktjRFJJZERabVZqTlVlbEJ1YW13MGFEbG5DbXhwWTJkaGRWZ3dia28yVW10bWFYQkVha05oT1RoeFRHOVBWRnB5UlVWbUwzZzRNM2g2T1RGSFFYUm5LMHAzTW5SS1JYRTRVM292Tm1KT01HSkJVemtLSzJoME5qRnZWWEZoZG1aUWQyaHBkRWhMYVcxUVdWcElUMWhxTkcxbFRqQnJVVE50U0VocWVWTkdSbXAzZEhNdlNqQkxkRWhrYkV4Vk0yaDFlVWc1UndwQmJtRTJUV1ppUmtaWFVucElVR3h0Ym1walEwRjNSVUZCWVU1RFRVVkJkMFJuV1VSV1VqQlFRVkZJTDBKQlVVUkJaMHRyVFVFNFIwRXhWV1JGZDBWQ0NpOTNVVVpOUVUxQ1FXWTRkMGhSV1VSV1VqQlBRa0paUlVaRlRWVkxVR2t3WVRCTFNFTlJTVVZ6UlRacGFrRXhWSHBvYVZsTlFUQkhRMU54UjFOSllqTUtSRkZGUWtOM1ZVRkJORWxDUVZGQ09XdHRabk5yWVhCdlJFTnZUVTkzVTJsV1RDdHRObTlZUVhKRVYyOUxWMHRSY2t0TGNsUlFZM3BXYkVKQmRqaEtaQW94WTNSaVQwRklWV3RXU3psamNuaEhjM3BqZURjMVVuUnNSRXRpVkVkdVZURjRRbTg0TlVsaWEyWkJWMUEwYVdwbWIwYzVORzVpVlVWa01XUXlabFpzQ21KQ01rSlBTbFZSY0ZvM1NWbGFhblE1V1VKdE5FdHhXWFpTUjBGRVNuWTVMekkyVmtZd1VVaERTbTEzVUVWYVkxWjNjWHAyVFRGU05XRkliRWRDUmxBS2NuVmxPVmRzU2tKd2VXZzJibmxUVDJGSk4wZHRia3hHU20xNVRIQmpSa1oyU21seFdUQlNjRkJGWlVZME9HUllOakVyZW1OTFQwbFJkMnBFZERKV2F3bzViMUJCUWtvemJXTm1VMU0zVUN0VlJFeFdlbWxWUWpGaE1WaGpaMEZIVlZoRFlWTTBUekZ2Um0wclNsSmpWbGRTU1hkWlZFSm9Va2RMT0c5SVpHMVlDalI0T0U1dlJIQmxiR3hRUTFoQ1EzVnBTMElyYUhkdFVGbFJSWG94TTI5YVlsUkxRZ290TFMwdExVVk9SQ0JEUlZKVVNVWkpRMEZVUlMwdExTMHRDZz09CkFQSV9TRVJWRVJfVVJMPWh0dHBzOi8vNTFCRjQyQzFFQzcwOEI4QzY5QkIyN0E5RDU4RkU0MTcuc2sxLnVzLWVhc3QtMS5la3MuYW1hem9uYXdzLmNvbQpLOFNfQ0xVU1RFUl9ETlNfSVA9MTAuMTAwLjAuMTAKL2V0Yy9la3MvYm9vdHN0cmFwLnNoIEM4ODggLS1rdWJlbGV0LWV4dHJhLWFyZ3MgJy0tbm9kZS1sYWJlbHM9ZWtzLmFtYXpvbmF3cy5jb20vc291cmNlTGF1bmNoVGVtcGxhdGVWZXJzaW9uPTEsYWxwaGEuZWtzY3RsLmlvL25vZGVncm91cC1uYW1lPXN0YW5kYXJkLXdvcmtlcnMsYWxwaGEuZWtzY3RsLmlvL2NsdXN0ZXItbmFtZT1DODg4LGVrcy5hbWF6b25hd3MuY29tL25vZGVncm91cC1pbWFnZT1hbWktMGZiNjA0ZWZjZDZhYWYzZDUsZWtzLmFtYXpvbmF3cy5jb20vY2FwYWNpdHlUeXBlPU9OX0RFTUFORCxla3MuYW1hem9uYXdzLmNvbS9ub2RlZ3JvdXA9c3RhbmRhcmQtd29ya2Vycyxla3MuYW1hem9uYXdzLmNvbS9zb3VyY2VMYXVuY2hUZW1wbGF0ZUlkPWx0LTA3Y2M5MTk0NmFiYzI2ZmYxIC0tbWF4LXBvZHM9MTcnIC0tYjY0LWNsdXN0ZXItY2EgJEI2NF9DTFVTVEVSX0NBIC0tYXBpc2VydmVyLWVuZHBvaW50ICRBUElfU0VSVkVSX1VSTCAtLWRucy1jbHVzdGVyLWlwICRLOFNfQ0xVU1RFUl9ETlNfSVAgLS11c2UtbWF4LXBvZHMgZmFsc2UKCi0tLy8tLQ==", 
+            "Monitoring": {
+                "Enabled": true
+            }, 
+            "TagSpecifications": [
+                {
+                    "ResourceType": "volume", 
+                    "Tags": [
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "alpha.eksctl.io/nodegroup-name"
+                        }, 
+                        {
+                            "Value": "C888-standard-workers-Node", 
+                            "Key": "Name"
+                        }, 
+                        {
+                            "Value": "managed", 
+                            "Key": "alpha.eksctl.io/nodegroup-type"
+                        }, 
+                        {
+                            "Value": "C888", 
+                            "Key": "eks:cluster-name"
+                        }, 
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "eks:nodegroup-name"
+                        }
+                    ]
+                }, 
+                {
+                    "ResourceType": "instance", 
+                    "Tags": [
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "alpha.eksctl.io/nodegroup-name"
+                        }, 
+                        {
+                            "Value": "C888-standard-workers-Node", 
+                            "Key": "Name"
+                        }, 
+                        {
+                            "Value": "managed", 
+                            "Key": "alpha.eksctl.io/nodegroup-type"
+                        }, 
+                        {
+                            "Value": "C888", 
+                            "Key": "eks:cluster-name"
+                        }, 
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "eks:nodegroup-name"
+                        }
+                    ]
+                }
+            ], 
+            "ImageId": "ami-0fb604efcd6aaf3d5", 
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/xvda", 
+                    "Ebs": {
+                        "Iops": 3000, 
+                        "VolumeType": "gp3", 
+                        "VolumeSize": 25
+                    }
+                }
+            ], 
+            "SecurityGroupIds": [
+                "sg-097c2c2c950804112"
+            ], 
+            "MetadataOptions": {
+                "HttpTokens": "optional", 
+                "HttpPutResponseHopLimit": 2
+            }, 
+            "IamInstanceProfile": {
+                "Name": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6"
+            }
+        }, 
+        "DefaultVersion": false, 
+        "CreateTime": "2022-05-21T10:25:44.000Z"
+    }
+}
+{
+    "LaunchTemplate": {
+        "LatestVersionNumber": 2, 
+        "LaunchTemplateId": "lt-0876676d6d2022a59", 
+        "LaunchTemplateName": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+        "DefaultVersionNumber": 2, 
+        "CreatedBy": "arn:aws:sts::613576734250:assumed-role/AWSServiceRoleForAmazonEKSNodegroup/EKS", 
+        "CreateTime": "1970-01-01T00:00:00.000Z"
+    }
+}
+Added new context arn:aws:eks:us-east-1:613576734250:cluster/C888 to /root/.kube/config
+NAME         TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)          AGE
+kubernetes   ClusterIP      10.100.0.1       <none>                                                                    443/TCP          11m
+taewa2-svc   LoadBalancer   10.100.161.194   ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com   3000:30698/TCP   109s
+2022-05-21 10:28:48 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-05-21 10:28:49 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 10:29:04 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 10:29:20 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 10:29:39 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 10:29:40 [ℹ]  nodegroup successfully scaled
+horizontalpodautoscaler.autoscaling/taewa2-deployment autoscaled
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    44    0    44    0     0   1789      0 --:--:-- --:--:-- --:--:--  2315
+The result of this run is :  4971.4867999429
+[2022-05-21T10:30:40]==============================[STATS]
+jh CPU load avg:
+0.06 0.04 0.03 1/166 3083
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         1          61s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/1     1            1           3m43s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    277m         14%    449Mi           13%       
+ip-192-168-3-70.ec2.internal     316m         16%    453Mi           13%       
+ip-192-168-36-250.ec2.internal   57m          2%     593Mi           17%       
+[2022-05-21T10:30:44]==============================[WARMUP RUN c15]==============================
+10:30:44 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 173631 avg 0.0077750388 +/- 0.002918 min 0.001389441 max 0.042840871 sum 1349.98777
+# target 50% 0.00720736
+# target 75% 0.0103871
+# target 90% 0.0161932
+# target 99% 0.0196769
+# target 99.9% 0.0241834
+Sockets used: 15 (for perfect keepalive, would be 15)
+Jitter: false
+Code 200 : 173631 (100.0 %)
+All done 173631 calls (plus 15 warmup) 7.775 ms avg, 1929.1 qps
+Successfully wrote 2354 bytes of Json data to 2022-05-21-103044_k8s_taewa2_3_warmup_15.json
+fortio exit code: 0
+[2022-05-21T10:32:14]==============================[STATS]
+jh CPU load avg:
+0.13 0.07 0.04 1/166 3177
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   45%/70%   1         3         2          2m34s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/2     2            2           5m16s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    40m          2%     455Mi           13%       
+ip-192-168-3-70.ec2.internal     43m          2%     491Mi           14%       
+ip-192-168-36-250.ec2.internal   1068m        55%    640Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:33:17]==============================[STATS]
+jh CPU load avg:
+0.07 0.06 0.04 1/166 3240
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         2          3m38s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/2     2            2           6m19s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    38m          1%     454Mi           13%       
+ip-192-168-3-70.ec2.internal     45m          2%     492Mi           14%       
+ip-192-168-36-250.ec2.internal   59m          3%     640Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:33:20]==============================[WARMUP RUN c16]==============================
+10:33:20 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 346089 avg 0.0041605695 +/- 0.001917 min 0.001265585 max 0.041424896 sum 1439.92735
+# target 50% 0.00566784
+# target 75% 0.00786897
+# target 90% 0.00918966
+# target 99% 0.00998207
+# target 99.9% 0.0189488
+Sockets used: 16 (for perfect keepalive, would be 16)
+Jitter: false
+Code 200 : 346089 (100.0 %)
+All done 346089 calls (plus 16 warmup) 4.161 ms avg, 3845.2 qps
+Successfully wrote 2351 bytes of Json data to 2022-05-21-103320_k8s_taewa2_3_warmup_16.json
+fortio exit code: 0
+[2022-05-21T10:34:50]==============================[STATS]
+jh CPU load avg:
+0.16 0.10 0.05 1/166 3313
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   60%/70%   1         3         3          5m11s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           7m52s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    42m          2%     490Mi           14%       
+ip-192-168-3-70.ec2.internal     1044m        54%    539Mi           16%       
+ip-192-168-36-250.ec2.internal   1051m        54%    641Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:35:53]==============================[STATS]
+jh CPU load avg:
+0.09 0.09 0.05 1/165 3377
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          6m14s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           8m55s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    39m          2%     493Mi           14%       
+ip-192-168-3-70.ec2.internal     42m          2%     540Mi           16%       
+ip-192-168-36-250.ec2.internal   57m          2%     640Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:35:57]==============================[WARMUP RUN c17]==============================
+10:35:57 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 490223 avg 0.0031208051 +/- 0.001575 min 0.001166414 max 0.039342439 sum 1529.89042
+# target 50% 0.00559354
+# target 75% 0.00780711
+# target 90% 0.00913525
+# target 99% 0.00993214
+# target 99.9% 0.015931
+Sockets used: 17 (for perfect keepalive, would be 17)
+Jitter: false
+Code 200 : 490223 (100.0 %)
+All done 490223 calls (plus 17 warmup) 3.121 ms avg, 5446.7 qps
+Successfully wrote 2232 bytes of Json data to 2022-05-21-103557_k8s_taewa2_3_warmup_17.json
+fortio exit code: 0
+[2022-05-21T10:37:27]==============================[STATS]
+jh CPU load avg:
+0.21 0.13 0.07 1/165 3474
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   85%/70%   1         3         3          7m47s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           10m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    902m         46%    534Mi           16%       
+ip-192-168-3-70.ec2.internal     1045m        54%    541Mi           16%       
+ip-192-168-36-250.ec2.internal   1054m        54%    643Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:38:30]==============================[STATS]
+jh CPU load avg:
+0.08 0.11 0.06 1/165 3537
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          8m50s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           11m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    44m          2%     535Mi           16%       
+ip-192-168-3-70.ec2.internal     42m          2%     542Mi           16%       
+ip-192-168-36-250.ec2.internal   59m          3%     641Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:38:33]==============================[WARMUP RUN c18]==============================
+10:38:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 481958 avg 0.0033611056 +/- 0.001802 min 0.001197902 max 0.036769379 sum 1619.91175
+# target 50% 0.00562139
+# target 75% 0.00783315
+# target 90% 0.0091602
+# target 99% 0.00995643
+# target 99.9% 0.0185654
+Sockets used: 18 (for perfect keepalive, would be 18)
+Jitter: false
+Code 200 : 481958 (100.0 %)
+All done 481958 calls (plus 18 warmup) 3.361 ms avg, 5354.8 qps
+Successfully wrote 2231 bytes of Json data to 2022-05-21-103833_k8s_taewa2_3_warmup_18.json
+fortio exit code: 0
+[2022-05-21T10:40:03]==============================[STATS]
+jh CPU load avg:
+0.20 0.13 0.08 1/167 3690
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   86%/70%   1         3         3          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           13m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1049m        54%    540Mi           16%       
+ip-192-168-3-70.ec2.internal     1049m        54%    543Mi           16%       
+ip-192-168-36-250.ec2.internal   929m         48%    638Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:41:06]==============================[STATS]
+jh CPU load avg:
+0.09 0.12 0.08 1/167 3754
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           14m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    41m          2%     542Mi           16%       
+ip-192-168-3-70.ec2.internal     43m          2%     542Mi           16%       
+ip-192-168-36-250.ec2.internal   58m          3%     654Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:41:09]==============================[WARMUP RUN c19]==============================
+10:41:09 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 512411 avg 0.0033369474 +/- 0.001396 min 0.001263675 max 0.215237211 sum 1709.88858
+# target 50% 0.00564159
+# target 75% 0.00783055
+# target 90% 0.00914393
+# target 99% 0.00993196
+# target 99.9% 0.0160479
+Sockets used: 19 (for perfect keepalive, would be 19)
+Jitter: false
+Code 200 : 512411 (100.0 %)
+All done 512411 calls (plus 19 warmup) 3.337 ms avg, 5693.2 qps
+Successfully wrote 2467 bytes of Json data to 2022-05-21-104109_k8s_taewa2_3_warmup_19.json
+fortio exit code: 0
+[2022-05-21T10:42:39]==============================[STATS]
+jh CPU load avg:
+0.11 0.12 0.08 1/167 3825
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   88%/70%   1         3         3          13m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           15m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1039m        53%    543Mi           16%       
+ip-192-168-3-70.ec2.internal     1049m        54%    543Mi           16%       
+ip-192-168-36-250.ec2.internal   1066m        55%    658Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:43:42]==============================[STATS]
+jh CPU load avg:
+0.11 0.13 0.09 1/167 3888
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           16m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    41m          2%     543Mi           16%       
+ip-192-168-3-70.ec2.internal     42m          2%     544Mi           16%       
+ip-192-168-36-250.ec2.internal   61m          3%     659Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:43:46]==============================[WARMUP RUN c20]==============================
+10:43:46 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 492685 avg 0.0036532442 +/- 0.001934 min 0.00118268 max 0.210869833 sum 1799.89862
+# target 50% 0.00561254
+# target 75% 0.00782748
+# target 90% 0.00915645
+# target 99% 0.00995382
+# target 99.9% 0.01965
+Sockets used: 20 (for perfect keepalive, would be 20)
+Jitter: false
+Code 200 : 492685 (100.0 %)
+All done 492685 calls (plus 20 warmup) 3.653 ms avg, 5474.0 qps
+Successfully wrote 3178 bytes of Json data to 2022-05-21-104346_k8s_taewa2_3_warmup_20.json
+fortio exit code: 0
+[2022-05-21T10:45:16]==============================[STATS]
+jh CPU load avg:
+0.08 0.12 0.09 1/167 3984
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   87%/70%   1         3         3          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           18m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1029m        53%    560Mi           16%       
+ip-192-168-3-70.ec2.internal     942m         48%    559Mi           16%       
+ip-192-168-36-250.ec2.internal   1068m        55%    659Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:46:19]==============================[STATS]
+jh CPU load avg:
+0.03 0.09 0.08 1/165 4048
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          16m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           19m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    41m          2%     561Mi           16%       
+ip-192-168-3-70.ec2.internal     43m          2%     559Mi           16%       
+ip-192-168-36-250.ec2.internal   59m          3%     659Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:46:22]==============================[WARMUP RUN c21]==============================
+10:46:22 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 519438 avg 0.0036383528 +/- 0.001786 min 0.001140287 max 0.221375746 sum 1889.8987
+# target 50% 0.00558911
+# target 75% 0.00781352
+# target 90% 0.00914817
+# target 99% 0.00994896
+# target 99.9% 0.0178136
+Sockets used: 21 (for perfect keepalive, would be 21)
+Jitter: false
+Code 200 : 519438 (100.0 %)
+All done 519438 calls (plus 21 warmup) 3.638 ms avg, 5771.2 qps
+Successfully wrote 2351 bytes of Json data to 2022-05-21-104622_k8s_taewa2_3_warmup_21.json
+fortio exit code: 0
+[2022-05-21T10:47:52]==============================[STATS]
+jh CPU load avg:
+0.35 0.18 0.11 1/165 4119
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          18m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           20m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1048m        54%    562Mi           16%       
+ip-192-168-3-70.ec2.internal     1043m        54%    563Mi           16%       
+ip-192-168-36-250.ec2.internal   1063m        55%    659Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:48:55]==============================[STATS]
+jh CPU load avg:
+0.17 0.16 0.11 1/165 4183
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          19m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           21m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    38m          1%     561Mi           16%       
+ip-192-168-3-70.ec2.internal     39m          2%     563Mi           16%       
+ip-192-168-36-250.ec2.internal   54m          2%     659Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:48:58]==============================[WARMUP RUN c22]==============================
+10:48:58 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 516597 avg 0.0038325658 +/- 0.001895 min 0.001160666 max 0.040161144 sum 1979.89198
+# target 50% 0.00560873
+# target 75% 0.00783277
+# target 90% 0.00916719
+# target 99% 0.00996785
+# target 99.9% 0.0186814
+Sockets used: 22 (for perfect keepalive, would be 22)
+Jitter: false
+Code 200 : 516597 (100.0 %)
+All done 516597 calls (plus 22 warmup) 3.833 ms avg, 5739.7 qps
+Successfully wrote 2351 bytes of Json data to 2022-05-21-104858_k8s_taewa2_3_warmup_22.json
+fortio exit code: 0
+[2022-05-21T10:50:28]==============================[STATS]
+jh CPU load avg:
+0.26 0.20 0.12 1/167 4284
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   88%/70%   1         3         3          20m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           23m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1046m        54%    562Mi           16%       
+ip-192-168-3-70.ec2.internal     1031m        53%    564Mi           16%       
+ip-192-168-36-250.ec2.internal   1009m        52%    661Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:51:31]==============================[STATS]
+jh CPU load avg:
+0.11 0.17 0.12 1/167 4348
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          21m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           24m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    42m          2%     562Mi           16%       
+ip-192-168-3-70.ec2.internal     42m          2%     563Mi           16%       
+ip-192-168-36-250.ec2.internal   60m          3%     661Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:51:35]==============================[WARMUP RUN c23]==============================
+10:51:35 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 510980 avg 0.0040508546 +/- 0.002238 min 0.001258847 max 0.216600925 sum 2069.90567
+# target 50% 0.00566799
+# target 75% 0.00787258
+# target 90% 0.00919533
+# target 99% 0.00998898
+# target 99.9% 0.0190951
+Sockets used: 23 (for perfect keepalive, would be 23)
+Jitter: false
+Code 200 : 510980 (100.0 %)
+All done 510980 calls (plus 23 warmup) 4.051 ms avg, 5677.2 qps
+Successfully wrote 2469 bytes of Json data to 2022-05-21-105135_k8s_taewa2_3_warmup_23.json
+fortio exit code: 0
+[2022-05-21T10:53:05]==============================[STATS]
+jh CPU load avg:
+0.54 0.30 0.17 1/167 4420
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          23m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           26m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1020m        52%    560Mi           16%       
+ip-192-168-3-70.ec2.internal     1052m        54%    566Mi           16%       
+ip-192-168-36-250.ec2.internal   1060m        54%    662Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:54:08]==============================[STATS]
+jh CPU load avg:
+0.21 0.25 0.16 1/167 4484
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          24m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           27m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    44m          2%     564Mi           16%       
+ip-192-168-3-70.ec2.internal     44m          2%     566Mi           17%       
+ip-192-168-36-250.ec2.internal   58m          3%     661Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:54:11]==============================[WARMUP RUN c24]==============================
+10:54:11 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 518547 avg 0.0041653113 +/- 0.001858 min 0.001210622 max 0.059105082 sum 2159.90966
+# target 50% 0.00563699
+# target 75% 0.00785018
+# target 90% 0.0091781
+# target 99% 0.00997484
+# target 99.9% 0.0190313
+Sockets used: 24 (for perfect keepalive, would be 24)
+Jitter: false
+Code 200 : 518547 (100.0 %)
+All done 518547 calls (plus 24 warmup) 4.165 ms avg, 5761.3 qps
+Successfully wrote 2471 bytes of Json data to 2022-05-21-105411_k8s_taewa2_3_warmup_24.json
+fortio exit code: 0
+[2022-05-21T10:55:41]==============================[STATS]
+jh CPU load avg:
+0.18 0.25 0.17 1/165 4578
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   88%/70%   1         3         3          26m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           28m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1048m        54%    563Mi           16%       
+ip-192-168-3-70.ec2.internal     1046m        54%    566Mi           17%       
+ip-192-168-36-250.ec2.internal   1068m        55%    661Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:56:44]==============================[STATS]
+jh CPU load avg:
+0.12 0.22 0.16 1/165 4641
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          27m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           29m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    40m          2%     563Mi           16%       
+ip-192-168-3-70.ec2.internal     43m          2%     567Mi           17%       
+ip-192-168-36-250.ec2.internal   59m          3%     661Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T10:56:48]==============================[WARMUP RUN c25]==============================
+10:56:48 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m30s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 519490 avg 0.0043310137 +/- 0.002237 min 0.001224598 max 0.212660071 sum 2249.91833
+# target 50% 0.00567248
+# target 75% 0.00789643
+# target 90% 0.0092308
+# target 99% 0.0126735
+# target 99.9% 0.019485
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 519490 (100.0 %)
+All done 519490 calls (plus 25 warmup) 4.331 ms avg, 5771.7 qps
+Successfully wrote 2467 bytes of Json data to 2022-05-21-105648_k8s_taewa2_3_warmup_25.json
+fortio exit code: 0
+[2022-05-21T10:58:18]==============================[STATS]
+jh CPU load avg:
+0.22 0.24 0.18 1/165 4715
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          28m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           31m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1047m        54%    563Mi           16%       
+ip-192-168-3-70.ec2.internal     1054m        54%    566Mi           17%       
+ip-192-168-36-250.ec2.internal   1064m        55%    661Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+{
+    "LoadBalancerDescriptions": [
+        {
+            "Subnets": [
+                "subnet-02dcab848f517ebc4", 
+                "subnet-07e6d71805989e3d8"
+            ], 
+            "CanonicalHostedZoneNameID": "Z35SXDOTRQ7X7K", 
+            "CanonicalHostedZoneName": "ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com", 
+            "ListenerDescriptions": [
+                {
+                    "Listener": {
+                        "InstancePort": 30698, 
+                        "LoadBalancerPort": 3000, 
+                        "Protocol": "TCP", 
+                        "InstanceProtocol": "TCP"
+                    }, 
+                    "PolicyNames": []
+                }
+            ], 
+            "HealthCheck": {
+                "HealthyThreshold": 2, 
+                "Interval": 10, 
+                "Target": "TCP:30698", 
+                "Timeout": 5, 
+                "UnhealthyThreshold": 6
+            }, 
+            "VPCId": "vpc-0db11d3b15db2318a", 
+            "BackendServerDescriptions": [], 
+            "Instances": [
+                {
+                    "InstanceId": "i-029ae964de4f861b4"
+                }, 
+                {
+                    "InstanceId": "i-0955f943de7a42234"
+                }, 
+                {
+                    "InstanceId": "i-0249f83b0698013aa"
+                }
+            ], 
+            "DNSName": "ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com", 
+            "SecurityGroups": [
+                "sg-08ee6dd04dba2bd82"
+            ], 
+            "Policies": {
+                "LBCookieStickinessPolicies": [], 
+                "AppCookieStickinessPolicies": [], 
+                "OtherPolicies": []
+            }, 
+            "LoadBalancerName": "ae253f79e62434f77a395c4c0af86fb4", 
+            "CreatedTime": "2022-05-21T10:27:00.610Z", 
+            "AvailabilityZones": [
+                "us-east-1b", 
+                "us-east-1a"
+            ], 
+            "Scheme": "internet-facing", 
+            "SourceSecurityGroup": {
+                "OwnerAlias": "613576734250", 
+                "GroupName": "k8s-elb-ae253f79e62434f77a395c4c0af86fb4"
+            }
+        }
+    ]
+}
+{
+    "AutoScalingGroups": [
+        {
+            "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-1:613576734250:autoScalingGroup:3caea2d3-5d9f-449a-8e70-f9c1260f1739:autoScalingGroupName/eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+            "ServiceLinkedRoleARN": "arn:aws:iam::613576734250:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling", 
+            "TargetGroupARNs": [], 
+            "SuspendedProcesses": [], 
+            "DesiredCapacity": 3, 
+            "MixedInstancesPolicy": {
+                "InstancesDistribution": {
+                    "SpotAllocationStrategy": "lowest-price", 
+                    "OnDemandPercentageAboveBaseCapacity": 100, 
+                    "OnDemandAllocationStrategy": "prioritized", 
+                    "SpotInstancePools": 2, 
+                    "OnDemandBaseCapacity": 0
+                }, 
+                "LaunchTemplate": {
+                    "LaunchTemplateSpecification": {
+                        "LaunchTemplateName": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-0876676d6d2022a59"
+                    }, 
+                    "Overrides": [
+                        {
+                            "InstanceType": "t3.medium"
+                        }
+                    ]
+                }
+            }, 
+            "EnabledMetrics": [
+                {
+                    "Metric": "WarmPoolTerminatingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupMaxSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolMinSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupInServiceCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupPendingInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupStandbyCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupAndWarmPoolTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTerminatingInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupStandbyInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupInServiceInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolWarmedCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolPendingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupAndWarmPoolDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupPendingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupMinSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTerminatingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTotalInstances", 
+                    "Granularity": "1Minute"
+                }
+            ], 
+            "Tags": [
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "C888", 
+                    "Key": "eks:cluster-name"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "standard-workers", 
+                    "Key": "eks:nodegroup-name"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "owned", 
+                    "Key": "k8s.io/cluster-autoscaler/C888"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "true", 
+                    "Key": "k8s.io/cluster-autoscaler/enabled"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "owned", 
+                    "Key": "kubernetes.io/cluster/C888"
+                }
+            ], 
+            "AutoScalingGroupName": "eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+            "DefaultCooldown": 300, 
+            "MinSize": 1, 
+            "Instances": [
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1b", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-0876676d6d2022a59"
+                    }, 
+                    "InstanceId": "i-0249f83b0698013aa", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }, 
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1a", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-0876676d6d2022a59"
+                    }, 
+                    "InstanceId": "i-029ae964de4f861b4", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }, 
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1a", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "eks-c4c07312-94c9-e24a-fb5d-23a363316fb6", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-0876676d6d2022a59"
+                    }, 
+                    "InstanceId": "i-0955f943de7a42234", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }
+            ], 
+            "MaxSize": 3, 
+            "VPCZoneIdentifier": "subnet-07e6d71805989e3d8,subnet-02dcab848f517ebc4", 
+            "HealthCheckGracePeriod": 15, 
+            "TerminationPolicies": [
+                "AllocationStrategy", 
+                "OldestLaunchTemplate", 
+                "OldestInstance"
+            ], 
+            "LoadBalancerNames": [], 
+            "CreatedTime": "2022-05-21T10:24:14.823Z", 
+            "AvailabilityZones": [
+                "us-east-1a", 
+                "us-east-1b"
+            ], 
+            "HealthCheckType": "EC2", 
+            "NewInstancesProtectedFromScaleIn": false
+        }
+    ]
+}
+[2022-05-21T10:59:23]==============================[PERFORMANCE CHUNK RUN 26]==============================
+[2022-05-21T11:00:23]==============================[STATS]
+jh CPU load avg:
+0.05 0.17 0.16 1/165 4822
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          30m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           33m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    44m          2%     563Mi           16%       
+ip-192-168-3-70.ec2.internal     42m          2%     566Mi           17%       
+ip-192-168-36-250.ec2.internal   62m          3%     662Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+11:00:27 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 344461 avg 0.0043544818 +/- 0.002267 min 0.001150843 max 0.033165951 sum 1499.94915
+# target 50% 0.00563454
+# target 75% 0.00787641
+# target 90% 0.00922152
+# target 99% 0.0124507
+# target 99.9% 0.0193676
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 344461 (100.0 %)
+All done 344461 calls (plus 25 warmup) 4.354 ms avg, 5740.5 qps
+Successfully wrote 2243 bytes of Json data to 2022-05-21-110027_k8s_taewa2_3_performance_chunk_26_1.json
+fortio exit code: 0
+[2022-05-21T11:01:27]==============================[STATS]
+jh CPU load avg:
+0.13 0.17 0.16 1/172 4917
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          31m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           34m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1031m        53%    565Mi           16%       
+ip-192-168-3-70.ec2.internal     1049m        54%    568Mi           17%       
+ip-192-168-36-250.ec2.internal   1024m        53%    663Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+11:01:30 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 347311 avg 0.0043187409 +/- 0.001859 min 0.001226352 max 0.032429066 sum 1499.94623
+# target 50% 0.00565133
+# target 75% 0.00786384
+# target 90% 0.00919134
+# target 99% 0.00998784
+# target 99.9% 0.0191366
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 347311 (100.0 %)
+All done 347311 calls (plus 25 warmup) 4.319 ms avg, 5788.1 qps
+Successfully wrote 2241 bytes of Json data to 2022-05-21-110130_k8s_taewa2_3_performance_chunk_26_2.json
+fortio exit code: 0
+[2022-05-21T11:02:31]==============================[STATS]
+jh CPU load avg:
+0.13 0.17 0.16 1/165 5049
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          32m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           35m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1044m        54%    565Mi           16%       
+ip-192-168-3-70.ec2.internal     1046m        54%    569Mi           17%       
+ip-192-168-36-250.ec2.internal   1046m        54%    664Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+11:02:34 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 345464 avg 0.004341842 +/- 0.001726 min 0.001248723 max 0.056018789 sum 1499.9501
+# target 50% 0.00564748
+# target 75% 0.00784688
+# target 90% 0.00916651
+# target 99% 0.0099583
+# target 99.9% 0.0184815
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 345464 (100.0 %)
+All done 345464 calls (plus 25 warmup) 4.342 ms avg, 5757.3 qps
+Successfully wrote 2481 bytes of Json data to 2022-05-21-110234_k8s_taewa2_3_performance_chunk_26_3.json
+fortio exit code: 0
+[2022-05-21T11:03:34]==============================[STATS]
+jh CPU load avg:
+0.28 0.22 0.18 1/166 5121
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          33m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           36m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1052m        54%    564Mi           16%       
+ip-192-168-3-70.ec2.internal     1050m        54%    569Mi           17%       
+ip-192-168-36-250.ec2.internal   1067m        55%    663Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+11:03:37 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 346854 avg 0.0043244569 +/- 0.001923 min 0.001232135 max 0.037409228 sum 1499.95519
+# target 50% 0.0056511
+# target 75% 0.0078606
+# target 90% 0.0091863
+# target 99% 0.00998172
+# target 99.9% 0.0188681
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 346854 (100.0 %)
+All done 346854 calls (plus 25 warmup) 4.324 ms avg, 5780.4 qps
+Successfully wrote 2244 bytes of Json data to 2022-05-21-110337_k8s_taewa2_3_performance_chunk_26_4.json
+fortio exit code: 0
+[2022-05-21T11:04:37]==============================[STATS]
+jh CPU load avg:
+0.45 0.27 0.20 1/166 5192
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          34m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           37m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1050m        54%    565Mi           16%       
+ip-192-168-3-70.ec2.internal     1050m        54%    568Mi           17%       
+ip-192-168-36-250.ec2.internal   1070m        55%    664Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+11:04:40 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 348426 avg 0.0043049171 +/- 0.001973 min 0.001220279 max 0.216899333 sum 1499.94503
+# target 50% 0.00564364
+# target 75% 0.00785534
+# target 90% 0.00918235
+# target 99% 0.00997856
+# target 99.9% 0.0195403
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 348426 (100.0 %)
+All done 348426 calls (plus 25 warmup) 4.305 ms avg, 5806.6 qps
+Successfully wrote 2836 bytes of Json data to 2022-05-21-110440_k8s_taewa2_3_performance_chunk_26_5.json
+fortio exit code: 0
+[2022-05-21T11:06:40]==============================[STATS]
+jh CPU load avg:
+0.07 0.19 0.17 1/166 5287
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          37m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           39m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    41m          2%     564Mi           16%       
+ip-192-168-3-70.ec2.internal     41m          2%     569Mi           17%       
+ip-192-168-36-250.ec2.internal   58m          3%     664Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:06:43]==============================[PERFORMANCE RUN 1]==============================
+11:06:43 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 1650635 avg 0.0045434563 +/- 0.002601 min 0.0011252 max 0.046588805 sum 7499.58793
+# target 50% 0.00565649
+# target 75% 0.00792214
+# target 90% 0.00928153
+# target 99% 0.0152354
+# target 99.9% 0.0196303
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 1650635 (100.0 %)
+All done 1650635 calls (plus 25 warmup) 4.543 ms avg, 5502.0 qps
+Successfully wrote 2357 bytes of Json data to 2022-05-21-110644_k8s_taewa2_3_performance_1.json
+fortio exit code: 0
+[2022-05-21T11:11:44]==============================[STATS]
+jh CPU load avg:
+0.46 0.33 0.23 1/167 5463
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   85%/70%   1         3         3          42m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           44m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    906m         46%    567Mi           17%       
+ip-192-168-3-70.ec2.internal     1055m        54%    569Mi           17%       
+ip-192-168-36-250.ec2.internal   1072m        55%    664Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:12:47]==============================[STATS]
+jh CPU load avg:
+0.17 0.27 0.21 1/167 5526
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          43m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           45m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    40m          2%     567Mi           17%       
+ip-192-168-3-70.ec2.internal     42m          2%     568Mi           17%       
+ip-192-168-36-250.ec2.internal   61m          3%     665Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:12:50]==============================[PERFORMANCE RUN 2]==============================
+11:12:50 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 1732581 avg 0.0043285491 +/- 0.001854 min 0.001190556 max 0.213637298 sum 7499.56188
+# target 50% 0.00563057
+# target 75% 0.00785058
+# target 90% 0.00918259
+# target 99% 0.00998179
+# target 99.9% 0.0192462
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 1732581 (100.0 %)
+All done 1732581 calls (plus 25 warmup) 4.329 ms avg, 5775.2 qps
+Successfully wrote 2481 bytes of Json data to 2022-05-21-111250_k8s_taewa2_3_performance_2.json
+fortio exit code: 0
+[2022-05-21T11:17:50]==============================[STATS]
+jh CPU load avg:
+0.35 0.31 0.24 1/166 5697
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          48m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           50m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1050m        54%    578Mi           17%       
+ip-192-168-3-70.ec2.internal     1048m        54%    569Mi           17%       
+ip-192-168-36-250.ec2.internal   1064m        55%    667Mi           20%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:18:53]==============================[STATS]
+jh CPU load avg:
+0.15 0.26 0.23 1/166 5760
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         3          49m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           51m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    40m          2%     578Mi           17%       
+ip-192-168-3-70.ec2.internal     40m          2%     580Mi           17%       
+ip-192-168-36-250.ec2.internal   56m          2%     665Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:18:56]==============================[PERFORMANCE RUN 3]==============================
+11:18:56 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 1739776 avg 0.0043106438 +/- 0.00183 min 0.001225375 max 0.062224259 sum 7499.55456
+# target 50% 0.00564055
+# target 75% 0.00784814
+# target 90% 0.0091727
+# target 99% 0.00996743
+# target 99.9% 0.0187636
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 1739776 (100.0 %)
+All done 1739776 calls (plus 25 warmup) 4.311 ms avg, 5799.2 qps
+Successfully wrote 2601 bytes of Json data to 2022-05-21-111856_k8s_taewa2_3_performance_3.json
+fortio exit code: 0
+[2022-05-21T11:23:56]==============================[STATS]
+jh CPU load avg:
+0.33 0.37 0.28 1/167 3065
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          54m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           56m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-25-64.ec2.internal    1048m        54%    576Mi           17%       
+ip-192-168-3-70.ec2.internal     1052m        54%    579Mi           17%       
+ip-192-168-36-250.ec2.internal   1063m        55%    666Mi           20%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:23:59]==============================[SCALING RUN 1: INIT]==============================
+horizontalpodautoscaler.autoscaling "taewa2-deployment" deleted
+scaling to 1
+deployment.apps/taewa2-deployment scaled
+2022-05-21 11:24:00 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-05-21 11:24:01 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 11:24:18 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 11:24:18 [ℹ]  nodegroup successfully scaled
+[2022-05-21T11:24:18]==============================[SCALING RUN 1: ENABLE SCALING - SLEEP]==============================
+horizontalpodautoscaler.autoscaling/taewa2-deployment autoscaled
+[2022-05-21T11:27:19]==============================[SCALING RUN 1: FORTIO]==============================
+[2022-05-21T11:27:19]==============================[STATS]
+jh CPU load avg:
+0.03 0.20 0.23 1/166 3214
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         1          20s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/1     1            1           60m
+NAME                           CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-3-70.ec2.internal   77m          3%     989Mi           29%       
+MONITORING	enabled
+[2022-05-21T11:27:22]==============================[SCALING RUN 1: CHUNK 1]==============================
+11:27:22 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 118265 avg 0.012684145 +/- 0.004598 min 0.001519052 max 0.098738045 sum 1500.09038
+# target 50% 0.0151296
+# target 75% 0.0185701
+# target 90% 0.0232695
+# target 99% 0.029653
+# target 99.9% 0.0447367
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 118265 (100.0 %)
+All done 118265 calls (plus 25 warmup) 12.684 ms avg, 1970.7 qps
+Successfully wrote 2950 bytes of Json data to 2022-05-21-112722_k8s_taewa2_3_scaling_1_1.json
+fortio exit code: 0
+[2022-05-21T11:28:22]==============================[STATS]
+jh CPU load avg:
+0.25 0.23 0.23 1/166 3285
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          84s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/2     2            1           61m
+NAME                           CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-3-70.ec2.internal   1070m        55%    1037Mi          31%       
+MONITORING	enabled
+[2022-05-21T11:28:25]==============================[SCALING RUN 1: CHUNK 2]==============================
+11:28:25 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 120281 avg 0.012471529 +/- 0.004107 min 0.001589552 max 0.038528691 sum 1500.08797
+# target 50% 0.0151042
+# target 75% 0.0184735
+# target 90% 0.0227177
+# target 99% 0.0293753
+# target 99.9% 0.0330429
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 120281 (100.0 %)
+All done 120281 calls (plus 25 warmup) 12.472 ms avg, 2004.3 qps
+Successfully wrote 2236 bytes of Json data to 2022-05-21-112825_k8s_taewa2_3_scaling_1_2.json
+fortio exit code: 0
+[2022-05-21T11:29:25]==============================[STATS]
+jh CPU load avg:
+0.28 0.24 0.24 1/166 3407
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          2m27s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/2     2            1           62m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%     
+ip-192-168-3-70.ec2.internal    1068m        55%    708Mi           21%         
+ip-192-168-61-75.ec2.internal   <unknown>                           <unknown>               <unknown>               <unknown>               
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:29:29]==============================[SCALING RUN 1: CHUNK 3]==============================
+11:29:29 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 118286 avg 0.012681851 +/- 0.005061 min 0.0013602 max 0.229240417 sum 1500.08542
+# target 50% 0.0129377
+# target 75% 0.017429
+# target 90% 0.0206841
+# target 99% 0.0296263
+# target 99.9% 0.0549624
+Sockets used: 37 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 118286 (100.0 %)
+All done 118286 calls (plus 25 warmup) 12.682 ms avg, 1971.1 qps
+Successfully wrote 3054 bytes of Json data to 2022-05-21-112929_k8s_taewa2_3_scaling_1_3.json
+fortio exit code: 0
+[2022-05-21T11:30:29]==============================[STATS]
+jh CPU load avg:
+0.31 0.26 0.25 1/167 3485
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   45%/70%   1         3         2          3m31s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/2     2            2           63m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-3-70.ec2.internal    1074m        55%    708Mi           21%       
+ip-192-168-61-75.ec2.internal   43m          2%     486Mi           14%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:30:33]==============================[SCALING RUN 1: CHUNK 4]==============================
+11:30:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 186977 avg 0.0080225858 +/- 0.003992 min 0.001212817 max 0.042131007 sum 1500.03903
+# target 50% 0.00635749
+# target 75% 0.00892986
+# target 90% 0.0133573
+# target 99% 0.0199263
+# target 99.9% 0.0290767
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 186977 (100.0 %)
+All done 186977 calls (plus 25 warmup) 8.023 ms avg, 3115.7 qps
+Successfully wrote 2355 bytes of Json data to 2022-05-21-113033_k8s_taewa2_3_scaling_1_4.json
+fortio exit code: 0
+[2022-05-21T11:31:33]==============================[STATS]
+jh CPU load avg:
+0.32 0.28 0.25 1/167 3556
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          4m34s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/3     3            2           64m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-3-70.ec2.internal    1064m        55%    709Mi           21%       
+ip-192-168-61-75.ec2.internal   1049m        54%    531Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:31:36]==============================[SCALING RUN 1: CHUNK 5]==============================
+11:31:36 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 186454 avg 0.0080451673 +/- 0.005583 min 0.001217903 max 0.210679832 sum 1500.05363
+# target 50% 0.00810195
+# target 75% 0.0136297
+# target 90% 0.0184848
+# target 99% 0.028242
+# target 99.9% 0.0299596
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 186454 (100.0 %)
+All done 186454 calls (plus 25 warmup) 8.045 ms avg, 3106.9 qps
+Successfully wrote 2706 bytes of Json data to 2022-05-21-113137_k8s_taewa2_3_scaling_1_5.json
+fortio exit code: 0
+[2022-05-21T11:32:37]==============================[STATS]
+jh CPU load avg:
+0.17 0.25 0.25 1/167 3627
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          5m38s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/3     3            2           65m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   809m         41%    435Mi           13%       
+ip-192-168-3-70.ec2.internal     1059m        54%    709Mi           21%       
+ip-192-168-61-75.ec2.internal    1048m        54%    538Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:32:40]==============================[SCALING RUN 1: CHUNK 6]==============================
+11:32:40 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 186412 avg 0.0080469525 +/- 0.005011 min 0.001241165 max 0.067360445 sum 1500.04852
+# target 50% 0.00807006
+# target 75% 0.0135853
+# target 90% 0.0185331
+# target 99% 0.0282573
+# target 99.9% 0.0298897
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 186412 (100.0 %)
+All done 186412 calls (plus 25 warmup) 8.047 ms avg, 3106.2 qps
+Successfully wrote 2586 bytes of Json data to 2022-05-21-113240_k8s_taewa2_3_scaling_1_6.json
+fortio exit code: 0
+[2022-05-21T11:33:40]==============================[STATS]
+jh CPU load avg:
+0.43 0.30 0.27 1/167 3698
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          6m41s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           66m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   43m          2%     490Mi           14%       
+ip-192-168-3-70.ec2.internal     1063m        55%    707Mi           21%       
+ip-192-168-61-75.ec2.internal    1051m        54%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:33:43]==============================[SCALING RUN 1: CHUNK 7]==============================
+11:33:43 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 295130 avg 0.0050824755 +/- 0.003751 min 0.001200864 max 0.210592768 sum 1499.99099
+# target 50% 0.0058592
+# target 75% 0.00818838
+# target 90% 0.00958589
+# target 99% 0.0184647
+# target 99.9% 0.0245675
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 295130 (100.0 %)
+All done 295130 calls (plus 25 warmup) 5.082 ms avg, 4918.0 qps
+Successfully wrote 2704 bytes of Json data to 2022-05-21-113343_k8s_taewa2_3_scaling_1_7.json
+fortio exit code: 0
+[2022-05-21T11:34:43]==============================[STATS]
+jh CPU load avg:
+0.47 0.35 0.28 1/167 3771
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          7m45s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           67m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1048m        54%    533Mi           16%       
+ip-192-168-3-70.ec2.internal     1067m        55%    707Mi           21%       
+ip-192-168-61-75.ec2.internal    1036m        53%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:34:46]==============================[SCALING RUN 1: CHUNK 8]==============================
+11:34:46 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 299256 avg 0.0050123521 +/- 0.00337 min 0.001127124 max 0.03351304 sum 1499.97643
+# target 50% 0.00588133
+# target 75% 0.00825845
+# target 90% 0.00968472
+# target 99% 0.0185647
+# target 99.9% 0.0199208
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 299256 (100.0 %)
+All done 299256 calls (plus 25 warmup) 5.012 ms avg, 4987.0 qps
+Successfully wrote 2229 bytes of Json data to 2022-05-21-113446_k8s_taewa2_3_scaling_1_8.json
+fortio exit code: 0
+[2022-05-21T11:35:46]==============================[STATS]
+jh CPU load avg:
+0.20 0.30 0.27 1/166 3843
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          8m48s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           68m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1049m        54%    540Mi           16%       
+ip-192-168-3-70.ec2.internal     1046m        54%    708Mi           21%       
+ip-192-168-61-75.ec2.internal    1049m        54%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:35:49]==============================[SCALING RUN 1: CHUNK 9]==============================
+11:35:49 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 299780 avg 0.0050036418 +/- 0.002577 min 0.001204077 max 0.033019789 sum 1499.99173
+# target 50% 0.00591368
+# target 75% 0.0082685
+# target 90% 0.00968139
+# target 99% 0.0185155
+# target 99.9% 0.0198798
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 299780 (100.0 %)
+All done 299780 calls (plus 25 warmup) 5.004 ms avg, 4995.6 qps
+Successfully wrote 2233 bytes of Json data to 2022-05-21-113550_k8s_taewa2_3_scaling_1_9.json
+fortio exit code: 0
+[2022-05-21T11:36:50]==============================[STATS]
+jh CPU load avg:
+0.33 0.31 0.27 1/166 3914
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          9m51s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           69m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1048m        54%    541Mi           16%       
+ip-192-168-3-70.ec2.internal     1058m        54%    708Mi           21%       
+ip-192-168-61-75.ec2.internal    1051m        54%    540Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:36:53]==============================[SCALING RUN 1: CHUNK 10]==============================
+11:36:53 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 299528 avg 0.0050077833 +/- 0.002926 min 0.001178054 max 0.032298944 sum 1499.9713
+# target 50% 0.00592905
+# target 75% 0.00830457
+# target 90% 0.00972988
+# target 99% 0.0186181
+# target 99.9% 0.0198778
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 299528 (100.0 %)
+All done 299528 calls (plus 25 warmup) 5.008 ms avg, 4991.5 qps
+Successfully wrote 2237 bytes of Json data to 2022-05-21-113653_k8s_taewa2_3_scaling_1_10.json
+fortio exit code: 0
+[2022-05-21T11:37:53]==============================[STATS]
+jh CPU load avg:
+0.50 0.35 0.29 1/166 3985
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           70m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1051m        54%    549Mi           16%       
+ip-192-168-3-70.ec2.internal     1060m        54%    708Mi           21%       
+ip-192-168-61-75.ec2.internal    1046m        54%    540Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:37:56]==============================[SCALING RUN 1: CHUNK 11]==============================
+11:37:56 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 298055 avg 0.0050325336 +/- 0.002579 min 0.00127239 max 0.040807802 sum 1499.97179
+# target 50% 0.00595186
+# target 75% 0.00829161
+# target 90% 0.00969546
+# target 99% 0.0185641
+# target 99.9% 0.0199055
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 298055 (100.0 %)
+All done 298055 calls (plus 25 warmup) 5.033 ms avg, 4966.9 qps
+Successfully wrote 2353 bytes of Json data to 2022-05-21-113756_k8s_taewa2_3_scaling_1_11.json
+fortio exit code: 0
+[2022-05-21T11:38:56]==============================[STATS]
+jh CPU load avg:
+0.25 0.31 0.27 1/166 4057
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           71m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1051m        54%    540Mi           16%       
+ip-192-168-3-70.ec2.internal     1070m        55%    708Mi           21%       
+ip-192-168-61-75.ec2.internal    1049m        54%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:38:59]==============================[SCALING RUN 1: CHUNK 12]==============================
+11:38:59 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 299524 avg 0.00500783 +/- 0.002143 min 0.001263078 max 0.049210351 sum 1499.96528
+# target 50% 0.0057007
+# target 75% 0.00791952
+# target 90% 0.00925082
+# target 99% 0.0137971
+# target 99.9% 0.0199126
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 299524 (100.0 %)
+All done 299524 calls (plus 25 warmup) 5.008 ms avg, 4991.6 qps
+Successfully wrote 2355 bytes of Json data to 2022-05-21-113859_k8s_taewa2_3_scaling_1_12.json
+fortio exit code: 0
+[2022-05-21T11:39:59]==============================[STATS]
+jh CPU load avg:
+0.18 0.29 0.27 1/166 4128
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          13m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           73m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1052m        54%    541Mi           16%       
+ip-192-168-3-70.ec2.internal     1071m        55%    707Mi           21%       
+ip-192-168-61-75.ec2.internal    1038m        53%    542Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:40:02]==============================[SCALING RUN 1: CHUNK 13]==============================
+11:40:02 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 296668 avg 0.0050560397 +/- 0.001942 min 0.001268509 max 0.031556862 sum 1499.96519
+# target 50% 0.00567839
+# target 75% 0.00788334
+# target 90% 0.00920632
+# target 99% 0.0100114
+# target 99.9% 0.0191584
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 296668 (100.0 %)
+All done 296668 calls (plus 25 warmup) 5.056 ms avg, 4944.1 qps
+Successfully wrote 2233 bytes of Json data to 2022-05-21-114002_k8s_taewa2_3_scaling_1_13.json
+fortio exit code: 0
+[2022-05-21T11:41:02]==============================[STATS]
+jh CPU load avg:
+0.19 0.27 0.26 1/167 4208
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           74m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1053m        54%    541Mi           16%       
+ip-192-168-3-70.ec2.internal     1068m        55%    708Mi           21%       
+ip-192-168-61-75.ec2.internal    1049m        54%    542Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:41:06]==============================[SCALING RUN 1: CHUNK 14]==============================
+11:41:06 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 297649 avg 0.0050394244 +/- 0.003764 min 0.001197219 max 0.04801177 sum 1499.97964
+# target 50% 0.00584558
+# target 75% 0.00816977
+# target 90% 0.00956429
+# target 99% 0.0183524
+# target 99.9% 0.0238112
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 297649 (100.0 %)
+All done 297649 calls (plus 25 warmup) 5.039 ms avg, 4960.0 qps
+Successfully wrote 2353 bytes of Json data to 2022-05-21-114106_k8s_taewa2_3_scaling_1_14.json
+fortio exit code: 0
+[2022-05-21T11:42:06]==============================[STATS]
+jh CPU load avg:
+0.21 0.26 0.26 1/168 4281
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           75m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1049m        54%    541Mi           16%       
+ip-192-168-3-70.ec2.internal     1058m        54%    708Mi           21%       
+ip-192-168-61-75.ec2.internal    1049m        54%    543Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:42:09]==============================[SCALING RUN 2: INIT]==============================
+horizontalpodautoscaler.autoscaling "taewa2-deployment" deleted
+scaling to 1
+deployment.apps/taewa2-deployment scaled
+2022-05-21 11:42:10 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-05-21 11:42:11 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 11:42:27 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 11:42:45 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 11:42:45 [ℹ]  nodegroup successfully scaled
+[2022-05-21T11:42:45]==============================[SCALING RUN 2: ENABLE SCALING - SLEEP]==============================
+horizontalpodautoscaler.autoscaling/taewa2-deployment autoscaled
+[2022-05-21T11:45:46]==============================[SCALING RUN 2: FORTIO]==============================
+[2022-05-21T11:45:46]==============================[STATS]
+jh CPU load avg:
+0.01 0.13 0.21 1/166 4452
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         1          21s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/1     1            1           78m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   54m          2%     961Mi           28%       
+MONITORING	enabled
+[2022-05-21T11:45:49]==============================[SCALING RUN 2: CHUNK 1]==============================
+11:45:49 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 115113 avg 0.013031415 +/- 0.004872 min 0.001916432 max 0.103432057 sum 1500.08532
+# target 50% 0.0155223
+# target 75% 0.0188162
+# target 90% 0.0239061
+# target 99% 0.02975
+# target 99.9% 0.0481803
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 115113 (100.0 %)
+All done 115113 calls (plus 25 warmup) 13.031 ms avg, 1918.1 qps
+Successfully wrote 3062 bytes of Json data to 2022-05-21-114549_k8s_taewa2_3_scaling_2_1.json
+fortio exit code: 0
+[2022-05-21T11:46:49]==============================[STATS]
+jh CPU load avg:
+0.09 0.14 0.20 1/166 4524
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          84s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/2     2            1           79m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1076m        55%    1026Mi          30%       
+MONITORING	enabled
+[2022-05-21T11:46:53]==============================[SCALING RUN 2: CHUNK 2]==============================
+11:46:53 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 116872 avg 0.012835448 +/- 0.0043 min 0.001489137 max 0.049582417 sum 1500.1045
+# target 50% 0.0154407
+# target 75% 0.0186545
+# target 90% 0.0231748
+# target 99% 0.0294771
+# target 99.9% 0.0363296
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 116872 (100.0 %)
+All done 116872 calls (plus 25 warmup) 12.835 ms avg, 1947.5 qps
+Successfully wrote 2354 bytes of Json data to 2022-05-21-114653_k8s_taewa2_3_scaling_2_2.json
+fortio exit code: 0
+[2022-05-21T11:47:53]==============================[STATS]
+jh CPU load avg:
+0.37 0.20 0.21 1/166 4595
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          2m27s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/2     2            1           80m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1069m        55%    698Mi           20%       
+ip-192-168-57-191.ec2.internal   969m         50%    438Mi           13%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:47:56]==============================[SCALING RUN 2: CHUNK 3]==============================
+11:47:56 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 116083 avg 0.012922663 +/- 0.004749 min 0.001368993 max 0.052714714 sum 1500.10144
+# target 50% 0.0144054
+# target 75% 0.0184678
+# target 90% 0.023669
+# target 99% 0.0295967
+# target 99.9% 0.038584
+Sockets used: 37 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 116083 (100.0 %)
+All done 116083 calls (plus 25 warmup) 12.923 ms avg, 1934.3 qps
+Successfully wrote 2474 bytes of Json data to 2022-05-21-114756_k8s_taewa2_3_scaling_2_3.json
+fortio exit code: 0
+[2022-05-21T11:48:56]==============================[STATS]
+jh CPU load avg:
+0.24 0.20 0.21 1/166 4668
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          3m30s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/2     2            2           81m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   1070m        55%    697Mi           20%       
+ip-192-168-57-191.ec2.internal   40m          2%     489Mi           14%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:48:59]==============================[SCALING RUN 2: CHUNK 4]==============================
+11:48:59 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 231101 avg 0.0064906561 +/- 0.002878 min 0.001287368 max 0.22169719 sum 1499.99711
+# target 50% 0.00628043
+# target 75% 0.00877698
+# target 90% 0.0121981
+# target 99% 0.0193843
+# target 99.9% 0.0266793
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 231101 (100.0 %)
+All done 231101 calls (plus 25 warmup) 6.491 ms avg, 3851.2 qps
+Successfully wrote 2701 bytes of Json data to 2022-05-21-114859_k8s_taewa2_3_scaling_2_4.json
+fortio exit code: 0
+[2022-05-21T11:49:59]==============================[STATS]
+jh CPU load avg:
+0.17 0.19 0.21 1/166 4738
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   89%/70%   1         3         3          4m34s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/3     3            2           83m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-21-114.ec2.internal   977m         50%    697Mi           20%       
+ip-192-168-57-191.ec2.internal   1055m        54%    534Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:50:02]==============================[SCALING RUN 2: CHUNK 5]==============================
+11:50:02 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 228932 avg 0.0065521046 +/- 0.002539 min 0.001323035 max 0.041648167 sum 1499.9864
+# target 50% 0.00623675
+# target 75% 0.00869363
+# target 90% 0.0114723
+# target 99% 0.0192351
+# target 99.9% 0.0213423
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 228932 (100.0 %)
+All done 228932 calls (plus 25 warmup) 6.552 ms avg, 3815.1 qps
+Successfully wrote 2350 bytes of Json data to 2022-05-21-115003_k8s_taewa2_3_scaling_2_5.json
+fortio exit code: 0
+[2022-05-21T11:51:03]==============================[STATS]
+jh CPU load avg:
+0.14 0.17 0.19 1/167 4815
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          5m37s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/3     3            2           84m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   508m         26%    440Mi           13%       
+ip-192-168-21-114.ec2.internal   1071m        55%    696Mi           20%       
+ip-192-168-57-191.ec2.internal   1049m        54%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:51:06]==============================[SCALING RUN 2: CHUNK 6]==============================
+11:51:06 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 233532 avg 0.0064230486 +/- 0.002875 min 0.001237968 max 0.219507489 sum 1499.98739
+# target 50% 0.00625291
+# target 75% 0.00876041
+# target 90% 0.0121173
+# target 99% 0.0193322
+# target 99.9% 0.0246847
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 233532 (100.0 %)
+All done 233532 calls (plus 25 warmup) 6.423 ms avg, 3891.7 qps
+Successfully wrote 2589 bytes of Json data to 2022-05-21-115106_k8s_taewa2_3_scaling_2_6.json
+fortio exit code: 0
+[2022-05-21T11:52:06]==============================[STATS]
+jh CPU load avg:
+0.12 0.16 0.19 1/167 4887
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   60%/70%   1         3         3          6m41s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           85m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   39m          2%     487Mi           14%       
+ip-192-168-21-114.ec2.internal   1065m        55%    698Mi           20%       
+ip-192-168-57-191.ec2.internal   1052m        54%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:52:09]==============================[SCALING RUN 2: CHUNK 7]==============================
+11:52:09 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 346696 avg 0.0043264159 +/- 0.001779 min 0.001235594 max 0.032857308 sum 1499.95109
+# target 50% 0.00565147
+# target 75% 0.00785943
+# target 90% 0.0091842
+# target 99% 0.00997906
+# target 99.9% 0.0188328
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 346696 (100.0 %)
+All done 346696 calls (plus 25 warmup) 4.326 ms avg, 5777.9 qps
+Successfully wrote 2234 bytes of Json data to 2022-05-21-115209_k8s_taewa2_3_scaling_2_7.json
+fortio exit code: 0
+[2022-05-21T11:53:09]==============================[STATS]
+jh CPU load avg:
+0.33 0.22 0.20 1/166 4959
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          7m44s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           86m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1055m        54%    532Mi           16%       
+ip-192-168-21-114.ec2.internal   1067m        55%    697Mi           20%       
+ip-192-168-57-191.ec2.internal   1044m        54%    540Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:53:13]==============================[SCALING RUN 2: CHUNK 8]==============================
+11:53:13 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 316409 avg 0.0047405928 +/- 0.002554 min 0.001189963 max 0.034189797 sum 1499.96622
+# target 50% 0.00567925
+# target 75% 0.0079239
+# target 90% 0.00927069
+# target 99% 0.0147803
+# target 99.9% 0.0196842
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 316409 (100.0 %)
+All done 316409 calls (plus 25 warmup) 4.741 ms avg, 5273.0 qps
+Successfully wrote 2229 bytes of Json data to 2022-05-21-115313_k8s_taewa2_3_scaling_2_8.json
+fortio exit code: 0
+[2022-05-21T11:54:13]==============================[STATS]
+jh CPU load avg:
+0.21 0.21 0.20 1/167 5032
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   83%/70%   1         3         3          8m47s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           87m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1055m        54%    539Mi           16%       
+ip-192-168-21-114.ec2.internal   1071m        55%    696Mi           20%       
+ip-192-168-57-191.ec2.internal   803m         41%    540Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:54:16]==============================[SCALING RUN 2: CHUNK 9]==============================
+11:54:16 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 343097 avg 0.0043717687 +/- 0.001972 min 0.001228324 max 0.033879179 sum 1499.94073
+# target 50% 0.00565991
+# target 75% 0.00787572
+# target 90% 0.0092052
+# target 99% 0.0103235
+# target 99.9% 0.0192403
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 343097 (100.0 %)
+All done 343097 calls (plus 25 warmup) 4.372 ms avg, 5717.9 qps
+Successfully wrote 2232 bytes of Json data to 2022-05-21-115416_k8s_taewa2_3_scaling_2_9.json
+fortio exit code: 0
+[2022-05-21T11:55:16]==============================[STATS]
+jh CPU load avg:
+0.16 0.20 0.19 1/166 5103
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          9m50s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           88m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1031m        53%    539Mi           16%       
+ip-192-168-21-114.ec2.internal   1042m        53%    697Mi           20%       
+ip-192-168-57-191.ec2.internal   1004m        52%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:55:19]==============================[SCALING RUN 2: CHUNK 10]==============================
+11:55:19 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 305123 avg 0.0049159788 +/- 0.003107 min 0.001235443 max 0.039261624 sum 1499.97821
+# target 50% 0.00609457
+# target 75% 0.00852415
+# target 90% 0.0099819
+# target 99% 0.0190493
+# target 99.9% 0.0199734
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 305123 (100.0 %)
+All done 305123 calls (plus 25 warmup) 4.916 ms avg, 5084.8 qps
+Successfully wrote 2236 bytes of Json data to 2022-05-21-115519_k8s_taewa2_3_scaling_2_10.json
+fortio exit code: 0
+[2022-05-21T11:56:19]==============================[STATS]
+jh CPU load avg:
+0.23 0.21 0.19 1/166 5174
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   80%/70%   1         3         3          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           89m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   690m         35%    541Mi           16%       
+ip-192-168-21-114.ec2.internal   1049m        54%    695Mi           20%       
+ip-192-168-57-191.ec2.internal   1042m        53%    540Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:56:22]==============================[SCALING RUN 2: CHUNK 11]==============================
+11:56:22 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 315210 avg 0.0047586423 +/- 0.002699 min 0.001283317 max 0.033755756 sum 1499.97163
+# target 50% 0.00587742
+# target 75% 0.00817449
+# target 90% 0.00955273
+# target 99% 0.0181208
+# target 99.9% 0.0198895
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 315210 (100.0 %)
+All done 315210 calls (plus 25 warmup) 4.759 ms avg, 5252.9 qps
+Successfully wrote 2237 bytes of Json data to 2022-05-21-115622_k8s_taewa2_3_scaling_2_11.json
+fortio exit code: 0
+[2022-05-21T11:57:22]==============================[STATS]
+jh CPU load avg:
+0.25 0.22 0.19 1/166 5296
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   83%/70%   1         3         3          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           90m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   793m         41%    541Mi           16%       
+ip-192-168-21-114.ec2.internal   1063m        55%    695Mi           20%       
+ip-192-168-57-191.ec2.internal   1049m        54%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:57:25]==============================[SCALING RUN 2: CHUNK 12]==============================
+11:57:25 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 330196 avg 0.0045426481 +/- 0.00253 min 0.001257923 max 0.041349192 sum 1499.96422
+# target 50% 0.00571908
+# target 75% 0.00794967
+# target 90% 0.00928802
+# target 99% 0.0151069
+# target 99.9% 0.0196116
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 330196 (100.0 %)
+All done 330196 calls (plus 25 warmup) 4.543 ms avg, 5502.7 qps
+Successfully wrote 2346 bytes of Json data to 2022-05-21-115725_k8s_taewa2_3_scaling_2_12.json
+fortio exit code: 0
+[2022-05-21T11:58:25]==============================[STATS]
+jh CPU load avg:
+0.14 0.19 0.18 1/166 5368
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   86%/70%   1         3         3          13m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           91m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1052m        54%    541Mi           16%       
+ip-192-168-21-114.ec2.internal   895m         46%    695Mi           20%       
+ip-192-168-57-191.ec2.internal   1050m        54%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:58:28]==============================[SCALING RUN 2: CHUNK 13]==============================
+11:58:28 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 337541 avg 0.0044437535 +/- 0.002135 min 0.001136127 max 0.036272795 sum 1499.94902
+# target 50% 0.00561174
+# target 75% 0.00784956
+# target 90% 0.00919225
+# target 99% 0.00999787
+# target 99.9% 0.0192075
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 337541 (100.0 %)
+All done 337541 calls (plus 25 warmup) 4.444 ms avg, 5625.2 qps
+Successfully wrote 2232 bytes of Json data to 2022-05-21-115828_k8s_taewa2_3_scaling_2_13.json
+fortio exit code: 0
+[2022-05-21T11:59:28]==============================[STATS]
+jh CPU load avg:
+0.05 0.15 0.17 1/166 5440
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           92m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1028m        53%    542Mi           16%       
+ip-192-168-21-114.ec2.internal   1062m        55%    696Mi           20%       
+ip-192-168-57-191.ec2.internal   1043m        54%    542Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T11:59:31]==============================[SCALING RUN 2: CHUNK 14]==============================
+11:59:31 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 328926 avg 0.0045601563 +/- 0.003111 min 0.001120935 max 0.077746767 sum 1499.95397
+# target 50% 0.00566048
+# target 75% 0.00793027
+# target 90% 0.00929215
+# target 99% 0.0173747
+# target 99.9% 0.035607
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 328926 (100.0 %)
+All done 328926 calls (plus 25 warmup) 4.560 ms avg, 5481.6 qps
+Successfully wrote 2712 bytes of Json data to 2022-05-21-115932_k8s_taewa2_3_scaling_2_14.json
+fortio exit code: 0
+[2022-05-21T12:00:32]==============================[STATS]
+jh CPU load avg:
+0.35 0.23 0.19 1/167 5518
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   81%/70%   1         3         3          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           93m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1052m        54%    542Mi           16%       
+ip-192-168-21-114.ec2.internal   1049m        54%    696Mi           20%       
+ip-192-168-57-191.ec2.internal   1055m        54%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:00:35]==============================[SCALING RUN 3: INIT]==============================
+horizontalpodautoscaler.autoscaling "taewa2-deployment" deleted
+scaling to 1
+deployment.apps/taewa2-deployment scaled
+2022-05-21 12:00:36 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-05-21 12:00:37 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 12:00:57 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 12:01:15 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 12:01:32 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 12:01:50 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-05-21 12:01:50 [ℹ]  nodegroup successfully scaled
+[2022-05-21T12:01:50]==============================[SCALING RUN 3: ENABLE SCALING - SLEEP]==============================
+horizontalpodautoscaler.autoscaling/taewa2-deployment autoscaled
+[2022-05-21T12:04:51]==============================[SCALING RUN 3: FORTIO]==============================
+[2022-05-21T12:04:51]==============================[STATS]
+jh CPU load avg:
+0.08 0.12 0.15 1/167 5730
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   0%/70%    1         3         1          20s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/1     1            1           97m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   58m          3%     957Mi           28%       
+MONITORING	enabled
+[2022-05-21T12:04:54]==============================[SCALING RUN 3: CHUNK 1]==============================
+12:04:54 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 118935 avg 0.01261344 +/- 0.004365 min 0.001575988 max 0.081383227 sum 1500.17952
+# target 50% 0.015124
+# target 75% 0.0184838
+# target 90% 0.0227818
+# target 99% 0.0295148
+# target 99.9% 0.0387191
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 118935 (100.0 %)
+All done 118935 calls (plus 25 warmup) 12.613 ms avg, 1981.6 qps
+Successfully wrote 2825 bytes of Json data to 2022-05-21-120454_k8s_taewa2_3_scaling_3_1.json
+fortio exit code: 0
+[2022-05-21T12:05:54]==============================[STATS]
+jh CPU load avg:
+0.03 0.09 0.14 1/167 5801
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          83s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/2     2            1           98m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1075m        55%    1021Mi          30%       
+MONITORING	enabled
+[2022-05-21T12:05:57]==============================[SCALING RUN 3: CHUNK 2]==============================
+12:05:57 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 120008 avg 0.012500338 +/- 0.004257 min 0.001484054 max 0.051507008 sum 1500.14054
+# target 50% 0.0151123
+# target 75% 0.0184558
+# target 90% 0.0226237
+# target 99% 0.0294618
+# target 99.9% 0.0377438
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 120008 (100.0 %)
+All done 120008 calls (plus 25 warmup) 12.500 ms avg, 1999.6 qps
+Successfully wrote 2474 bytes of Json data to 2022-05-21-120557_k8s_taewa2_3_scaling_3_2.json
+fortio exit code: 0
+[2022-05-21T12:06:57]==============================[STATS]
+jh CPU load avg:
+0.04 0.09 0.13 1/165 5872
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          2m27s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   1/2     2            1           99m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1073m        55%    699Mi           21%       
+ip-192-168-57-105.ec2.internal   1036m        53%    404Mi           12%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:07:01]==============================[SCALING RUN 3: CHUNK 3]==============================
+12:07:01 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 119873 avg 0.012514021 +/- 0.00426 min 0.001994163 max 0.239106777 sum 1500.09328
+# target 50% 0.014956
+# target 75% 0.0184534
+# target 90% 0.0228685
+# target 99% 0.029413
+# target 99.9% 0.034961
+Sockets used: 37 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 119873 (100.0 %)
+All done 119873 calls (plus 25 warmup) 12.514 ms avg, 1997.5 qps
+Successfully wrote 2470 bytes of Json data to 2022-05-21-120701_k8s_taewa2_3_scaling_3_3.json
+fortio exit code: 0
+[2022-05-21T12:08:01]==============================[STATS]
+jh CPU load avg:
+0.10 0.10 0.13 1/164 5945
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         2          3m31s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/2     2            2           101m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1069m        55%    694Mi           20%       
+ip-192-168-57-105.ec2.internal   39m          2%     485Mi           14%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:08:04]==============================[SCALING RUN 3: CHUNK 4]==============================
+12:08:04 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 235679 avg 0.0063646105 +/- 0.002582 min 0.001325423 max 0.043286616 sum 1500.00504
+# target 50% 0.0062679
+# target 75% 0.00873917
+# target 90% 0.011851
+# target 99% 0.0192714
+# target 99.9% 0.0217991
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 235679 (100.0 %)
+All done 235679 calls (plus 25 warmup) 6.365 ms avg, 3927.5 qps
+Successfully wrote 2350 bytes of Json data to 2022-05-21-120804_k8s_taewa2_3_scaling_3_4.json
+fortio exit code: 0
+[2022-05-21T12:09:05]==============================[STATS]
+jh CPU load avg:
+0.24 0.14 0.14 1/165 6019
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          4m34s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   2/3     3            2           102m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1066m        55%    695Mi           20%       
+ip-192-168-57-105.ec2.internal   1047m        54%    533Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:09:08]==============================[SCALING RUN 3: CHUNK 5]==============================
+12:09:08 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 235447 avg 0.0063708673 +/- 0.002565 min 0.001251719 max 0.034514037 sum 1500.0016
+# target 50% 0.00628983
+# target 75% 0.0088089
+# target 90% 0.0124248
+# target 99% 0.0192891
+# target 99.9% 0.0199756
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 235447 (100.0 %)
+All done 235447 calls (plus 25 warmup) 6.371 ms avg, 3923.6 qps
+Successfully wrote 2236 bytes of Json data to 2022-05-21-120908_k8s_taewa2_3_scaling_3_5.json
+fortio exit code: 0
+[2022-05-21T12:10:08]==============================[STATS]
+jh CPU load avg:
+0.27 0.17 0.15 1/166 6096
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   91%/70%   1         3         3          5m37s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           103m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1067m        55%    694Mi           20%       
+ip-192-168-33-73.ec2.internal    317m         16%    447Mi           13%       
+ip-192-168-57-105.ec2.internal   1051m        54%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:10:11]==============================[SCALING RUN 3: CHUNK 6]==============================
+12:10:11 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 348024 avg 0.0043099209 +/- 0.002021 min 0.00127611 max 0.030090511 sum 1499.95591
+# target 50% 0.00567161
+# target 75% 0.00786938
+# target 90% 0.00918804
+# target 99% 0.00997923
+# target 99.9% 0.0188167
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 348024 (100.0 %)
+All done 348024 calls (plus 25 warmup) 4.310 ms avg, 5799.9 qps
+Successfully wrote 2231 bytes of Json data to 2022-05-21-121011_k8s_taewa2_3_scaling_3_6.json
+fortio exit code: 0
+[2022-05-21T12:11:11]==============================[STATS]
+jh CPU load avg:
+0.32 0.20 0.16 1/166 6168
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          6m40s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           104m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1060m        54%    694Mi           20%       
+ip-192-168-33-73.ec2.internal    1023m        53%    533Mi           16%       
+ip-192-168-57-105.ec2.internal   1046m        54%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:11:14]==============================[SCALING RUN 3: CHUNK 7]==============================
+12:11:14 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 350656 avg 0.0042775423 +/- 0.001765 min 0.001216981 max 0.211589976 sum 1499.94587
+# target 50% 0.00563024
+# target 75% 0.00783688
+# target 90% 0.00916087
+# target 99% 0.00995526
+# target 99.9% 0.0181127
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 350656 (100.0 %)
+All done 350656 calls (plus 25 warmup) 4.278 ms avg, 5843.8 qps
+Successfully wrote 2233 bytes of Json data to 2022-05-21-121114_k8s_taewa2_3_scaling_3_7.json
+fortio exit code: 0
+[2022-05-21T12:12:14]==============================[STATS]
+jh CPU load avg:
+0.12 0.16 0.15 1/166 6240
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          7m44s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           105m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1062m        55%    694Mi           20%       
+ip-192-168-33-73.ec2.internal    1052m        54%    538Mi           16%       
+ip-192-168-57-105.ec2.internal   1041m        53%    539Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:12:17]==============================[SCALING RUN 3: CHUNK 8]==============================
+12:12:17 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 347760 avg 0.0043131525 +/- 0.002174 min 0.001180697 max 0.215024637 sum 1499.9419
+# target 50% 0.00563108
+# target 75% 0.00785629
+# target 90% 0.00919141
+# target 99% 0.00999249
+# target 99.9% 0.0190963
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 347760 (100.0 %)
+All done 347760 calls (plus 25 warmup) 4.313 ms avg, 5795.5 qps
+Successfully wrote 2347 bytes of Json data to 2022-05-21-121217_k8s_taewa2_3_scaling_3_8.json
+fortio exit code: 0
+[2022-05-21T12:13:17]==============================[STATS]
+jh CPU load avg:
+0.21 0.18 0.16 1/166 6311
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   89%/70%   1         3         3          8m47s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           106m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1010m        52%    695Mi           20%       
+ip-192-168-33-73.ec2.internal    1028m        53%    540Mi           16%       
+ip-192-168-57-105.ec2.internal   1037m        53%    541Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:13:20]==============================[SCALING RUN 3: CHUNK 9]==============================
+12:13:20 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 348577 avg 0.0043030755 +/- 0.002317 min 0.001294181 max 0.22157446 sum 1499.95315
+# target 50% 0.00575447
+# target 75% 0.00798463
+# target 90% 0.00932273
+# target 99% 0.015972
+# target 99.9% 0.01979
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 348577 (100.0 %)
+All done 348577 calls (plus 25 warmup) 4.303 ms avg, 5809.0 qps
+Successfully wrote 2349 bytes of Json data to 2022-05-21-121320_k8s_taewa2_3_scaling_3_9.json
+fortio exit code: 0
+[2022-05-21T12:14:20]==============================[STATS]
+jh CPU load avg:
+0.20 0.19 0.17 1/166 6385
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          9m50s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           107m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1059m        54%    695Mi           20%       
+ip-192-168-33-73.ec2.internal    1039m        53%    541Mi           16%       
+ip-192-168-57-105.ec2.internal   1037m        53%    542Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:14:23]==============================[SCALING RUN 3: CHUNK 10]==============================
+12:14:23 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 316893 avg 0.0047333174 +/- 0.002505 min 0.001284671 max 0.2094417 sum 1499.95514
+# target 50% 0.00570954
+# target 75% 0.00792199
+# target 90% 0.00924946
+# target 99% 0.0134765
+# target 99.9% 0.0195036
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 316893 (100.0 %)
+All done 316893 calls (plus 25 warmup) 4.733 ms avg, 5281.0 qps
+Successfully wrote 2226 bytes of Json data to 2022-05-21-121424_k8s_taewa2_3_scaling_3_10.json
+fortio exit code: 0
+[2022-05-21T12:15:24]==============================[STATS]
+jh CPU load avg:
+0.29 0.20 0.17 1/165 6457
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   82%/70%   1         3         3          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           108m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1050m        54%    695Mi           20%       
+ip-192-168-33-73.ec2.internal    738m         38%    541Mi           16%       
+ip-192-168-57-105.ec2.internal   1037m        53%    542Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:15:27]==============================[SCALING RUN 3: CHUNK 11]==============================
+12:15:27 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 345108 avg 0.0043462928 +/- 0.002157 min 0.001242424 max 0.031418091 sum 1499.9404
+# target 50% 0.00566322
+# target 75% 0.00787362
+# target 90% 0.00919987
+# target 99% 0.00999562
+# target 99.9% 0.0192321
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 345108 (100.0 %)
+All done 345108 calls (plus 25 warmup) 4.346 ms avg, 5751.3 qps
+Successfully wrote 2235 bytes of Json data to 2022-05-21-121527_k8s_taewa2_3_scaling_3_11.json
+fortio exit code: 0
+[2022-05-21T12:16:27]==============================[STATS]
+jh CPU load avg:
+0.55 0.30 0.21 1/165 6528
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   89%/70%   1         3         3          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           109m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1064m        55%    694Mi           20%       
+ip-192-168-33-73.ec2.internal    1030m        53%    542Mi           16%       
+ip-192-168-57-105.ec2.internal   1048m        54%    542Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:16:30]==============================[SCALING RUN 3: CHUNK 12]==============================
+12:16:30 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 348384 avg 0.0043054635 +/- 0.002106 min 0.001239603 max 0.218604083 sum 1499.95459
+# target 50% 0.00565764
+# target 75% 0.00786668
+# target 90% 0.0091921
+# target 99% 0.00998735
+# target 99.9% 0.0191169
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 348384 (100.0 %)
+All done 348384 calls (plus 25 warmup) 4.305 ms avg, 5805.9 qps
+Successfully wrote 2342 bytes of Json data to 2022-05-21-121630_k8s_taewa2_3_scaling_3_12.json
+fortio exit code: 0
+[2022-05-21T12:17:30]==============================[STATS]
+jh CPU load avg:
+0.28 0.27 0.20 1/165 6599
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          12m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           110m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1065m        55%    695Mi           20%       
+ip-192-168-33-73.ec2.internal    1050m        54%    543Mi           16%       
+ip-192-168-57-105.ec2.internal   1034m        53%    543Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:17:33]==============================[SCALING RUN 3: CHUNK 13]==============================
+12:17:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 350587 avg 0.0042783977 +/- 0.002135 min 0.001227627 max 0.033740819 sum 1499.95062
+# target 50% 0.00565663
+# target 75% 0.00787114
+# target 90% 0.00919985
+# target 99% 0.00999707
+# target 99.9% 0.0191356
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 350587 (100.0 %)
+All done 350587 calls (plus 25 warmup) 4.278 ms avg, 5842.6 qps
+Successfully wrote 2230 bytes of Json data to 2022-05-21-121733_k8s_taewa2_3_scaling_3_13.json
+fortio exit code: 0
+[2022-05-21T12:18:33]==============================[STATS]
+jh CPU load avg:
+0.33 0.29 0.21 1/165 6670
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           111m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1065m        55%    694Mi           20%       
+ip-192-168-33-73.ec2.internal    1035m        53%    543Mi           16%       
+ip-192-168-57-105.ec2.internal   1052m        54%    543Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:18:36]==============================[SCALING RUN 3: CHUNK 14]==============================
+12:18:36 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://ae253f79e62434f77a395c4c0af86fb4-1656468713.us-east-1.elb.amazonaws.com:3000/?n=20000
+Aggregated Function Time : count 349901 avg 0.0042867774 +/- 0.001834 min 0.001198089 max 0.020010654 sum 1499.9477
+# target 50% 0.0056223
+# target 75% 0.00783441
+# target 90% 0.00916168
+# target 99% 0.00995805
+# target 99.9% 0.0181028
+Sockets used: 25 (for perfect keepalive, would be 25)
+Jitter: false
+Code 200 : 349901 (100.0 %)
+All done 349901 calls (plus 25 warmup) 4.287 ms avg, 5831.2 qps
+Successfully wrote 2114 bytes of Json data to 2022-05-21-121836_k8s_taewa2_3_scaling_3_14.json
+fortio exit code: 0
+[2022-05-21T12:19:36]==============================[STATS]
+jh CPU load avg:
+0.28 0.29 0.21 1/165 6743
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+taewa2-deployment   Deployment/taewa2-deployment   90%/70%   1         3         3          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+taewa2-deployment   3/3     3            3           112m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-16-114.ec2.internal   1067m        55%    694Mi           20%       
+ip-192-168-33-73.ec2.internal    1054m        54%    542Mi           16%       
+ip-192-168-57-105.ec2.internal   1045m        54%    543Mi           16%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-05-21T12:23:40]==============================[GET DATA]==============================
+2022-05-21T10:25:41..2022-05-21T12:23:40
+eks-standard-workers-c4c07312-94c9-e24a-fb5d-23a363316fb6
+ae253f79e62434f77a395c4c0af86fb4
+36K alb_data.json
+24K asg_data.json
+[2022-05-21T12:23:41]==============================[UPLOAD /2022.05.21_10-14_k8s_taewa2_3_e4b5]==============================
+Warning: Permanently added '35.185.210.97' (ECDSA) to the list of known hosts.

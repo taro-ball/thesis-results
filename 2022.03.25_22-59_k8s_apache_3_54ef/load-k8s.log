@@ -1,0 +1,2471 @@
++ git log -3
+commit 518c0cb97510396972d809986c4a19010317540d
+Author: Your Name <you@example.com>
+Date:   Fri Mar 25 21:27:57 2022 +1300
+
+    qps: plot against more AWS  metrics
+    add count script
+    smpl: line style
+
+commit 54ef30058290521ed49056bb9694d8d81f259e06
+Author: Your Name <you@example.com>
+Date:   Sat Mar 19 09:09:39 2022 +1300
+
+    fix k8s scaling, update 6node tests
+
+commit f03ce141704c122bc7be1aaef74bff9f0ffe3bd5
+Author: Your Name <you@example.com>
+Date:   Fri Mar 18 15:12:32 2022 +1300
+
+    add more tests
+++ cut -d _ -f 2
++ app=apache
++ export AWS_DEFAULT_REGION=us-east-1
++ AWS_DEFAULT_REGION=us-east-1
++ line===============================
+++ date +%FT%T
++ echo '[2022-03-25T22:59:14]==============================[starting' in '/tmp/k8s-vs-ASG/data/cli]=============================='
+[2022-03-25T22:59:14]==============================[starting in /tmp/k8s-vs-ASG/data/cli]==============================
++ source 0.setup.sh
+++ set -x
+++ '[' k8s_apache_3 == k8s_apache_3 ']'
+++ warmup_url=80/
+++ testing_url=80/
+++ hpa_perc=70
+++ warmup_min_threads=60
+++ warmup_max_threads=70
+++ warmup_cycle_sec=130
+++ scaling_minutes=14
+++ performance_sec=300
+++ cluster_name=C888
+++ max_pods=6
+++ max_nodes=3
+++ fortio_options='-a -qps -1 -r 0.01 -loglevel Error -allow-initial-errors'
+++ '[' k8s_apache_3 == asg_apache_3 ']'
+++ '[' k8s_apache_3 == k8s_taewa_3 ']'
+++ '[' k8s_apache_3 == asg_taewa_3 ']'
+++ '[' k8s_apache_3 == k8s_taewa_6 ']'
+++ '[' k8s_apache_3 == asg_taewa_6 ']'
+++ '[' k8s_apache_3 == k8s_riwai_3 ']'
+++ '[' k8s_apache_3 == asg_riwai_3 ']'
+++ '[' k8s_apache_3 == asg_raupi_3 ']'
+++ '[' k8s_apache_3 == k8s_raupi_3 ']'
+++ set +x
+{
+    "Account": "850058243890", 
+    "UserId": "AIDA4L23LN4ZEI2N7DYNF", 
+    "Arn": "arn:aws:iam::850058243890:user/ad"
+}
+[2022-03-25T22:59:19] waiting for instances ...
+[2022-03-25T23:00:20] waiting for instances ...
+[2022-03-25T23:01:21] waiting for instances ...
+[2022-03-25T23:02:21] waiting for instances ...
+[2022-03-25T23:03:22] waiting for instances ...
+[2022-03-25T23:04:22] waiting for instances ...
+[2022-03-25T23:05:23] waiting for instances ...
+[2022-03-25T23:06:23] waiting for instances ...
+[2022-03-25T23:07:24] waiting for instances ...
+[2022-03-25T23:08:25] waiting for instances ...
+[2022-03-25T23:09:25] waiting for instances ...
+{
+    "LaunchTemplateVersion": {
+        "VersionDescription": "EnableAdvMonitoring", 
+        "LaunchTemplateId": "lt-098511ba6e27e4fa5", 
+        "LaunchTemplateName": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+        "VersionNumber": 2, 
+        "CreatedBy": "arn:aws:iam::850058243890:user/ad", 
+        "LaunchTemplateData": {
+            "UserData": "TUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L3gtc2hlbGxzY3JpcHQ7IGNoYXJzZXQ9InVzLWFzY2lpIgojIS9iaW4vYmFzaApzZXQgLWV4CkI2NF9DTFVTVEVSX0NBPUxTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVU0xZWtORFFXTXJaMEYzU1VKQlowbENRVVJCVGtKbmEzRm9hMmxIT1hjd1FrRlJjMFpCUkVGV1RWSk5kMFZSV1VSV1VWRkVSWGR3Y21SWFNtd0tZMjAxYkdSSFZucE5RalJZUkZSSmVVMUVUWGxPVkVsNlRVUkJNVTVXYjFoRVZFMTVUVVJOZVUxcVNYcE5SRUV4VGxadmQwWlVSVlJOUWtWSFFURlZSUXBCZUUxTFlUTldhVnBZU25WYVdGSnNZM3BEUTBGVFNYZEVVVmxLUzI5YVNXaDJZMDVCVVVWQ1FsRkJSR2RuUlZCQlJFTkRRVkZ2UTJkblJVSkJUVWhxQ2xSRmEwMWFkMWRGY25CVlp6WjViSEp4WTAxUEsxZHBUMk4zVFRaRWJWZDBlRTVIUWpSSlFXdERTVEJLZFd0dmVHVmhLMDloTXpOaVRsQkpNR1ZWUzIwS2MxaHlWalV5YUZaNVFsZ3diRU53WVRkQ1Eza3hWVEpEYldOelJsWjFTMnhwYXl0M1JGaHljblJSVlRZelFWbHVZakF5TkdSQk1ESlJkaXREZWtsNlJRcHZkVm8xVFc0eU1tcDRPRzE1VDBrelRqSk1TbEZ3UWpCdFRFbDVNM1ZVYldGWGFsVmhiRFpqUjNORWNuVkViVGhJVWtSWmVtNWlPVXhPUVUxclNYSlFDaXRQYkRoemFYaHJkRzFSU0hsdU1uaG1hVGROVldKQ1N5OWlXbll2VW5ZeGVVdE9hMlJLTm10SFVuSldka2RrVFV0NWNWVnVkV2QwYVhaQ1YyTlhOU3NLWVUxemRUVjRlblJ1Ylc1a01VbEdSMUZPUkZJM05HZGhSekZ4YTNSNVRYRjNLMWxCTWxwUFdrUjRVamMzVEZWbU9UVlFlVFJFTmpobmVFZEdlRkpEUkFwelFXZzRWMWRVVld3dmVqWjFLMGxyWkRrd1EwRjNSVUZCWVU1RFRVVkJkMFJuV1VSV1VqQlFRVkZJTDBKQlVVUkJaMHRyVFVFNFIwRXhWV1JGZDBWQ0NpOTNVVVpOUVUxQ1FXWTRkMGhSV1VSV1VqQlBRa0paUlVaTU5qVXpNM0pNYTFkUGQwZFVXbGhPZUNzMlpHd3JTMVV3WldKTlFUQkhRMU54UjFOSllqTUtSRkZGUWtOM1ZVRkJORWxDUVZGQmN6STRRVGs0WVVnM1JrTkVSV1o1UnpsdWRVWjZhMFZVT0ZGMGNIaEpWbk4xWTJoQlJFcDZhMVZWWWxwdGFscHZRUXBETlZBdlR6UkViakZUUW5GUlluSjNTMGhrY2xWc2EzbGFhMko2TTJKNU1reEdlRnBoTW5jNWFXeERNM2hVWVVwVlF6ZE1XbnBsVjFKamNFdHlkREZTQ25JeU56a3JUbTVLUjFab1kyeG9TelZrZUhSSmVUTTNNMW81TWpWTGRGVlNZWFkxT1VaeE5EazBibGhMWmpSYVFraFVRWHBSZFdwUWJ6Uk9NbmhUWkRJS2JIUlZaamhGYzA1SWVrWjZTVE50VUZkNmVISTNMM0JHSzBGTE4wa3pSbFprTDFoSFp6SjVRMVU1VjI1WFEyVkVVVlJ6VUhWSmVuaFZNVlJUTWpWclpncHVWbUZJVTJ0SFNVbExOamRGVTI4elZGbHVXR0pxZDNOdlJYRlNVMlF4V1ZKVVpVcE1hMFIwVXpSTVpuQjFPREZSYkVkSGRHRlVSSE5HVGtKSldsWmlDbVJHU1U0NFl6RkJVVXRXZEVKT1dUZDNkVWQyVUd4dE5uaEJkRFZHVEU5RlZVRklWUW90TFMwdExVVk9SQ0JEUlZKVVNVWkpRMEZVUlMwdExTMHRDZz09CkFQSV9TRVJWRVJfVVJMPWh0dHBzOi8vOTMzMjg5MzBBNjhDMEYyRjQ2ODM2N0I3QjJDMEFGRjkuZ3I3LnVzLWVhc3QtMS5la3MuYW1hem9uYXdzLmNvbQpLOFNfQ0xVU1RFUl9ETlNfSVA9MTAuMTAwLjAuMTAKL2V0Yy9la3MvYm9vdHN0cmFwLnNoIEM4ODggLS1rdWJlbGV0LWV4dHJhLWFyZ3MgJy0tbm9kZS1sYWJlbHM9ZWtzLmFtYXpvbmF3cy5jb20vc291cmNlTGF1bmNoVGVtcGxhdGVWZXJzaW9uPTEsYWxwaGEuZWtzY3RsLmlvL25vZGVncm91cC1uYW1lPXN0YW5kYXJkLXdvcmtlcnMsYWxwaGEuZWtzY3RsLmlvL2NsdXN0ZXItbmFtZT1DODg4LGVrcy5hbWF6b25hd3MuY29tL25vZGVncm91cC1pbWFnZT1hbWktMGUxYjZmMTE2YTM3MzNmZWYsZWtzLmFtYXpvbmF3cy5jb20vY2FwYWNpdHlUeXBlPU9OX0RFTUFORCxla3MuYW1hem9uYXdzLmNvbS9ub2RlZ3JvdXA9c3RhbmRhcmQtd29ya2Vycyxla3MuYW1hem9uYXdzLmNvbS9zb3VyY2VMYXVuY2hUZW1wbGF0ZUlkPWx0LTBiOWI0NzgyZTFjOWUyZmI5IC0tbWF4LXBvZHM9MTcnIC0tYjY0LWNsdXN0ZXItY2EgJEI2NF9DTFVTVEVSX0NBIC0tYXBpc2VydmVyLWVuZHBvaW50ICRBUElfU0VSVkVSX1VSTCAtLWRucy1jbHVzdGVyLWlwICRLOFNfQ0xVU1RFUl9ETlNfSVAgLS11c2UtbWF4LXBvZHMgZmFsc2UKCi0tLy8tLQ==", 
+            "Monitoring": {
+                "Enabled": true
+            }, 
+            "TagSpecifications": [
+                {
+                    "ResourceType": "volume", 
+                    "Tags": [
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "alpha.eksctl.io/nodegroup-name"
+                        }, 
+                        {
+                            "Value": "C888-standard-workers-Node", 
+                            "Key": "Name"
+                        }, 
+                        {
+                            "Value": "managed", 
+                            "Key": "alpha.eksctl.io/nodegroup-type"
+                        }, 
+                        {
+                            "Value": "C888", 
+                            "Key": "eks:cluster-name"
+                        }, 
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "eks:nodegroup-name"
+                        }
+                    ]
+                }, 
+                {
+                    "ResourceType": "instance", 
+                    "Tags": [
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "alpha.eksctl.io/nodegroup-name"
+                        }, 
+                        {
+                            "Value": "C888-standard-workers-Node", 
+                            "Key": "Name"
+                        }, 
+                        {
+                            "Value": "managed", 
+                            "Key": "alpha.eksctl.io/nodegroup-type"
+                        }, 
+                        {
+                            "Value": "C888", 
+                            "Key": "eks:cluster-name"
+                        }, 
+                        {
+                            "Value": "standard-workers", 
+                            "Key": "eks:nodegroup-name"
+                        }
+                    ]
+                }
+            ], 
+            "ImageId": "ami-0e1b6f116a3733fef", 
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/xvda", 
+                    "Ebs": {
+                        "Iops": 3000, 
+                        "VolumeType": "gp3", 
+                        "VolumeSize": 25
+                    }
+                }
+            ], 
+            "SecurityGroupIds": [
+                "sg-0a5176180f5faecad"
+            ], 
+            "MetadataOptions": {
+                "HttpTokens": "optional", 
+                "HttpPutResponseHopLimit": 2
+            }, 
+            "IamInstanceProfile": {
+                "Name": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e"
+            }
+        }, 
+        "DefaultVersion": false, 
+        "CreateTime": "2022-03-25T23:10:28.000Z"
+    }
+}
+{
+    "LaunchTemplate": {
+        "LatestVersionNumber": 2, 
+        "LaunchTemplateId": "lt-098511ba6e27e4fa5", 
+        "LaunchTemplateName": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+        "DefaultVersionNumber": 2, 
+        "CreatedBy": "arn:aws:sts::850058243890:assumed-role/AWSServiceRoleForAmazonEKSNodegroup/EKS", 
+        "CreateTime": "1970-01-01T00:00:00.000Z"
+    }
+}
+Added new context arn:aws:eks:us-east-1:850058243890:cluster/C888 to /root/.kube/config
+NAME         TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)        AGE
+apache-svc   LoadBalancer   10.100.141.101   a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com   80:30316/TCP   2m29s
+kubernetes   ClusterIP      10.100.0.1       <none>                                                                    443/TCP        11m
+2022-03-25 23:13:31 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-03-25 23:13:32 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-25 23:13:51 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-25 23:13:51 [ℹ]  nodegroup successfully scaled
+horizontalpodautoscaler.autoscaling/apache-deployment autoscaled
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    45  100    45    0     0   7841      0 --:--:-- --:--:-- --:--:--  9000
+<html><body><h1>It works!</h1></body></html>
+
+[2022-03-25T23:14:52]==============================[STATS]
+jh CPU load avg:
+0.02 0.02 0.04 1/162 3082
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         1          60s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   1/1     1            1           3m51s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%     
+ip-192-168-47-122.ec2.internal   71m          3%     579Mi           17%         
+ip-192-168-22-10.ec2.internal    <unknown>                           <unknown>               <unknown>               <unknown>               
+ip-192-168-30-87.ec2.internal    <unknown>                           <unknown>               <unknown>               <unknown>               
+[2022-03-25T23:14:55]==============================[WARMUP RUN c60]==============================
+23:14:55 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 2430073 avg 0.0032095218 +/- 0.004776 min 0.000574401 max 0.245682646 sum 7799.37238
+# target 50% 0.00544758
+# target 75% 0.00788417
+# target 90% 0.00934613
+# target 99% 0.0299754
+# target 99.9% 0.0460582
+Sockets used: 24113 (for perfect keepalive, would be 60)
+Jitter: false
+Code 200 : 2430073 (100.0 %)
+All done 2430073 calls (plus 60 warmup) 3.210 ms avg, 18692.3 qps
+Successfully wrote 3940 bytes of Json data to 2022-03-25-231455_k8s_apache_3_warmup_60.json
+fortio exit code: 0
+[2022-03-25T23:17:05]==============================[STATS]
+jh CPU load avg:
+0.51 0.22 0.11 1/161 3181
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          3m14s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           6m4s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1773m        91%    501Mi           15%       
+ip-192-168-30-87.ec2.internal    1733m        89%    501Mi           15%       
+ip-192-168-47-122.ec2.internal   1992m        103%   599Mi           17%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:18:08]==============================[STATS]
+jh CPU load avg:
+0.25 0.20 0.11 1/160 3244
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          4m17s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           7m7s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    44m          2%     501Mi           15%       
+ip-192-168-30-87.ec2.internal    43m          2%     503Mi           15%       
+ip-192-168-47-122.ec2.internal   60m          3%     599Mi           17%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:18:11]==============================[WARMUP RUN c61]==============================
+23:18:11 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3043589 avg 0.0026052131 +/- 0.003892 min 0.000512257 max 0.244505923 sum 7929.19803
+# target 50% 0.00539348
+# target 75% 0.00783409
+# target 90% 0.00929846
+# target 99% 0.0180113
+# target 99.9% 0.0485294
+Sockets used: 30169 (for perfect keepalive, would be 61)
+Jitter: false
+Code 200 : 3043589 (100.0 %)
+All done 3043589 calls (plus 61 warmup) 2.605 ms avg, 23411.6 qps
+Successfully wrote 3940 bytes of Json data to 2022-03-25-231811_k8s_apache_3_warmup_61.json
+fortio exit code: 0
+[2022-03-25T23:20:21]==============================[STATS]
+jh CPU load avg:
+0.90 0.53 0.24 1/161 414
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   77%/70%   1         6         6          6m30s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           9m20s
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1604m        83%    503Mi           15%       
+ip-192-168-30-87.ec2.internal    1610m        83%    504Mi           15%       
+ip-192-168-47-122.ec2.internal   1993m        103%   600Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:21:24]==============================[STATS]
+jh CPU load avg:
+0.37 0.45 0.23 1/161 479
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          7m33s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           10m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    44m          2%     503Mi           15%       
+ip-192-168-30-87.ec2.internal    44m          2%     503Mi           15%       
+ip-192-168-47-122.ec2.internal   59m          3%     600Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:21:27]==============================[WARMUP RUN c62]==============================
+23:21:27 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3332791 avg 0.002418145 +/- 0.002899 min 0.00050188 max 0.276985312 sum 8059.17185
+# target 50% 0.00532356
+# target 75% 0.00773441
+# target 90% 0.00918091
+# target 99% 0.014135
+# target 99.9% 0.0340521
+Sockets used: 33030 (for perfect keepalive, would be 62)
+Jitter: false
+Code 200 : 3332791 (100.0 %)
+All done 3332791 calls (plus 62 warmup) 2.418 ms avg, 25636.1 qps
+Successfully wrote 4049 bytes of Json data to 2022-03-25-232128_k8s_apache_3_warmup_62.json
+fortio exit code: 0
+[2022-03-25T23:23:38]==============================[STATS]
+jh CPU load avg:
+0.99 0.66 0.34 1/161 581
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          9m46s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           12m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1930m        100%   506Mi           15%       
+ip-192-168-30-87.ec2.internal    1804m        93%    504Mi           15%       
+ip-192-168-47-122.ec2.internal   1887m        97%    618Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:24:41]==============================[STATS]
+jh CPU load avg:
+0.36 0.54 0.32 1/161 646
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           13m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    45m          2%     505Mi           15%       
+ip-192-168-30-87.ec2.internal    43m          2%     504Mi           15%       
+ip-192-168-47-122.ec2.internal   71m          3%     618Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:24:44]==============================[WARMUP RUN c63]==============================
+23:24:44 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3312978 avg 0.0024718383 +/- 0.003077 min 0.000502256 max 0.272065424 sum 8189.14607
+# target 50% 0.00533315
+# target 75% 0.00774861
+# target 90% 0.00919788
+# target 99% 0.0150653
+# target 99.9% 0.0358396
+Sockets used: 32833 (for perfect keepalive, would be 63)
+Jitter: false
+Code 200 : 3312978 (100.0 %)
+All done 3312978 calls (plus 63 warmup) 2.472 ms avg, 25483.9 qps
+Successfully wrote 4052 bytes of Json data to 2022-03-25-232444_k8s_apache_3_warmup_63.json
+fortio exit code: 0
+[2022-03-25T23:26:54]==============================[STATS]
+jh CPU load avg:
+0.94 0.65 0.39 1/160 769
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          13m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           15m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1797m        93%    505Mi           15%       
+ip-192-168-30-87.ec2.internal    1894m        98%    506Mi           15%       
+ip-192-168-47-122.ec2.internal   1968m        101%   618Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:27:57]==============================[STATS]
+jh CPU load avg:
+0.42 0.55 0.37 1/160 880
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           16m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    45m          2%     506Mi           15%       
+ip-192-168-30-87.ec2.internal    46m          2%     506Mi           15%       
+ip-192-168-47-122.ec2.internal   61m          3%     619Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:28:00]==============================[WARMUP RUN c64]==============================
+23:28:00 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3316132 avg 0.0025086741 +/- 0.00317 min 0.000500959 max 0.292876066 sum 8319.09454
+# target 50% 0.00534619
+# target 75% 0.00776881
+# target 90% 0.00922238
+# target 99% 0.0161049
+# target 99.9% 0.0381621
+Sockets used: 32867 (for perfect keepalive, would be 64)
+Jitter: false
+Code 200 : 3316132 (100.0 %)
+All done 3316132 calls (plus 64 warmup) 2.509 ms avg, 25507.9 qps
+Successfully wrote 4054 bytes of Json data to 2022-03-25-232800_k8s_apache_3_warmup_64.json
+fortio exit code: 0
+[2022-03-25T23:30:10]==============================[STATS]
+jh CPU load avg:
+0.70 0.65 0.43 1/162 985
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          16m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           19m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1802m        93%    524Mi           15%       
+ip-192-168-30-87.ec2.internal    1731m        89%    525Mi           15%       
+ip-192-168-47-122.ec2.internal   1990m        103%   618Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:31:13]==============================[STATS]
+jh CPU load avg:
+0.26 0.53 0.40 2/162 1049
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          17m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           20m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    44m          2%     525Mi           15%       
+ip-192-168-30-87.ec2.internal    42m          2%     525Mi           15%       
+ip-192-168-47-122.ec2.internal   61m          3%     619Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:31:16]==============================[WARMUP RUN c65]==============================
+23:31:16 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3337404 avg 0.0025316631 +/- 0.003013 min 0.000602959 max 1.014588897 sum 8449.18272
+# target 50% 0.00539264
+# target 75% 0.00778748
+# target 90% 0.00922439
+# target 99% 0.0157582
+# target 99.9% 0.0347071
+Sockets used: 33073 (for perfect keepalive, would be 65)
+Jitter: false
+Code 200 : 3337404 (100.0 %)
+All done 3337404 calls (plus 65 warmup) 2.532 ms avg, 25671.4 qps
+Successfully wrote 4046 bytes of Json data to 2022-03-25-233117_k8s_apache_3_warmup_65.json
+fortio exit code: 0
+[2022-03-25T23:33:27]==============================[STATS]
+jh CPU load avg:
+0.99 0.70 0.48 1/162 1155
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          19m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           22m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1767m        91%    524Mi           15%       
+ip-192-168-30-87.ec2.internal    1850m        95%    525Mi           15%       
+ip-192-168-47-122.ec2.internal   1980m        102%   619Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:34:30]==============================[STATS]
+jh CPU load avg:
+0.36 0.57 0.45 1/162 1224
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          20m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           23m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    43m          2%     525Mi           15%       
+ip-192-168-30-87.ec2.internal    43m          2%     526Mi           15%       
+ip-192-168-47-122.ec2.internal   63m          3%     619Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:34:33]==============================[WARMUP RUN c66]==============================
+23:34:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3292644 avg 0.0026055494 +/- 0.003238 min 0.000602131 max 0.218376028 sum 8579.14669
+# target 50% 0.00539844
+# target 75% 0.0077966
+# target 90% 0.00923549
+# target 99% 0.0162118
+# target 99.9% 0.038071
+Sockets used: 32635 (for perfect keepalive, would be 66)
+Jitter: false
+Code 200 : 3292644 (100.0 %)
+All done 3292644 calls (plus 66 warmup) 2.606 ms avg, 25327.4 qps
+Successfully wrote 3939 bytes of Json data to 2022-03-25-233433_k8s_apache_3_warmup_66.json
+fortio exit code: 0
+[2022-03-25T23:36:43]==============================[STATS]
+jh CPU load avg:
+0.90 0.73 0.52 1/160 1322
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   83%/70%   1         6         6          22m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           25m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1788m        92%    525Mi           15%       
+ip-192-168-30-87.ec2.internal    1874m        97%    526Mi           15%       
+ip-192-168-47-122.ec2.internal   1945m        100%   620Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:37:46]==============================[STATS]
+jh CPU load avg:
+0.33 0.59 0.49 1/160 1386
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          23m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           26m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    42m          2%     526Mi           15%       
+ip-192-168-30-87.ec2.internal    46m          2%     527Mi           15%       
+ip-192-168-47-122.ec2.internal   65m          3%     620Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:37:49]==============================[WARMUP RUN c67]==============================
+23:37:49 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3320232 avg 0.0026230523 +/- 0.003069 min 0.000599801 max 0.231144406 sum 8709.14214
+# target 50% 0.00539974
+# target 75% 0.00779971
+# target 90% 0.0092397
+# target 99% 0.016311
+# target 99.9% 0.0363351
+Sockets used: 32905 (for perfect keepalive, would be 67)
+Jitter: false
+Code 200 : 3320232 (100.0 %)
+All done 3320232 calls (plus 67 warmup) 2.623 ms avg, 25539.7 qps
+Successfully wrote 3932 bytes of Json data to 2022-03-25-233749_k8s_apache_3_warmup_67.json
+fortio exit code: 0
+[2022-03-25T23:39:59]==============================[STATS]
+jh CPU load avg:
+1.27 0.81 0.58 1/160 1486
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          26m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           28m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1841m        95%    526Mi           15%       
+ip-192-168-30-87.ec2.internal    1884m        97%    526Mi           15%       
+ip-192-168-47-122.ec2.internal   1940m        100%   623Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:41:02]==============================[STATS]
+jh CPU load avg:
+0.43 0.65 0.54 1/161 1555
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          27m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           30m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    48m          2%     526Mi           15%       
+ip-192-168-30-87.ec2.internal    45m          2%     526Mi           15%       
+ip-192-168-47-122.ec2.internal   61m          3%     620Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:41:05]==============================[WARMUP RUN c68]==============================
+23:41:05 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3320608 avg 0.0026619112 +/- 0.003399 min 0.000591764 max 0.226319349 sum 8839.16374
+# target 50% 0.00540435
+# target 75% 0.00781064
+# target 90% 0.00925442
+# target 99% 0.0169202
+# target 99.9% 0.0401808
+Sockets used: 32920 (for perfect keepalive, would be 68)
+Jitter: false
+Code 200 : 3320608 (100.0 %)
+All done 3320608 calls (plus 68 warmup) 2.662 ms avg, 25542.3 qps
+Successfully wrote 3940 bytes of Json data to 2022-03-25-234106_k8s_apache_3_warmup_68.json
+fortio exit code: 0
+[2022-03-25T23:43:16]==============================[STATS]
+jh CPU load avg:
+0.44 0.62 0.54 1/161 1676
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   84%/70%   1         6         6          29m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           32m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1857m        96%    527Mi           15%       
+ip-192-168-30-87.ec2.internal    1809m        93%    528Mi           15%       
+ip-192-168-47-122.ec2.internal   1962m        101%   621Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:44:18]==============================[STATS]
+jh CPU load avg:
+0.18 0.51 0.51 1/161 1744
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          30m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           33m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    42m          2%     527Mi           15%       
+ip-192-168-30-87.ec2.internal    44m          2%     526Mi           15%       
+ip-192-168-47-122.ec2.internal   62m          3%     620Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:44:21]==============================[WARMUP RUN c69]==============================
+23:44:21 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3347451 avg 0.0026793924 +/- 0.003281 min 0.000598318 max 0.265479778 sum 8969.13492
+# target 50% 0.00540592
+# target 75% 0.00780973
+# target 90% 0.00925201
+# target 99% 0.0167493
+# target 99.9% 0.0393616
+Sockets used: 33180 (for perfect keepalive, would be 69)
+Jitter: false
+Code 200 : 3347451 (100.0 %)
+All done 3347451 calls (plus 69 warmup) 2.679 ms avg, 25748.9 qps
+Successfully wrote 4054 bytes of Json data to 2022-03-25-234422_k8s_apache_3_warmup_69.json
+fortio exit code: 0
+[2022-03-25T23:46:32]==============================[STATS]
+jh CPU load avg:
+0.73 0.65 0.56 1/160 1855
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          32m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           35m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1846m        95%    527Mi           15%       
+ip-192-168-30-87.ec2.internal    1859m        96%    527Mi           15%       
+ip-192-168-47-122.ec2.internal   1976m        102%   621Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:47:35]==============================[STATS]
+jh CPU load avg:
+0.28 0.53 0.53 1/160 1919
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          33m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           36m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    43m          2%     527Mi           15%       
+ip-192-168-30-87.ec2.internal    45m          2%     527Mi           15%       
+ip-192-168-47-122.ec2.internal   61m          3%     621Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:47:38]==============================[WARMUP RUN c70]==============================
+23:47:38 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 2m10s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 3360017 avg 0.0027080635 +/- 0.003465 min 0.000591597 max 0.253559072 sum 9099.13946
+# target 50% 0.00541398
+# target 75% 0.00782518
+# target 90% 0.00927189
+# target 99% 0.0174028
+# target 99.9% 0.0419027
+Sockets used: 33304 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 3360017 (100.0 %)
+All done 3360017 calls (plus 70 warmup) 2.708 ms avg, 25845.7 qps
+Successfully wrote 4055 bytes of Json data to 2022-03-25-234738_k8s_apache_3_warmup_70.json
+fortio exit code: 0
+[2022-03-25T23:49:48]==============================[STATS]
+jh CPU load avg:
+1.09 0.78 0.62 1/160 2018
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          35m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           38m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1822m        94%    528Mi           15%       
+ip-192-168-30-87.ec2.internal    1936m        100%   527Mi           15%       
+ip-192-168-47-122.ec2.internal   1940m        100%   621Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+{
+    "LoadBalancerDescriptions": [
+        {
+            "Subnets": [
+                "subnet-04e81978ce6f1e5da", 
+                "subnet-0afbb1ef7c571cec2"
+            ], 
+            "CanonicalHostedZoneNameID": "Z35SXDOTRQ7X7K", 
+            "CanonicalHostedZoneName": "a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com", 
+            "ListenerDescriptions": [
+                {
+                    "Listener": {
+                        "InstancePort": 30316, 
+                        "LoadBalancerPort": 80, 
+                        "Protocol": "TCP", 
+                        "InstanceProtocol": "TCP"
+                    }, 
+                    "PolicyNames": []
+                }
+            ], 
+            "HealthCheck": {
+                "HealthyThreshold": 2, 
+                "Interval": 10, 
+                "Target": "TCP:30316", 
+                "Timeout": 5, 
+                "UnhealthyThreshold": 6
+            }, 
+            "VPCId": "vpc-0105cb0b01f3116bf", 
+            "BackendServerDescriptions": [], 
+            "Instances": [
+                {
+                    "InstanceId": "i-0a569b3202e1bf84c"
+                }, 
+                {
+                    "InstanceId": "i-05228c802cae29c36"
+                }, 
+                {
+                    "InstanceId": "i-044961b6adf02ee9e"
+                }
+            ], 
+            "DNSName": "a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com", 
+            "SecurityGroups": [
+                "sg-00c23b8837ca6a1fb"
+            ], 
+            "Policies": {
+                "LBCookieStickinessPolicies": [], 
+                "AppCookieStickinessPolicies": [], 
+                "OtherPolicies": []
+            }, 
+            "LoadBalancerName": "a958bf7a1a3454922b68da7f7d4fe94b", 
+            "CreatedTime": "2022-03-25T23:11:03.990Z", 
+            "AvailabilityZones": [
+                "us-east-1b", 
+                "us-east-1a"
+            ], 
+            "Scheme": "internet-facing", 
+            "SourceSecurityGroup": {
+                "OwnerAlias": "850058243890", 
+                "GroupName": "k8s-elb-a958bf7a1a3454922b68da7f7d4fe94b"
+            }
+        }
+    ]
+}
+{
+    "AutoScalingGroups": [
+        {
+            "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-1:850058243890:autoScalingGroup:602434cf-2c07-4f8b-8bf7-f5527f8c87b5:autoScalingGroupName/eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+            "ServiceLinkedRoleARN": "arn:aws:iam::850058243890:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling", 
+            "TargetGroupARNs": [], 
+            "SuspendedProcesses": [], 
+            "DesiredCapacity": 3, 
+            "MixedInstancesPolicy": {
+                "InstancesDistribution": {
+                    "SpotAllocationStrategy": "lowest-price", 
+                    "OnDemandPercentageAboveBaseCapacity": 100, 
+                    "OnDemandAllocationStrategy": "prioritized", 
+                    "SpotInstancePools": 2, 
+                    "OnDemandBaseCapacity": 0
+                }, 
+                "LaunchTemplate": {
+                    "LaunchTemplateSpecification": {
+                        "LaunchTemplateName": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-098511ba6e27e4fa5"
+                    }, 
+                    "Overrides": [
+                        {
+                            "InstanceType": "t3.medium"
+                        }
+                    ]
+                }
+            }, 
+            "EnabledMetrics": [
+                {
+                    "Metric": "WarmPoolTerminatingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupPendingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupPendingInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupInServiceCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupStandbyCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolMinSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupInServiceInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupAndWarmPoolDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupDesiredCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolPendingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolWarmedCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTotalInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "WarmPoolTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupMinSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupAndWarmPoolTotalCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupMaxSize", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupStandbyInstances", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTerminatingCapacity", 
+                    "Granularity": "1Minute"
+                }, 
+                {
+                    "Metric": "GroupTerminatingInstances", 
+                    "Granularity": "1Minute"
+                }
+            ], 
+            "Tags": [
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "C888", 
+                    "Key": "eks:cluster-name"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "standard-workers", 
+                    "Key": "eks:nodegroup-name"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "owned", 
+                    "Key": "k8s.io/cluster-autoscaler/C888"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "true", 
+                    "Key": "k8s.io/cluster-autoscaler/enabled"
+                }, 
+                {
+                    "ResourceType": "auto-scaling-group", 
+                    "ResourceId": "eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                    "PropagateAtLaunch": true, 
+                    "Value": "owned", 
+                    "Key": "kubernetes.io/cluster/C888"
+                }
+            ], 
+            "AutoScalingGroupName": "eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+            "DefaultCooldown": 300, 
+            "MinSize": 1, 
+            "Instances": [
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1b", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-098511ba6e27e4fa5"
+                    }, 
+                    "InstanceId": "i-044961b6adf02ee9e", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }, 
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1a", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-098511ba6e27e4fa5"
+                    }, 
+                    "InstanceId": "i-05228c802cae29c36", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }, 
+                {
+                    "ProtectedFromScaleIn": false, 
+                    "AvailabilityZone": "us-east-1a", 
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "eks-febfe1ab-08b9-df69-9567-d9b788b9817e", 
+                        "Version": "1", 
+                        "LaunchTemplateId": "lt-098511ba6e27e4fa5"
+                    }, 
+                    "InstanceId": "i-0a569b3202e1bf84c", 
+                    "HealthStatus": "Healthy", 
+                    "LifecycleState": "InService", 
+                    "InstanceType": "t3.medium"
+                }
+            ], 
+            "MaxSize": 3, 
+            "VPCZoneIdentifier": "subnet-04e81978ce6f1e5da,subnet-0afbb1ef7c571cec2", 
+            "HealthCheckGracePeriod": 15, 
+            "TerminationPolicies": [
+                "AllocationStrategy", 
+                "OldestLaunchTemplate", 
+                "OldestInstance"
+            ], 
+            "LoadBalancerNames": [], 
+            "CreatedTime": "2022-03-25T23:08:38.726Z", 
+            "AvailabilityZones": [
+                "us-east-1a", 
+                "us-east-1b"
+            ], 
+            "HealthCheckType": "EC2", 
+            "NewInstancesProtectedFromScaleIn": false
+        }
+    ]
+}
+[2022-03-25T23:50:55]==============================[PERFORMANCE CHUNK RUN 71]==============================
+[2022-03-25T23:51:55]==============================[STATS]
+jh CPU load avg:
+0.13 0.51 0.54 1/160 2174
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          38m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           40m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    49m          2%     538Mi           16%       
+ip-192-168-30-87.ec2.internal    48m          2%     527Mi           15%       
+ip-192-168-47-122.ec2.internal   65m          3%     621Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+23:51:59 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1494361 avg 0.0028103174 +/- 0.00444 min 0.000595111 max 1.006246422 sum 4199.62867
+# target 50% 0.00543789
+# target 75% 0.00785929
+# target 90% 0.00931213
+# target 99% 0.0184149
+# target 99.9% 0.0576304
+Sockets used: 14828 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1494361 (100.0 %)
+All done 1494361 calls (plus 70 warmup) 2.810 ms avg, 24904.8 qps
+Successfully wrote 4306 bytes of Json data to 2022-03-25-235159_k8s_apache_3_performance_chunk_71_1.json
+fortio exit code: 0
+[2022-03-25T23:52:59]==============================[STATS]
+jh CPU load avg:
+0.69 0.60 0.57 1/160 2253
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   84%/70%   1         6         6          39m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           41m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1855m        96%    538Mi           16%       
+ip-192-168-30-87.ec2.internal    1819m        94%    527Mi           15%       
+ip-192-168-47-122.ec2.internal   1957m        101%   622Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+23:53:02 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1554749 avg 0.0027011785 +/- 0.003287 min 0.000596408 max 0.235531915 sum 4199.65464
+# target 50% 0.00541751
+# target 75% 0.00782806
+# target 90% 0.00927439
+# target 99% 0.0172765
+# target 99.9% 0.0391216
+Sockets used: 15426 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1554749 (100.0 %)
+All done 1554749 calls (plus 70 warmup) 2.701 ms avg, 25910.2 qps
+Successfully wrote 3827 bytes of Json data to 2022-03-25-235302_k8s_apache_3_performance_chunk_71_2.json
+fortio exit code: 0
+[2022-03-25T23:54:02]==============================[STATS]
+jh CPU load avg:
+0.78 0.65 0.58 1/162 2343
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          40m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           43m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1829m        94%    529Mi           15%       
+ip-192-168-30-87.ec2.internal    1851m        95%    536Mi           16%       
+ip-192-168-47-122.ec2.internal   1975m        102%   622Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+23:54:05 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1543507 avg 0.0027208396 +/- 0.003407 min 0.000605237 max 0.210889634 sum 4199.63501
+# target 50% 0.00542121
+# target 75% 0.00782919
+# target 90% 0.00927399
+# target 99% 0.0172889
+# target 99.9% 0.0416411
+Sockets used: 15318 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1543507 (100.0 %)
+All done 1543507 calls (plus 70 warmup) 2.721 ms avg, 25723.1 qps
+Successfully wrote 3940 bytes of Json data to 2022-03-25-235405_k8s_apache_3_performance_chunk_71_3.json
+fortio exit code: 0
+[2022-03-25T23:55:05]==============================[STATS]
+jh CPU load avg:
+0.89 0.70 0.61 1/162 2425
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   83%/70%   1         6         6          41m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           44m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1866m        96%    528Mi           15%       
+ip-192-168-30-87.ec2.internal    1868m        96%    527Mi           15%       
+ip-192-168-47-122.ec2.internal   1973m        102%   622Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+23:55:08 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1556894 avg 0.0026974195 +/- 0.003083 min 0.000608901 max 0.208013038 sum 4199.59627
+# target 50% 0.0054115
+# target 75% 0.00781281
+# target 90% 0.00925359
+# target 99% 0.0166672
+# target 99.9% 0.036234
+Sockets used: 15451 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1556894 (100.0 %)
+All done 1556894 calls (plus 70 warmup) 2.697 ms avg, 25946.7 qps
+Successfully wrote 3705 bytes of Json data to 2022-03-25-235509_k8s_apache_3_performance_chunk_71_4.json
+fortio exit code: 0
+[2022-03-25T23:56:09]==============================[STATS]
+jh CPU load avg:
+1.11 0.82 0.66 1/162 2504
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         6          42m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           45m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1867m        96%    528Mi           15%       
+ip-192-168-30-87.ec2.internal    1870m        96%    527Mi           15%       
+ip-192-168-47-122.ec2.internal   1977m        102%   622Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+23:56:12 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1550960 avg 0.0027077608 +/- 0.003429 min 0.000588153 max 0.331773352 sum 4199.62868
+# target 50% 0.00540443
+# target 75% 0.00781256
+# target 90% 0.00925745
+# target 99% 0.016942
+# target 99.9% 0.0388225
+Sockets used: 15387 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1550960 (100.0 %)
+All done 1550960 calls (plus 70 warmup) 2.708 ms avg, 25847.7 qps
+Successfully wrote 4178 bytes of Json data to 2022-03-25-235612_k8s_apache_3_performance_chunk_71_5.json
+fortio exit code: 0
+[2022-03-25T23:58:12]==============================[STATS]
+jh CPU load avg:
+0.47 0.74 0.65 1/159 2600
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          44m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           47m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    45m          2%     528Mi           15%       
+ip-192-168-30-87.ec2.internal    45m          2%     528Mi           15%       
+ip-192-168-47-122.ec2.internal   61m          3%     621Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-25T23:58:15]==============================[PERFORMANCE RUN 1]==============================
+23:58:15 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 7667015 avg 0.0027387384 +/- 0.003719 min 0.000580939 max 1.021770505 sum 20997.9485
+# target 50% 0.0054112
+# target 75% 0.00782633
+# target 90% 0.00927541
+# target 99% 0.0174269
+# target 99.9% 0.0430629
+Sockets used: 75946 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 7667015 (100.0 %)
+All done 7667015 calls (plus 70 warmup) 2.739 ms avg, 25556.4 qps
+Successfully wrote 4320 bytes of Json data to 2022-03-25-235815_k8s_apache_3_performance_1.json
+fortio exit code: 0
+[2022-03-26T00:03:15]==============================[STATS]
+jh CPU load avg:
+0.80 0.79 0.70 1/162 2846
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          49m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           52m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1832m        94%    529Mi           15%       
+ip-192-168-30-87.ec2.internal    1829m        94%    527Mi           15%       
+ip-192-168-47-122.ec2.internal   1987m        102%   623Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:04:18]==============================[STATS]
+jh CPU load avg:
+0.33 0.66 0.66 1/160 2910
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          50m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           53m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    43m          2%     528Mi           15%       
+ip-192-168-30-87.ec2.internal    45m          2%     528Mi           15%       
+ip-192-168-47-122.ec2.internal   63m          3%     622Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:04:21]==============================[PERFORMANCE RUN 2]==============================
+00:04:21 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 7660234 avg 0.0027411449 +/- 0.003743 min 0.000587814 max 1.028239457 sum 20997.8114
+# target 50% 0.00541521
+# target 75% 0.00782891
+# target 90% 0.00927713
+# target 99% 0.0173491
+# target 99.9% 0.0417158
+Sockets used: 75879 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 7660234 (100.0 %)
+All done 7660234 calls (plus 70 warmup) 2.741 ms avg, 25533.9 qps
+Successfully wrote 4317 bytes of Json data to 2022-03-26-000421_k8s_apache_3_performance_2.json
+fortio exit code: 0
+[2022-03-26T00:09:21]==============================[STATS]
+jh CPU load avg:
+0.85 0.85 0.75 1/159 3083
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          55m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           58m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1857m        96%    530Mi           15%       
+ip-192-168-30-87.ec2.internal    1827m        94%    538Mi           16%       
+ip-192-168-47-122.ec2.internal   1983m        102%   623Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:10:24]==============================[STATS]
+jh CPU load avg:
+0.32 0.69 0.70 1/160 3153
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         6          56m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           59m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    43m          2%     530Mi           15%       
+ip-192-168-30-87.ec2.internal    44m          2%     538Mi           16%       
+ip-192-168-47-122.ec2.internal   65m          3%     623Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:10:27]==============================[PERFORMANCE RUN 3]==============================
+00:10:27 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 5m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 7754846 avg 0.0027077042 +/- 0.00347 min 0.000593594 max 1.012543115 sum 20997.8288
+# target 50% 0.00540318
+# target 75% 0.00780797
+# target 90% 0.00925084
+# target 99% 0.0167426
+# target 99.9% 0.0392116
+Sockets used: 76819 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 7754846 (100.0 %)
+All done 7754846 calls (plus 70 warmup) 2.708 ms avg, 25849.1 qps
+Successfully wrote 4442 bytes of Json data to 2022-03-26-001027_k8s_apache_3_performance_3.json
+fortio exit code: 0
+[2022-03-26T00:15:27]==============================[STATS]
+jh CPU load avg:
+1.30 1.01 0.84 1/159 3373
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          61m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           64m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1905m        98%    530Mi           15%       
+ip-192-168-30-87.ec2.internal    1863m        96%    538Mi           16%       
+ip-192-168-47-122.ec2.internal   1948m        100%   623Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:15:30]==============================[SCALING RUN 1: INIT]==============================
+horizontalpodautoscaler.autoscaling "apache-deployment" deleted
+scaling to 1
+deployment.apps/apache-deployment scaled
+2022-03-26 00:15:32 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-03-26 00:15:32 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-26 00:15:51 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-26 00:15:51 [ℹ]  nodegroup successfully scaled
+[2022-03-26T00:15:51]==============================[SCALING RUN 1: ENABLE SCALING - SLEEP]==============================
+horizontalpodautoscaler.autoscaling/apache-deployment autoscaled
+[2022-03-26T00:18:52]==============================[SCALING RUN 1: FORTIO]==============================
+[2022-03-26T00:18:52]==============================[STATS]
+jh CPU load avg:
+0.08 0.53 0.68 1/165 3528
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         1          20s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   1/1     1            1           67m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal   72m          3%     930Mi           27%       
+MONITORING	enabled
+[2022-03-26T00:18:55]==============================[SCALING RUN 1: CHUNK 1]==============================
+00:18:55 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 515466 avg 0.0081480732 +/- 0.009045 min 0.000807543 max 1.049699465 sum 4200.05469
+# target 50% 0.00642797
+# target 75% 0.0092382
+# target 90% 0.0173789
+# target 99% 0.0422834
+# target 99.9% 0.0781283
+Sockets used: 5426 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 515466 (100.0 %)
+All done 515466 calls (plus 70 warmup) 8.148 ms avg, 8589.5 qps
+Successfully wrote 4041 bytes of Json data to 2022-03-26-001855_k8s_apache_3_scaling_1_1.json
+fortio exit code: 0
+[2022-03-26T00:19:55]==============================[STATS]
+jh CPU load avg:
+0.24 0.48 0.65 1/165 3599
+NAME                REFERENCE                      TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   142%/70%   1         6         2          83s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/2     2            2           68m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal   1735m        89%    948Mi           28%       
+MONITORING	enabled
+[2022-03-26T00:19:58]==============================[SCALING RUN 1: CHUNK 2]==============================
+00:19:58 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 613223 avg 0.0068490181 +/- 0.009346 min 0.000806877 max 0.308182615 sum 4199.97544
+# target 50% 0.00640674
+# target 75% 0.00920668
+# target 90% 0.0157197
+# target 99% 0.0434457
+# target 99.9% 0.11262
+Sockets used: 6133 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 613223 (100.0 %)
+All done 613223 calls (plus 70 warmup) 6.849 ms avg, 10219.3 qps
+Successfully wrote 4167 bytes of Json data to 2022-03-26-001958_k8s_apache_3_scaling_1_2.json
+fortio exit code: 0
+[2022-03-26T00:20:58]==============================[STATS]
+jh CPU load avg:
+0.59 0.55 0.66 1/166 3676
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   91%/70%   1         6         3          2m27s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/3     3            2           69m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal   1997m        103%   631Mi           18%       
+MONITORING	enabled
+[2022-03-26T00:21:01]==============================[SCALING RUN 1: CHUNK 3]==============================
+00:21:01 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 609611 avg 0.006889708 +/- 0.008758 min 0.000795245 max 1.007723168 sum 4200.04176
+# target 50% 0.00639928
+# target 75% 0.00920131
+# target 90% 0.015691
+# target 99% 0.0396575
+# target 99.9% 0.100819
+Sockets used: 6086 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 609611 (100.0 %)
+All done 609611 calls (plus 70 warmup) 6.890 ms avg, 10158.8 qps
+Successfully wrote 4162 bytes of Json data to 2022-03-26-002101_k8s_apache_3_scaling_1_3.json
+fortio exit code: 0
+[2022-03-26T00:22:01]==============================[STATS]
+jh CPU load avg:
+0.31 0.47 0.62 1/166 3747
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   94%/70%   1         6         3          3m30s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/3     3            2           71m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%     
+ip-192-168-22-10.ec2.internal    1996m        103%   632Mi           18%         
+ip-192-168-42-142.ec2.internal   <unknown>                           <unknown>               <unknown>               <unknown>               
+MONITORING	enabled
+[2022-03-26T00:22:04]==============================[SCALING RUN 1: CHUNK 4]==============================
+00:22:04 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+00:22:12 E http_client.go:671> Unable to connect to 54.146.193.224:80 : dial tcp 54.146.193.224:80: connect: connection refused
+Aggregated Function Time : count 875558 avg 0.0047967804 +/- 0.007679 min 0.000570888 max 1.03494836 sum 4199.85949
+# target 50% 0.00580535
+# target 75% 0.00842258
+# target 90% 0.00999292
+# target 99% 0.0325402
+# target 99.9% 0.0892143
+Sockets used: 8743 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 14 (0.0 %)
+Code 200 : 875544 (100.0 %)
+All done 875558 calls (plus 70 warmup) 4.797 ms avg, 14591.2 qps
+Successfully wrote 4657 bytes of Json data to 2022-03-26-002205_k8s_apache_3_scaling_1_4.json
+fortio exit code: 0
+[2022-03-26T00:23:05]==============================[STATS]
+jh CPU load avg:
+0.61 0.54 0.64 1/166 3818
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   95%/70%   1         6         4          4m33s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/4     4            4           72m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1989m        103%   631Mi           18%       
+ip-192-168-42-142.ec2.internal   1513m        78%    500Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:23:08]==============================[SCALING RUN 1: CHUNK 5]==============================
+00:23:08 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1083393 avg 0.003876559 +/- 0.005153 min 0.000568892 max 0.354740194 sum 4199.83694
+# target 50% 0.00554422
+# target 75% 0.00803189
+# target 90% 0.00952449
+# target 99% 0.0201185
+# target 99.9% 0.064841
+Sockets used: 10760 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1083393 (100.0 %)
+All done 1083393 calls (plus 70 warmup) 3.877 ms avg, 18054.6 qps
+Successfully wrote 4177 bytes of Json data to 2022-03-26-002308_k8s_apache_3_scaling_1_5.json
+fortio exit code: 0
+[2022-03-26T00:24:08]==============================[STATS]
+jh CPU load avg:
+0.44 0.51 0.62 1/166 3892
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   92%/70%   1         6         5          5m36s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/5     5            4           73m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1971m        102%   628Mi           18%       
+ip-192-168-42-142.ec2.internal   1966m        101%   504Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:24:11]==============================[SCALING RUN 1: CHUNK 6]==============================
+00:24:11 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1093603 avg 0.0038403917 +/- 0.005144 min 0.000593205 max 1.029236977 sum 4199.86385
+# target 50% 0.00552929
+# target 75% 0.00799733
+# target 90% 0.00947816
+# target 99% 0.0198602
+# target 99.9% 0.0597152
+Sockets used: 10860 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1093603 (100.0 %)
+All done 1093603 calls (plus 70 warmup) 3.840 ms avg, 18224.5 qps
+Successfully wrote 4166 bytes of Json data to 2022-03-26-002411_k8s_apache_3_scaling_1_6.json
+fortio exit code: 0
+[2022-03-26T00:25:11]==============================[STATS]
+jh CPU load avg:
+0.64 0.55 0.63 1/166 3963
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   91%/70%   1         6         5          6m40s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/5     5            4           74m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1979m        102%   630Mi           18%       
+ip-192-168-42-142.ec2.internal   1985m        102%   504Mi           15%       
+ip-192-168-51-237.ec2.internal   980m         50%    454Mi           13%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:25:15]==============================[SCALING RUN 1: CHUNK 7]==============================
+00:25:15 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1277623 avg 0.0032871121 +/- 0.004757 min 0.000555671 max 0.239241535 sum 4199.69003
+# target 50% 0.00547877
+# target 75% 0.00794032
+# target 90% 0.00941725
+# target 99% 0.0195315
+# target 99.9% 0.0638416
+Sockets used: 12685 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1277623 (100.0 %)
+All done 1277623 calls (plus 70 warmup) 3.287 ms avg, 21292.3 qps
+Successfully wrote 3930 bytes of Json data to 2022-03-26-002515_k8s_apache_3_scaling_1_7.json
+fortio exit code: 0
+[2022-03-26T00:26:15]==============================[STATS]
+jh CPU load avg:
+0.80 0.62 0.65 1/165 4035
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         5          7m43s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           75m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1990m        103%   630Mi           18%       
+ip-192-168-42-142.ec2.internal   1877m        97%    506Mi           15%       
+ip-192-168-51-237.ec2.internal   977m         50%    480Mi           14%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:26:18]==============================[SCALING RUN 1: CHUNK 8]==============================
+00:26:18 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1435741 avg 0.0029250783 +/- 0.004194 min 0.000544418 max 0.319749504 sum 4199.65483
+# target 50% 0.00544089
+# target 75% 0.00788913
+# target 90% 0.00935807
+# target 99% 0.0187338
+# target 99.9% 0.0504612
+Sockets used: 14246 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1435741 (100.0 %)
+All done 1435741 calls (plus 70 warmup) 2.925 ms avg, 23927.7 qps
+Successfully wrote 4167 bytes of Json data to 2022-03-26-002618_k8s_apache_3_scaling_1_8.json
+fortio exit code: 0
+[2022-03-26T00:27:18]==============================[STATS]
+jh CPU load avg:
+0.80 0.65 0.65 1/165 4107
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          8m47s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           76m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1998m        103%   640Mi           19%       
+ip-192-168-42-142.ec2.internal   1501m        77%    507Mi           15%       
+ip-192-168-51-237.ec2.internal   1427m        73%    505Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:27:21]==============================[SCALING RUN 1: CHUNK 9]==============================
+00:27:21 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1521662 avg 0.0027598804 +/- 0.003569 min 0.000542222 max 1.013356368 sum 4199.60519
+# target 50% 0.00538728
+# target 75% 0.00780981
+# target 90% 0.00926333
+# target 99% 0.0171831
+# target 99.9% 0.0414343
+Sockets used: 15103 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1521662 (100.0 %)
+All done 1521662 calls (plus 70 warmup) 2.760 ms avg, 25359.6 qps
+Successfully wrote 4046 bytes of Json data to 2022-03-26-002722_k8s_apache_3_scaling_1_9.json
+fortio exit code: 0
+[2022-03-26T00:28:22]==============================[STATS]
+jh CPU load avg:
+1.08 0.77 0.70 1/165 4180
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          9m50s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           77m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1930m        100%   638Mi           19%       
+ip-192-168-42-142.ec2.internal   1910m        98%    507Mi           15%       
+ip-192-168-51-237.ec2.internal   1766m        91%    502Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:28:25]==============================[SCALING RUN 1: CHUNK 10]==============================
+00:28:25 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1538706 avg 0.0027293237 +/- 0.003285 min 0.000565397 max 0.253800949 sum 4199.62677
+# target 50% 0.00539013
+# target 75% 0.00780249
+# target 90% 0.00924992
+# target 99% 0.0168579
+# target 99.9% 0.0385625
+Sockets used: 15271 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1538706 (100.0 %)
+All done 1538706 calls (plus 70 warmup) 2.729 ms avg, 25642.3 qps
+Successfully wrote 3809 bytes of Json data to 2022-03-26-002826_k8s_apache_3_scaling_1_10.json
+fortio exit code: 0
+[2022-03-26T00:29:26]==============================[STATS]
+jh CPU load avg:
+1.17 0.86 0.74 1/165 4275
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           78m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1895m        98%    638Mi           19%       
+ip-192-168-42-142.ec2.internal   1940m        100%   507Mi           15%       
+ip-192-168-51-237.ec2.internal   1859m        96%    503Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:29:29]==============================[SCALING RUN 1: CHUNK 11]==============================
+00:29:29 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1512607 avg 0.0027764187 +/- 0.003536 min 0.000545308 max 0.223669247 sum 4199.63037
+# target 50% 0.00538648
+# target 75% 0.00780706
+# target 90% 0.00925941
+# target 99% 0.0170463
+# target 99.9% 0.0398237
+Sockets used: 15007 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1512607 (100.0 %)
+All done 1512607 calls (plus 70 warmup) 2.776 ms avg, 25208.3 qps
+Successfully wrote 3936 bytes of Json data to 2022-03-26-002929_k8s_apache_3_scaling_1_11.json
+fortio exit code: 0
+[2022-03-26T00:30:29]==============================[STATS]
+jh CPU load avg:
+1.15 0.89 0.75 1/167 4354
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         6          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           79m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1837m        95%    639Mi           19%       
+ip-192-168-42-142.ec2.internal   1984m        102%   507Mi           15%       
+ip-192-168-51-237.ec2.internal   1787m        92%    503Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:30:32]==============================[SCALING RUN 1: CHUNK 12]==============================
+00:30:32 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1532291 avg 0.0027407282 +/- 0.003423 min 0.000545747 max 1.018712538 sum 4199.59321
+# target 50% 0.00538244
+# target 75% 0.00780079
+# target 90% 0.0092518
+# target 99% 0.0166449
+# target 99.9% 0.0358873
+Sockets used: 15201 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1532291 (100.0 %)
+All done 1532291 calls (plus 70 warmup) 2.741 ms avg, 25536.9 qps
+Successfully wrote 4049 bytes of Json data to 2022-03-26-003032_k8s_apache_3_scaling_1_12.json
+fortio exit code: 0
+[2022-03-26T00:31:32]==============================[STATS]
+jh CPU load avg:
+0.81 0.84 0.74 1/167 4427
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         6          13m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           80m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1942m        100%   639Mi           19%       
+ip-192-168-42-142.ec2.internal   1940m        100%   507Mi           15%       
+ip-192-168-51-237.ec2.internal   1883m        97%    504Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:31:35]==============================[SCALING RUN 1: CHUNK 13]==============================
+00:31:35 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1514512 avg 0.0027729989 +/- 0.00368 min 0.000560621 max 0.241589068 sum 4199.74011
+# target 50% 0.00540141
+# target 75% 0.00782181
+# target 90% 0.00927405
+# target 99% 0.0174425
+# target 99.9% 0.0438672
+Sockets used: 15030 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1514512 (100.0 %)
+All done 1514512 calls (plus 70 warmup) 2.773 ms avg, 25194.0 qps
+Successfully wrote 3811 bytes of Json data to 2022-03-26-003135_k8s_apache_3_scaling_1_13.json
+fortio exit code: 0
+[2022-03-26T00:32:36]==============================[STATS]
+jh CPU load avg:
+1.04 0.89 0.77 1/167 4498
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           81m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1967m        101%   638Mi           19%       
+ip-192-168-42-142.ec2.internal   1872m        96%    508Mi           15%       
+ip-192-168-51-237.ec2.internal   1785m        92%    504Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:32:39]==============================[SCALING RUN 1: CHUNK 14]==============================
+00:32:39 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1524798 avg 0.0027542149 +/- 0.003475 min 0.000562508 max 0.230209232 sum 4199.62139
+# target 50% 0.00539342
+# target 75% 0.00780887
+# target 90% 0.00925815
+# target 99% 0.0169719
+# target 99.9% 0.039663
+Sockets used: 15128 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1524798 (100.0 %)
+All done 1524798 calls (plus 70 warmup) 2.754 ms avg, 25412.1 qps
+Successfully wrote 3934 bytes of Json data to 2022-03-26-003239_k8s_apache_3_scaling_1_14.json
+fortio exit code: 0
+[2022-03-26T00:33:39]==============================[STATS]
+jh CPU load avg:
+1.15 0.96 0.80 1/167 4571
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           82m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-22-10.ec2.internal    1976m        102%   651Mi           19%       
+ip-192-168-42-142.ec2.internal   1890m        97%    509Mi           15%       
+ip-192-168-51-237.ec2.internal   1831m        94%    504Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:33:42]==============================[SCALING RUN 2: INIT]==============================
+horizontalpodautoscaler.autoscaling "apache-deployment" deleted
+scaling to 1
+deployment.apps/apache-deployment scaled
+2022-03-26 00:33:43 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-03-26 00:33:44 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-26 00:34:00 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-26 00:34:00 [ℹ]  nodegroup successfully scaled
+[2022-03-26T00:34:00]==============================[SCALING RUN 2: ENABLE SCALING - SLEEP]==============================
+horizontalpodautoscaler.autoscaling/apache-deployment autoscaled
+[2022-03-26T00:37:01]==============================[SCALING RUN 2: FORTIO]==============================
+[2022-03-26T00:37:01]==============================[STATS]
+jh CPU load avg:
+0.06 0.50 0.64 1/165 4720
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         1          20s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   1/1     1            1           86m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-51-237.ec2.internal   94m          4%     905Mi           27%       
+MONITORING	enabled
+[2022-03-26T00:37:04]==============================[SCALING RUN 2: CHUNK 1]==============================
+00:37:04 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 551641 avg 0.0076137112 +/- 0.009395 min 0.000560314 max 0.287752612 sum 4200.03524
+# target 50% 0.0062943
+# target 75% 0.00916131
+# target 90% 0.0165993
+# target 99% 0.0435046
+# target 99.9% 0.106484
+Sockets used: 5626 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 551641 (100.0 %)
+All done 551641 calls (plus 70 warmup) 7.614 ms avg, 9192.9 qps
+Successfully wrote 4048 bytes of Json data to 2022-03-26-003704_k8s_apache_3_scaling_2_1.json
+fortio exit code: 0
+[2022-03-26T00:38:04]==============================[STATS]
+jh CPU load avg:
+0.14 0.43 0.61 1/164 4791
+NAME                REFERENCE                      TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   139%/70%   1         6         2          83s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/2     2            2           87m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-51-237.ec2.internal   1993m        103%   925Mi           27%       
+MONITORING	enabled
+[2022-03-26T00:38:07]==============================[SCALING RUN 2: CHUNK 2]==============================
+00:38:07 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 619711 avg 0.0067773865 +/- 0.008799 min 0.000566555 max 0.293343404 sum 4200.02094
+# target 50% 0.00633076
+# target 75% 0.00921288
+# target 90% 0.0156182
+# target 99% 0.0381932
+# target 99.9% 0.113916
+Sockets used: 6193 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 619711 (100.0 %)
+All done 619711 calls (plus 70 warmup) 6.777 ms avg, 10326.8 qps
+Successfully wrote 4047 bytes of Json data to 2022-03-26-003807_k8s_apache_3_scaling_2_2.json
+fortio exit code: 0
+[2022-03-26T00:39:07]==============================[STATS]
+jh CPU load avg:
+0.41 0.46 0.61 1/165 4864
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   95%/70%   1         6         3          2m27s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/3     3            2           88m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-51-237.ec2.internal   1995m        103%   634Mi           19%       
+MONITORING	enabled
+[2022-03-26T00:39:10]==============================[SCALING RUN 2: CHUNK 3]==============================
+00:39:10 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+00:39:53 E http_client.go:671> Unable to connect to 34.239.90.167:80 : dial tcp 34.239.90.167:80: connect: connection refused
+00:39:53 E http_client.go:671> Unable to connect to 34.239.90.167:80 : dial tcp 34.239.90.167:80: connect: connection refused
+00:39:53 E http_client.go:671> Unable to connect to 34.239.90.167:80 : dial tcp 34.239.90.167:80: connect: connection refused
+00:39:53 E http_client.go:671> Unable to connect to 34.239.90.167:80 : dial tcp 34.239.90.167:80: connect: connection refused
+Aggregated Function Time : count 653688 avg 0.0064249951 +/- 0.009638 min 0.000561527 max 0.415126136 sum 4199.94221
+# target 50% 0.00614647
+# target 75% 0.00893895
+# target 90% 0.0146729
+# target 99% 0.0408169
+# target 99.9% 0.114561
+Sockets used: 6548 (for perfect keepalive, would be 70)
+Jitter: false
+Code  -1 : 4 (0.0 %)
+Code 200 : 653684 (100.0 %)
+All done 653688 calls (plus 70 warmup) 6.425 ms avg, 10893.7 qps
+Successfully wrote 4665 bytes of Json data to 2022-03-26-003910_k8s_apache_3_scaling_2_3.json
+fortio exit code: 0
+[2022-03-26T00:40:10]==============================[STATS]
+jh CPU load avg:
+0.44 0.44 0.59 1/166 4989
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         3          3m30s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   3/3     3            3           89m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     421m         21%    480Mi           14%       
+ip-192-168-51-237.ec2.internal   1995m        103%   630Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:40:13]==============================[SCALING RUN 2: CHUNK 4]==============================
+00:40:13 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 931700 avg 0.0045077078 +/- 0.007007 min 0.000570609 max 0.252406386 sum 4199.83131
+# target 50% 0.0057608
+# target 75% 0.0083559
+# target 90% 0.00991296
+# target 99% 0.0295373
+# target 99.9% 0.0884204
+Sockets used: 9265 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 931700 (100.0 %)
+All done 931700 calls (plus 70 warmup) 4.508 ms avg, 15527.1 qps
+Successfully wrote 4046 bytes of Json data to 2022-03-26-004014_k8s_apache_3_scaling_2_4.json
+fortio exit code: 0
+[2022-03-26T00:41:14]==============================[STATS]
+jh CPU load avg:
+0.52 0.47 0.59 1/166 5063
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   96%/70%   1         6         4          4m33s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/4     4            4           90m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1230m        63%    498Mi           14%       
+ip-192-168-51-237.ec2.internal   1997m        103%   624Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:41:17]==============================[SCALING RUN 2: CHUNK 5]==============================
+00:41:17 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1098325 avg 0.0038238174 +/- 0.004764 min 0.000553642 max 0.276466577 sum 4199.79421
+# target 50% 0.00555999
+# target 75% 0.00806317
+# target 90% 0.00956508
+# target 99% 0.0204051
+# target 99.9% 0.0579122
+Sockets used: 10911 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1098325 (100.0 %)
+All done 1098325 calls (plus 70 warmup) 3.824 ms avg, 18304.3 qps
+Successfully wrote 3935 bytes of Json data to 2022-03-26-004117_k8s_apache_3_scaling_2_5.json
+fortio exit code: 0
+[2022-03-26T00:42:17]==============================[STATS]
+jh CPU load avg:
+0.51 0.47 0.58 1/166 5135
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   92%/70%   1         6         6          5m36s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/6     6            4           91m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1910m        98%    505Mi           15%       
+ip-192-168-51-237.ec2.internal   1993m        103%   623Mi           18%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:42:20]==============================[SCALING RUN 2: CHUNK 6]==============================
+00:42:20 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1008026 avg 0.0041664284 +/- 0.006633 min 0.000584569 max 1.0150464 sum 4199.8682
+# target 50% 0.00567499
+# target 75% 0.0082202
+# target 90% 0.00974733
+# target 99% 0.0285148
+# target 99.9% 0.0820774
+Sockets used: 10015 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1008026 (100.0 %)
+All done 1008026 calls (plus 70 warmup) 4.166 ms avg, 16798.7 qps
+Successfully wrote 4168 bytes of Json data to 2022-03-26-004220_k8s_apache_3_scaling_2_6.json
+fortio exit code: 0
+[2022-03-26T00:43:20]==============================[STATS]
+jh CPU load avg:
+0.49 0.47 0.57 1/166 5206
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         6          6m39s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/6     6            4           92m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%     
+ip-192-168-0-39.ec2.internal     1906m        98%    505Mi           15%         
+ip-192-168-51-237.ec2.internal   1991m        103%   624Mi           18%         
+ip-192-168-59-80.ec2.internal    <unknown>                           <unknown>               <unknown>               <unknown>               
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:43:23]==============================[SCALING RUN 2: CHUNK 7]==============================
+00:43:23 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1101774 avg 0.0038118355 +/- 0.005181 min 0.000562757 max 0.249900856 sum 4199.7813
+# target 50% 0.00553219
+# target 75% 0.00801691
+# target 90% 0.00950774
+# target 99% 0.0209697
+# target 99.9% 0.0635159
+Sockets used: 10947 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1101774 (100.0 %)
+All done 1101774 calls (plus 70 warmup) 3.812 ms avg, 18361.7 qps
+Successfully wrote 3931 bytes of Json data to 2022-03-26-004323_k8s_apache_3_scaling_2_7.json
+fortio exit code: 0
+[2022-03-26T00:44:23]==============================[STATS]
+jh CPU load avg:
+0.98 0.61 0.61 1/166 5278
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   89%/70%   1         6         6          7m43s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/6     6            4           93m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1995m        103%   506Mi           15%       
+ip-192-168-51-237.ec2.internal   1955m        101%   625Mi           18%       
+ip-192-168-59-80.ec2.internal    42m          2%     429Mi           12%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:44:26]==============================[SCALING RUN 2: CHUNK 8]==============================
+00:44:26 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1139714 avg 0.0036849096 +/- 0.004751 min 0.000554544 max 0.286817118 sum 4199.7431
+# target 50% 0.00552554
+# target 75% 0.00801104
+# target 90% 0.00950234
+# target 99% 0.0197544
+# target 99.9% 0.0583727
+Sockets used: 11323 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1139714 (100.0 %)
+All done 1139714 calls (plus 70 warmup) 3.685 ms avg, 18994.0 qps
+Successfully wrote 4051 bytes of Json data to 2022-03-26-004426_k8s_apache_3_scaling_2_8.json
+fortio exit code: 0
+[2022-03-26T00:45:26]==============================[STATS]
+jh CPU load avg:
+0.96 0.67 0.64 1/165 5349
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   92%/70%   1         6         6          8m46s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           94m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1971m        102%   506Mi           15%       
+ip-192-168-51-237.ec2.internal   1927m        99%    625Mi           18%       
+ip-192-168-59-80.ec2.internal    37m          1%     487Mi           14%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:45:30]==============================[SCALING RUN 2: CHUNK 9]==============================
+00:45:30 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1534060 avg 0.0027376085 +/- 0.003685 min 0.000556933 max 1.01309706 sum 4199.65568
+# target 50% 0.00539159
+# target 75% 0.00780892
+# target 90% 0.00925932
+# target 99% 0.0171195
+# target 99.9% 0.0412969
+Sockets used: 15225 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1534060 (100.0 %)
+All done 1534060 calls (plus 70 warmup) 2.738 ms avg, 25565.5 qps
+Successfully wrote 4161 bytes of Json data to 2022-03-26-004530_k8s_apache_3_scaling_2_9.json
+fortio exit code: 0
+[2022-03-26T00:46:30]==============================[STATS]
+jh CPU load avg:
+1.04 0.74 0.66 1/165 5421
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          9m49s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           95m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1855m        96%    507Mi           15%       
+ip-192-168-51-237.ec2.internal   1879m        97%    626Mi           18%       
+ip-192-168-59-80.ec2.internal    1906m        98%    519Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:46:33]==============================[SCALING RUN 2: CHUNK 10]==============================
+00:46:33 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1543106 avg 0.0027215287 +/- 0.003207 min 0.000557116 max 0.232835705 sum 4199.60726
+# target 50% 0.00538048
+# target 75% 0.00779216
+# target 90% 0.00923917
+# target 99% 0.016495
+# target 99.9% 0.0375661
+Sockets used: 15316 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1543106 (100.0 %)
+All done 1543106 calls (plus 70 warmup) 2.722 ms avg, 25717.0 qps
+Successfully wrote 3694 bytes of Json data to 2022-03-26-004633_k8s_apache_3_scaling_2_10.json
+fortio exit code: 0
+[2022-03-26T00:47:33]==============================[STATS]
+jh CPU load avg:
+1.21 0.86 0.71 1/165 5495
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         6          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           96m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1958m        101%   507Mi           15%       
+ip-192-168-51-237.ec2.internal   1903m        98%    637Mi           19%       
+ip-192-168-59-80.ec2.internal    1860m        96%    522Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:47:36]==============================[SCALING RUN 2: CHUNK 11]==============================
+00:47:36 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1560445 avg 0.0026912986 +/- 0.003384 min 0.000563342 max 1.016613533 sum 4199.62344
+# target 50% 0.00538464
+# target 75% 0.00779529
+# target 90% 0.00924169
+# target 99% 0.0164838
+# target 99.9% 0.0386606
+Sockets used: 15481 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1560445 (100.0 %)
+All done 1560445 calls (plus 70 warmup) 2.691 ms avg, 26006.0 qps
+Successfully wrote 3930 bytes of Json data to 2022-03-26-004736_k8s_apache_3_scaling_2_11.json
+fortio exit code: 0
+[2022-03-26T00:48:36]==============================[STATS]
+jh CPU load avg:
+0.78 0.81 0.70 1/165 5567
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           97m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1829m        94%    508Mi           15%       
+ip-192-168-51-237.ec2.internal   1861m        96%    625Mi           18%       
+ip-192-168-59-80.ec2.internal    1919m        99%    523Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:48:39]==============================[SCALING RUN 2: CHUNK 12]==============================
+00:48:39 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1545412 avg 0.0027174635 +/- 0.003424 min 0.000536162 max 0.322338358 sum 4199.60077
+# target 50% 0.00537365
+# target 75% 0.0077924
+# target 90% 0.00924365
+# target 99% 0.016644
+# target 99.9% 0.0405572
+Sockets used: 15334 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1545412 (100.0 %)
+All done 1545412 calls (plus 70 warmup) 2.717 ms avg, 25755.6 qps
+Successfully wrote 4163 bytes of Json data to 2022-03-26-004839_k8s_apache_3_scaling_2_12.json
+fortio exit code: 0
+[2022-03-26T00:49:39]==============================[STATS]
+jh CPU load avg:
+0.52 0.74 0.69 1/165 5640
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          12m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           98m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1904m        98%    507Mi           15%       
+ip-192-168-51-237.ec2.internal   1888m        97%    631Mi           18%       
+ip-192-168-59-80.ec2.internal    1889m        97%    523Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:49:42]==============================[SCALING RUN 2: CHUNK 13]==============================
+00:49:42 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1524974 avg 0.0027538961 +/- 0.003614 min 0.000559094 max 1.026945421 sum 4199.61995
+# target 50% 0.00539166
+# target 75% 0.00780795
+# target 90% 0.00925772
+# target 99% 0.0169069
+# target 99.9% 0.0395261
+Sockets used: 15137 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1524974 (100.0 %)
+All done 1524974 calls (plus 70 warmup) 2.754 ms avg, 25414.2 qps
+Successfully wrote 4297 bytes of Json data to 2022-03-26-004943_k8s_apache_3_scaling_2_13.json
+fortio exit code: 0
+[2022-03-26T00:50:43]==============================[STATS]
+jh CPU load avg:
+0.75 0.77 0.70 1/165 5717
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           99m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1925m        99%    508Mi           15%       
+ip-192-168-51-237.ec2.internal   1830m        94%    626Mi           18%       
+ip-192-168-59-80.ec2.internal    1866m        96%    524Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:50:46]==============================[SCALING RUN 2: CHUNK 14]==============================
+00:50:46 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1542796 avg 0.0027221145 +/- 0.003276 min 0.000555245 max 0.221838715 sum 4199.66743
+# target 50% 0.00538965
+# target 75% 0.00780686
+# target 90% 0.00925718
+# target 99% 0.0170428
+# target 99.9% 0.0378491
+Sockets used: 15306 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1542796 (100.0 %)
+All done 1542796 calls (plus 70 warmup) 2.722 ms avg, 25710.8 qps
+Successfully wrote 3811 bytes of Json data to 2022-03-26-005046_k8s_apache_3_scaling_2_14.json
+fortio exit code: 0
+[2022-03-26T00:51:46]==============================[STATS]
+jh CPU load avg:
+0.91 0.80 0.72 1/165 5788
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           100m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-0-39.ec2.internal     1959m        101%   509Mi           15%       
+ip-192-168-51-237.ec2.internal   1900m        98%    626Mi           18%       
+ip-192-168-59-80.ec2.internal    1872m        96%    524Mi           15%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:51:49]==============================[SCALING RUN 3: INIT]==============================
+horizontalpodautoscaler.autoscaling "apache-deployment" deleted
+scaling to 1
+deployment.apps/apache-deployment scaled
+2022-03-26 00:51:50 [ℹ]  scaling nodegroup "standard-workers" in cluster C888
+2022-03-26 00:51:51 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-26 00:52:09 [ℹ]  waiting for scaling of nodegroup "standard-workers" to complete
+2022-03-26 00:52:09 [ℹ]  nodegroup successfully scaled
+[2022-03-26T00:52:09]==============================[SCALING RUN 3: ENABLE SCALING - SLEEP]==============================
+horizontalpodautoscaler.autoscaling/apache-deployment autoscaled
+[2022-03-26T00:55:09]==============================[SCALING RUN 3: FORTIO]==============================
+[2022-03-26T00:55:09]==============================[STATS]
+jh CPU load avg:
+0.06 0.42 0.58 1/165 5961
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   0%/70%    1         6         1          21s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   1/1     1            1           104m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-59-80.ec2.internal   81m          4%     954Mi           28%       
+MONITORING	enabled
+[2022-03-26T00:55:13]==============================[SCALING RUN 3: CHUNK 1]==============================
+00:55:13 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 493999 avg 0.0085020602 +/- 0.008752 min 0.000619878 max 0.356888216 sum 4200.00924
+# target 50% 0.00641533
+# target 75% 0.00931306
+# target 90% 0.0176446
+# target 99% 0.0421006
+# target 99.9% 0.0824376
+Sockets used: 5022 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 493999 (100.0 %)
+All done 493999 calls (plus 70 warmup) 8.502 ms avg, 8232.4 qps
+Successfully wrote 4305 bytes of Json data to 2022-03-26-005513_k8s_apache_3_scaling_3_1.json
+fortio exit code: 0
+[2022-03-26T00:56:13]==============================[STATS]
+jh CPU load avg:
+0.25 0.42 0.57 1/165 6032
+NAME                REFERENCE                      TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   142%/70%   1         6         3          84s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/3     3            2           105m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-59-80.ec2.internal   1628m        84%    947Mi           28%       
+MONITORING	enabled
+[2022-03-26T00:56:16]==============================[SCALING RUN 3: CHUNK 2]==============================
+00:56:16 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 606440 avg 0.0069257777 +/- 0.009194 min 0.000610489 max 0.302071124 sum 4200.06862
+# target 50% 0.00642257
+# target 75% 0.00932862
+# target 90% 0.0163413
+# target 99% 0.0428413
+# target 99.9% 0.105461
+Sockets used: 6042 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 606440 (100.0 %)
+All done 606440 calls (plus 70 warmup) 6.926 ms avg, 10105.9 qps
+Successfully wrote 4163 bytes of Json data to 2022-03-26-005616_k8s_apache_3_scaling_3_2.json
+fortio exit code: 0
+[2022-03-26T00:57:16]==============================[STATS]
+jh CPU load avg:
+0.54 0.47 0.58 1/165 6103
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   97%/70%   1         6         3          2m27s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   2/3     3            2           106m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal   816m         42%    457Mi           13%       
+ip-192-168-59-80.ec2.internal   1993m        103%   648Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:57:19]==============================[SCALING RUN 3: CHUNK 3]==============================
+00:57:19 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 829850 avg 0.0050610201 +/- 0.008072 min 0.000636127 max 0.300863575 sum 4199.88751
+# target 50% 0.00596162
+# target 75% 0.00862438
+# target 90% 0.0123014
+# target 99% 0.0355839
+# target 99.9% 0.0982892
+Sockets used: 8277 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 829850 (100.0 %)
+All done 829850 calls (plus 70 warmup) 5.061 ms avg, 13829.6 qps
+Successfully wrote 4164 bytes of Json data to 2022-03-26-005719_k8s_apache_3_scaling_3_3.json
+fortio exit code: 0
+[2022-03-26T00:58:19]==============================[STATS]
+jh CPU load avg:
+0.60 0.51 0.58 1/165 6175
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   90%/70%   1         6         3          3m31s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/4     4            4           107m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal   1214m        62%    497Mi           14%       
+ip-192-168-59-80.ec2.internal   1996m        103%   647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:58:22]==============================[SCALING RUN 3: CHUNK 4]==============================
+00:58:22 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1049821 avg 0.0040005139 +/- 0.005849 min 0.000606638 max 0.611704801 sum 4199.82355
+# target 50% 0.00563239
+# target 75% 0.00814527
+# target 90% 0.009653
+# target 99% 0.0250702
+# target 99.9% 0.0696176
+Sockets used: 10427 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1049821 (100.0 %)
+All done 1049821 calls (plus 70 warmup) 4.001 ms avg, 17495.5 qps
+Successfully wrote 4778 bytes of Json data to 2022-03-26-005822_k8s_apache_3_scaling_3_4.json
+fortio exit code: 0
+[2022-03-26T00:59:22]==============================[STATS]
+jh CPU load avg:
+0.54 0.50 0.57 1/165 6247
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   88%/70%   1         6         5          4m34s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/5     5            4           108m
+NAME                            CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal   1908m        98%    503Mi           15%       
+ip-192-168-59-80.ec2.internal   1936m        100%   647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T00:59:25]==============================[SCALING RUN 3: CHUNK 5]==============================
+00:59:25 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1067989 avg 0.0039324316 +/- 0.005511 min 0.000608006 max 0.339354447 sum 4199.79368
+# target 50% 0.00559825
+# target 75% 0.00809338
+# target 90% 0.00959046
+# target 99% 0.0239746
+# target 99.9% 0.0688672
+Sockets used: 10614 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1067989 (100.0 %)
+All done 1067989 calls (plus 70 warmup) 3.932 ms avg, 17798.5 qps
+Successfully wrote 4162 bytes of Json data to 2022-03-26-005926_k8s_apache_3_scaling_3_5.json
+fortio exit code: 0
+[2022-03-26T01:00:26]==============================[STATS]
+jh CPU load avg:
+0.45 0.50 0.56 1/167 6325
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   91%/70%   1         6         5          5m37s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   4/5     5            4           109m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1948m        100%   503Mi           15%       
+ip-192-168-44-184.ec2.internal   593m         30%    460Mi           13%       
+ip-192-168-59-80.ec2.internal    1937m        100%   649Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:00:29]==============================[SCALING RUN 3: CHUNK 6]==============================
+01:00:29 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1408389 avg 0.0029818907 +/- 0.004451 min 0.000586351 max 1.033890873 sum 4199.66203
+# target 50% 0.005446
+# target 75% 0.00787583
+# target 90% 0.00933372
+# target 99% 0.0187868
+# target 99.9% 0.0564485
+Sockets used: 13982 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1408389 (100.0 %)
+All done 1408389 calls (plus 70 warmup) 2.982 ms avg, 23471.7 qps
+Successfully wrote 4165 bytes of Json data to 2022-03-26-010029_k8s_apache_3_scaling_3_6.json
+fortio exit code: 0
+[2022-03-26T01:01:29]==============================[STATS]
+jh CPU load avg:
+0.95 0.62 0.60 1/168 6413
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          6m40s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           110m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1831m        94%    505Mi           15%       
+ip-192-168-44-184.ec2.internal   1768m        91%    499Mi           14%       
+ip-192-168-59-80.ec2.internal    1848m        95%    658Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:01:32]==============================[SCALING RUN 3: CHUNK 7]==============================
+01:01:32 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1524240 avg 0.0027552239 +/- 0.003205 min 0.000597956 max 0.303495287 sum 4199.62251
+# target 50% 0.00541116
+# target 75% 0.00781777
+# target 90% 0.00926174
+# target 99% 0.0167289
+# target 99.9% 0.0345094
+Sockets used: 15125 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1524240 (100.0 %)
+All done 1524240 calls (plus 70 warmup) 2.755 ms avg, 25402.4 qps
+Successfully wrote 4163 bytes of Json data to 2022-03-26-010132_k8s_apache_3_scaling_3_7.json
+fortio exit code: 0
+[2022-03-26T01:02:32]==============================[STATS]
+jh CPU load avg:
+0.84 0.63 0.61 1/168 6485
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          7m44s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           111m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1911m        99%    506Mi           15%       
+ip-192-168-44-184.ec2.internal   1759m        91%    504Mi           15%       
+ip-192-168-59-80.ec2.internal    1886m        97%    647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:02:35]==============================[SCALING RUN 3: CHUNK 8]==============================
+01:02:35 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1523935 avg 0.0027557983 +/- 0.003288 min 0.000602561 max 1.01227559 sum 4199.65741
+# target 50% 0.00541214
+# target 75% 0.00781694
+# target 90% 0.00925981
+# target 99% 0.0166633
+# target 99.9% 0.0338425
+Sockets used: 15127 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1523935 (100.0 %)
+All done 1523935 calls (plus 70 warmup) 2.756 ms avg, 25397.1 qps
+Successfully wrote 3925 bytes of Json data to 2022-03-26-010235_k8s_apache_3_scaling_3_8.json
+fortio exit code: 0
+[2022-03-26T01:03:35]==============================[STATS]
+jh CPU load avg:
+0.78 0.67 0.62 1/168 6606
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   86%/70%   1         6         6          8m47s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           112m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1917m        99%    507Mi           15%       
+ip-192-168-44-184.ec2.internal   1793m        92%    505Mi           15%       
+ip-192-168-59-80.ec2.internal    1876m        97%    646Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:03:38]==============================[SCALING RUN 3: CHUNK 9]==============================
+01:03:38 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1539936 avg 0.002727145 +/- 0.003461 min 0.000592295 max 1.013238821 sum 4199.6288
+# target 50% 0.00540018
+# target 75% 0.00780413
+# target 90% 0.0092465
+# target 99% 0.0164856
+# target 99.9% 0.0377359
+Sockets used: 15283 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1539936 (100.0 %)
+All done 1539936 calls (plus 70 warmup) 2.727 ms avg, 25663.8 qps
+Successfully wrote 4164 bytes of Json data to 2022-03-26-010339_k8s_apache_3_scaling_3_9.json
+fortio exit code: 0
+[2022-03-26T01:04:39]==============================[STATS]
+jh CPU load avg:
+0.67 0.66 0.62 1/168 6683
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          9m50s
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           113m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1957m        101%   506Mi           15%       
+ip-192-168-44-184.ec2.internal   1899m        98%    506Mi           15%       
+ip-192-168-59-80.ec2.internal    1850m        95%    647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:04:42]==============================[SCALING RUN 3: CHUNK 10]==============================
+01:04:42 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1491548 avg 0.0028156607 +/- 0.003721 min 0.000599531 max 0.288569743 sum 4199.69309
+# target 50% 0.00542638
+# target 75% 0.00783981
+# target 90% 0.00928787
+# target 99% 0.0176199
+# target 99.9% 0.0417095
+Sockets used: 14807 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1491548 (100.0 %)
+All done 1491548 calls (plus 70 warmup) 2.816 ms avg, 24857.0 qps
+Successfully wrote 4043 bytes of Json data to 2022-03-26-010442_k8s_apache_3_scaling_3_10.json
+fortio exit code: 0
+[2022-03-26T01:05:42]==============================[STATS]
+jh CPU load avg:
+1.07 0.77 0.67 1/166 6755
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          10m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           114m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1980m        102%   506Mi           15%       
+ip-192-168-44-184.ec2.internal   1889m        97%    506Mi           15%       
+ip-192-168-59-80.ec2.internal    1817m        94%    647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:05:45]==============================[SCALING RUN 3: CHUNK 11]==============================
+01:05:45 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1510035 avg 0.0027811454 +/- 0.003621 min 0.000580129 max 1.018130872 sum 4199.62685
+# target 50% 0.00541512
+# target 75% 0.00783262
+# target 90% 0.00928312
+# target 99% 0.0174651
+# target 99.9% 0.0396916
+Sockets used: 14980 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1510035 (100.0 %)
+All done 1510035 calls (plus 70 warmup) 2.781 ms avg, 25165.5 qps
+Successfully wrote 4164 bytes of Json data to 2022-03-26-010545_k8s_apache_3_scaling_3_11.json
+fortio exit code: 0
+[2022-03-26T01:06:45]==============================[STATS]
+jh CPU load avg:
+0.98 0.81 0.69 1/165 6827
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   87%/70%   1         6         6          11m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           115m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1979m        102%   507Mi           15%       
+ip-192-168-44-184.ec2.internal   1871m        96%    507Mi           15%       
+ip-192-168-59-80.ec2.internal    1819m        94%    647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:06:48]==============================[SCALING RUN 3: CHUNK 12]==============================
+01:06:48 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1501277 avg 0.0027974038 +/- 0.0035 min 0.000575487 max 0.221525594 sum 4199.67793
+# target 50% 0.00540055
+# target 75% 0.00781309
+# target 90% 0.00926061
+# target 99% 0.0170186
+# target 99.9% 0.0385736
+Sockets used: 14903 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1501277 (100.0 %)
+All done 1501277 calls (plus 70 warmup) 2.797 ms avg, 25018.7 qps
+Successfully wrote 3817 bytes of Json data to 2022-03-26-010648_k8s_apache_3_scaling_3_12.json
+fortio exit code: 0
+[2022-03-26T01:07:48]==============================[STATS]
+jh CPU load avg:
+0.96 0.81 0.69 1/165 6899
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   85%/70%   1         6         6          13m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           116m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1974m        102%   508Mi           15%       
+ip-192-168-44-184.ec2.internal   1869m        96%    507Mi           15%       
+ip-192-168-59-80.ec2.internal    1841m        95%    648Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:07:52]==============================[SCALING RUN 3: CHUNK 13]==============================
+01:07:52 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1439069 avg 0.0029183005 +/- 0.004493 min 0.000571338 max 0.46064636 sum 4199.63582
+# target 50% 0.00545386
+# target 75% 0.00789512
+# target 90% 0.00935988
+# target 99% 0.0187201
+# target 99.9% 0.0557343
+Sockets used: 14282 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1439069 (100.0 %)
+All done 1439069 calls (plus 70 warmup) 2.918 ms avg, 23983.4 qps
+Successfully wrote 4162 bytes of Json data to 2022-03-26-010752_k8s_apache_3_scaling_3_13.json
+fortio exit code: 0
+[2022-03-26T01:08:52]==============================[STATS]
+jh CPU load avg:
+0.95 0.81 0.70 1/165 6974
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   81%/70%   1         6         6          14m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           117m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1879m        97%    517Mi           15%       
+ip-192-168-44-184.ec2.internal   1793m        92%    509Mi           15%       
+ip-192-168-59-80.ec2.internal    1938m        100%   647Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:08:55]==============================[SCALING RUN 3: CHUNK 14]==============================
+01:08:55 I logger.go:127> Log level is now 4 Error (was 2 Info)
+Fortio 1.19.0 running at -1 queries per second, 2->2 procs, for 1m0s: http://a958bf7a1a3454922b68da7f7d4fe94b-2120658095.us-east-1.elb.amazonaws.com:80/
+Aggregated Function Time : count 1460442 avg 0.0028757191 +/- 0.00428 min 0.00059364 max 0.339431492 sum 4199.82091
+# target 50% 0.00544662
+# target 75% 0.00787312
+# target 90% 0.00932901
+# target 99% 0.0185474
+# target 99.9% 0.0481858
+Sockets used: 14497 (for perfect keepalive, would be 70)
+Jitter: false
+Code 200 : 1460442 (100.0 %)
+All done 1460442 calls (plus 70 warmup) 2.876 ms avg, 24264.2 qps
+Successfully wrote 4162 bytes of Json data to 2022-03-26-010855_k8s_apache_3_scaling_3_14.json
+fortio exit code: 0
+[2022-03-26T01:09:55]==============================[STATS]
+jh CPU load avg:
+1.06 0.86 0.73 1/165 7046
+NAME                REFERENCE                      TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-deployment   Deployment/apache-deployment   89%/70%   1         6         6          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+apache-deployment   6/6     6            6           118m
+NAME                             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+ip-192-168-1-122.ec2.internal    1956m        101%   527Mi           15%       
+ip-192-168-44-184.ec2.internal   1838m        95%    508Mi           15%       
+ip-192-168-59-80.ec2.internal    1940m        100%   657Mi           19%       
+MONITORING	enabled
+MONITORING	enabled
+MONITORING	enabled
+[2022-03-26T01:13:59]==============================[GET DATA]==============================
+2022-03-25T23:10:25..2022-03-26T01:13:59
+eks-standard-workers-febfe1ab-08b9-df69-9567-d9b788b9817e
+a958bf7a1a3454922b68da7f7d4fe94b
+44K alb_data.json
+28K asg_data.json
+[2022-03-26T01:14:00]==============================[UPLOAD 25_22-59_k8s_apache_3_54ef "}]}']==============================
+Warning: Permanently added '34.125.40.213' (ECDSA) to the list of known hosts.
