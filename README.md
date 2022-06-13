@@ -17,4 +17,5 @@ Please proceed to the [result explorer view](https://taro-ball.github.io/thesis-
 &NewLine;
 &NewLine;
 &NewLine;
-<back to [repository](https://github.com/taro-ball/thesis-results)
+
+[<back to repository](https://github.com/taro-ball/thesis-results)
